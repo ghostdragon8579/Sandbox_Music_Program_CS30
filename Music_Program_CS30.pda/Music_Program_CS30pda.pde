@@ -111,10 +111,7 @@ void setup() {
   minim = new Minim(this);
   //
   //Background
-  xPopupBackground = appWidth*0;
-  yPopupBackground = appHeight*0;
-  widthPopupBackground = appWidth-1;
-  heightPopupBackground = appHeight-1;
+  xPopupBackground = appWidth*0; yPopupBackground = appHeight*0; widthPopupBackground = appWidth-1; heightPopupBackground = appHeight-1;
   //
   //Music Panel
   xMusicPanel = appWidth*2/27; yMusicPanel = appHeight*1/10; widthMusicPanel = appWidth*23/27; heightMusicPanel = appHeight*4/5;
