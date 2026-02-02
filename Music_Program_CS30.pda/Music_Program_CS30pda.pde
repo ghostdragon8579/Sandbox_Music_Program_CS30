@@ -111,7 +111,10 @@ void setup() {
   minim = new Minim(this);
   //
   //Background
-  xPopupBackground = appWidth*0; yPopupBackground = appHeight*0; widthPopupBackground = appWidth-1; heightPopupBackground = appHeight-1;
+  xPopupBackground = appWidth*0;
+  yPopupBackground = appHeight*0;
+  widthPopupBackground = appWidth-1;
+  heightPopupBackground = appHeight-1;
   //
   //Music Panel
   xMusicPanel = appWidth*2/27; yMusicPanel = appHeight*1/10; widthMusicPanel = appWidth*23/27; heightMusicPanel = appHeight*4/5;
@@ -124,10 +127,12 @@ void setup() {
   xBackgroundAttribution = xIconAttribution; yBackgroundAttribution = yIconAttribution+heightMusicPanel*1/10; TextDIVWidth[5] = TextDIVWidth[4]; TextDIVHeight[5] = TextDIVHeight[4];
   xSongAttribution1 = xSongAttribution2 = xSongAttribution3 = xSongAttribution4 = xSongAttribution5 = xSongAttribution6 = xIconAttribution;
   xSongAttribution1Line2 = xSongAttribution2Line2 = xSongAttribution3Line2 = xSongAttribution4Line2 = xSongAttribution5Line2 = xSongAttribution6Line2 = xSongAttribution1;
-  ySongAttribution1 = yBackgroundAttribution+heightMusicPanel*1/9; ySongAttribution2 = ySongAttribution1+heightMusicPanel*1/9; ySongAttribution3 = ySongAttribution2+heightMusicPanel*1/9; 
-  ySongAttribution4 = ySongAttribution3+heightMusicPanel*1/9; ySongAttribution5 = ySongAttribution4+heightMusicPanel*1/9; ySongAttribution6 = ySongAttribution5+heightMusicPanel*1/9;
-  ySongAttribution1Line2 = ySongAttribution1+heightMusicPanel*1/27; ySongAttribution2Line2 = ySongAttribution2+heightMusicPanel*1/27; ySongAttribution3Line2 = ySongAttribution3+heightMusicPanel*1/27;
-  ySongAttribution4Line2 = ySongAttribution4+heightMusicPanel*1/27; ySongAttribution5Line2 = ySongAttribution5+heightMusicPanel*1/27; ySongAttribution6Line2 = ySongAttribution6+heightMusicPanel*1/27;
+  ySongAttribution1 = yBackgroundAttribution+heightMusicPanel*1/9; ySongAttribution2 = ySongAttribution1+heightMusicPanel*1/9;
+  ySongAttribution3 = ySongAttribution2+heightMusicPanel*1/9; ySongAttribution4 = ySongAttribution3+heightMusicPanel*1/9;
+  ySongAttribution5 = ySongAttribution4+heightMusicPanel*1/9; ySongAttribution6 = ySongAttribution5+heightMusicPanel*1/9;
+  ySongAttribution1Line2 = ySongAttribution1+heightMusicPanel*1/27; ySongAttribution2Line2 = ySongAttribution2+heightMusicPanel*1/27;
+  ySongAttribution3Line2 = ySongAttribution3+heightMusicPanel*1/27; ySongAttribution4Line2 = ySongAttribution4+heightMusicPanel*1/27;
+  ySongAttribution5Line2 = ySongAttribution5+heightMusicPanel*1/27; ySongAttribution6Line2 = ySongAttribution6+heightMusicPanel*1/27;
   TextDIVWidth[6] = TextDIVWidth[7] = TextDIVWidth[8] = TextDIVWidth[9] = TextDIVWidth[10] = TextDIVWidth[11] = TextDIVWidth[4];
   TextDIVWidth[12] = TextDIVWidth[13] = TextDIVWidth[14] = TextDIVWidth[15] = TextDIVWidth[16] = TextDIVWidth[17] = TextDIVWidth[6];
   TextDIVHeight[6] = TextDIVHeight[7] = TextDIVHeight[8] = TextDIVHeight[9] = TextDIVHeight[10] = TextDIVHeight[11] = TextDIVHeight[4];
@@ -135,15 +140,15 @@ void setup() {
   //
   //Buttons
   xQuit = appWidth*15/16; yQuit = appHeight*0; widthQuit = appWidth*1/16; heightQuit = appHeight*1/24;
-  xPrevious = appWidth*5/26; yPrevious = appHeight*24/40; widthPrevious = appWidth*1/26; heightPrevious = widthPrevious; 
+  xPrevious = appWidth*5/26; yPrevious = appHeight*24/40; widthPrevious = appWidth*1/26; heightPrevious = widthPrevious;
   xRewind = appWidth*9/26; yRewind = yPrevious; widthRewind = widthPrevious; heightRewind = heightPrevious;
   xPlayPause = appWidth*25/52; yPlayPause = yPrevious; widthPlayPause = widthPrevious; heightPlayPause = heightPrevious;
-  xFastForward = appWidth*16/26; yFastForward = yPlayPause; widthFastForward = widthPrevious; heightFastForward = heightPrevious;
-  xNext = appWidth*20/26; yNext = yPrevious; widthNext = widthPrevious; heightNext = heightPrevious;
+  xFastForward = appWidth*16/26; yFastForward = yPlayPause; widthFastForward = widthPrevious; heightFastForward = heightPrevious; 
+  xNext = appWidth*20/26; yNext = yPrevious; widthNext = widthPrevious; heightNext = heightPrevious; 
   xShuffle = xPlayPause; yShuffle = yPlayPause+heightPrevious*1.5; widthShuffle = widthPrevious; heightShuffle = heightPrevious;
   xReplay = xRewind; yReplay = yShuffle; widthReplay = widthPrevious; heightReplay = heightPrevious;
-  xLoop = xFastForward; yLoop = yShuffle; widthLoop = widthPrevious; heightLoop = heightPrevious;
-  xAttributions = appWidth*0; yAttributions = appHeight*11/12; TextDIVWidth[3] = appWidth*1/12; TextDIVHeight[3] = appHeight*1/12;
+  xLoop = xFastForward; yLoop = yShuffle; widthLoop = widthPrevious;
+  heightLoop = heightPrevious; xAttributions = appWidth*0; yAttributions = appHeight*11/12; TextDIVWidth[3] = appWidth*1/12; TextDIVHeight[3] = appHeight*1/12;
   //
   //Music Button Icons
   xPlayPauseTriangle1 = xPlayPause+widthPlayPause*1/5; yPlayPauseTriangle1 = yPlayPause+heightPlayPause*1/5;
@@ -157,7 +162,7 @@ void setup() {
   xFastForwardTriangleTwo3 = xFastForward+widthFastForward*5/6; yFastForwardTriangleTwo3 = yPlayPauseTriangle3;
   xRewindTriangleOne1 = xRewind+widthRewind*1/6; yRewindTriangleOne1 = yPlayPauseTriangle3;
   xRewindTriangleOne2 = xRewind+widthRewind*1/2; yRewindTriangleOne2 = yPlayPauseTriangle1;
-  xRewindTriangleOne3 = xRewindTriangleOne2; yRewindTriangleOne3 = yPlayPauseTriangle2;
+  xRewindTriangleOne3 = xRewindTriangleOne2; yRewindTriangleOne3 = yPlayPauseTriangle2; 
   xRewindTriangleTwo1 = xRewindTriangleOne2; yRewindTriangleTwo1 = yPlayPauseTriangle3;
   xRewindTriangleTwo2 = xRewind+widthRewind*5/6; yRewindTriangleTwo2 = yPlayPauseTriangle1;
   xRewindTriangleTwo3 = xRewindTriangleTwo2; yRewindTriangleTwo3 = yPlayPauseTriangle2;
@@ -174,18 +179,16 @@ void setup() {
   xPreviousTriangleTwo2 = xPreviousTriangleTwo1; yPreviousTriangleTwo2 = yPlayPauseTriangle2;
   xPreviousTriangleTwo3 = xPreviousTriangleTwo1; yPreviousTriangleTwo3 = yPlayPauseTriangle3;
   //
-  /*
   //File Pathway
-  String up = "..";
-  String open = "/";
+  String Up = "..";
+  String Open = "/";
   String ImageFolder = "Music_Program_Images";
-  String Imagepathway = up + open;
+  String Imagepathway = Up + Open;
   String QuitImage = "exit.png";
-  Quit = loadImage(Imagepathway+ImageFolder+open+QuitImage);
-  //*/
+  Quit = loadImage(Imagepathway+ImageFolder+Open+QuitImage);
   //
   //Music Pathway
-  String RelativeMusicPathway = "/Music_Program_CS20_Audio_Files/";
+  String RelativeMusicPathway = "/Music_Program_CS30_Audio_Files/";
   String AbsoluteMusicPathway = sketchPath(RelativeMusicPathway);
   AudioFiles = new File(AbsoluteMusicPathway);
   int AudioFileCount = AudioFiles.list().length;
@@ -239,7 +242,7 @@ void setup() {
   }
   //
   //Images
-  String ImagePathwayRelative = "/Music_Program_CS30_Image_FIles/";
+  String ImagePathwayRelative = "/Music_Program_CS30_Image_Files/";
   String ImagePathwayAbsolute = sketchPath(ImagePathwayRelative);
   File ImageFolder = new File(ImagePathwayAbsolute);
   File[] ImageFiles = ImageFolder.listFiles();
@@ -263,28 +266,28 @@ void setup() {
   }
   //
   /*
-  //Song Debugging 
-  println("File Name", SongPlayListMetaData[SongPlaying].fileName());
-  println("Song Length (in milliseconds)", SongPlayListMetaData[SongPlaying].length());
-  println("Song Length (in seconds)", SongPlayListMetaData[SongPlaying].length()/1000);
-  println("Song Length (in minutes and seconds)", SongPlayListMetaData[SongPlaying].length()/1000/60, "minutes", SongPlayListMetaData[SongPlaying].length()/1000 - ((SongPlayListMetaData[SongPlaying].length()/1000/60)*60), "seconds");
-  println("Song Title", SongPlayListMetaData[SongPlaying].title());
-  println("Author", SongPlayListMetaData[SongPlaying].author());
-  println("Composer", SongPlayListMetaData[SongPlaying].composer());
-  println("Orchestra", SongPlayListMetaData[SongPlaying].orchestra());
-  println("Album", SongPlayListMetaData[SongPlaying].album());
-  println("Disc", SongPlayListMetaData[SongPlaying].disc());
-  println("Publisher", SongPlayListMetaData[SongPlaying].publisher());
-  println("Date Released", SongPlayListMetaData[SongPlaying].date());
-  println("Copyright", SongPlayListMetaData[SongPlaying].copyright());
-  println("Comments", SongPlayListMetaData[SongPlaying].comment());
-  println("Lyrics", SongPlayListMetaData[SongPlaying].lyrics());
-  println("Track", SongPlayListMetaData[SongPlaying].track());
-  println("Genre", SongPlayListMetaData[SongPlaying].genre());
-  println("Encoded", SongPlayListMetaData[SongPlaying].encoded());
-  //
-  println(SongPlaying);
-  */
+  //Song Debugging
+   println("File Name", SongPlayListMetaData[SongPlaying].fileName());
+   println("Song Length (in milliseconds)", SongPlayListMetaData[SongPlaying].length());
+   println("Song Length (in seconds)", SongPlayListMetaData[SongPlaying].length()/1000);
+   println("Song Length (in minutes and seconds)", SongPlayListMetaData[SongPlaying].length()/1000/60, "minutes", SongPlayListMetaData[SongPlaying].length()/1000 - ((SongPlayListMetaData[SongPlaying].length()/1000/60)*60), "seconds");
+   println("Song Title", SongPlayListMetaData[SongPlaying].title());
+   println("Author", SongPlayListMetaData[SongPlaying].author());
+   println("Composer", SongPlayListMetaData[SongPlaying].composer());
+   println("Orchestra", SongPlayListMetaData[SongPlaying].orchestra());
+   println("Album", SongPlayListMetaData[SongPlaying].album());
+   println("Disc", SongPlayListMetaData[SongPlaying].disc());
+   println("Publisher", SongPlayListMetaData[SongPlaying].publisher());
+   println("Date Released", SongPlayListMetaData[SongPlaying].date());
+   println("Copyright", SongPlayListMetaData[SongPlaying].copyright());
+   println("Comments", SongPlayListMetaData[SongPlaying].comment());
+   println("Lyrics", SongPlayListMetaData[SongPlaying].lyrics());
+   println("Track", SongPlayListMetaData[SongPlaying].track());
+   println("Genre", SongPlayListMetaData[SongPlaying].genre());
+   println("Encoded", SongPlayListMetaData[SongPlaying].encoded());
+   //
+   println(SongPlaying);
+   */
   //
   xIcons8Location = xIconAttribution + textWidth("Loop, Shuffle, and Rewind icons by ");
   xVecteezyLocation = xBackgroundAttribution + textWidth("Background Image by Tinnapon Wuttichaikitcharoen on ");
@@ -292,7 +295,7 @@ void setup() {
   SongSkipTime = 5000;
   SongLengthAlteration = 5000;
   AlteredCurrentSongLength = max(SongPlayList[SongPlaying].length() - SongLengthAlteration, 1);
-  SongTimeCounter = 0; 
+  SongTimeCounter = 0;
   //
   TitleFont = createFont("Times New Roman Bold", 55);
   AttributionFont = createFont("Calibri Bold", 55);
@@ -303,8 +306,8 @@ void setup() {
   //
   /*
   String[] fontList = PFont.list();
-  printArray(fontList);
-  */
+   printArray(fontList);
+   */
   //
 } //End setup
 void draw() {
@@ -326,59 +329,59 @@ void draw() {
   fill(Black);
   rect(xMusicPanel, yMusicPanel, widthMusicPanel, heightMusicPanel);
   if (!Attributions) {
-  rect(xMusicTitle, yMusicTitle, TextDIVWidth[0], TextDIVHeight[0]);
-  rect(xMusicAuthor, yMusicAuthor, TextDIVWidth[1], TextDIVHeight[1]);
-  rect(xMusicPublishDate, yMusicPublishDate, TextDIVWidth[2], TextDIVHeight[2]);
-  rect(xMusicImage, yMusicImage, widthMusicImage, heightMusicImage);
-  noStroke();
-  //
-  //Buttons
-  strokeWeight(3);
-  stroke(Purple);
-  fill(Black);
-  rect(xPlayPause, yPlayPause, widthPlayPause, heightPlayPause);
-  rect(xFastForward, yFastForward, widthFastForward, heightFastForward);
-  rect(xRewind, yRewind, widthRewind, heightRewind);
-  rect(xNext, yNext, widthNext, heightNext);
-  rect(xPrevious, yPrevious, widthPrevious, heightPrevious);
-  rect(xQuit, yQuit, widthQuit, heightQuit);
-  rect(xShuffle, yShuffle, widthShuffle, heightShuffle);
-  rect(xLoop, yLoop, widthLoop, heightLoop);
-  rect(xReplay, yReplay, widthReplay, heightReplay);
-  //
-  //Music Button Icons
-  stroke(TextPurple);
-  fill(TextPurple);
-  triangle(xPlayPauseTriangle1, yPlayPauseTriangle1, xPlayPauseTriangle2, yPlayPauseTriangle2, xPlayPauseTriangle3, yPlayPauseTriangle3);
-  triangle(xFastForwardTriangleOne1, yFastForwardTriangleOne1, xFastForwardTriangleOne2, yFastForwardTriangleOne2, xFastForwardTriangleOne3, yFastForwardTriangleOne3);
-  triangle(xFastForwardTriangleTwo1, yFastForwardTriangleTwo1, xFastForwardTriangleTwo2, yFastForwardTriangleTwo2, xFastForwardTriangleTwo3, yFastForwardTriangleTwo3);
-  triangle(xRewindTriangleOne1, yRewindTriangleOne1, xRewindTriangleOne2, yRewindTriangleOne2, xRewindTriangleOne3, yRewindTriangleOne3);
-  triangle(xRewindTriangleTwo1, yRewindTriangleTwo1, xRewindTriangleTwo2, yRewindTriangleTwo2, xRewindTriangleTwo3, yRewindTriangleTwo3);
-  triangle(xNextTriangleOne1, yNextTriangleOne1, xNextTriangleOne2, yNextTriangleOne2, xNextTriangleOne3, yNextTriangleOne3);
-  triangle(xNextTriangleTwo1, yNextTriangleTwo1, xNextTriangleTwo2, yNextTriangleTwo2, xNextTriangleTwo3, yNextTriangleTwo3);
-  triangle(xPreviousTriangleOne1, yPreviousTriangleOne1, xPreviousTriangleOne2, yPreviousTriangleOne2, xPreviousTriangleOne3, yPreviousTriangleOne3);
-  triangle(xPreviousTriangleTwo1, yPreviousTriangleTwo1, xPreviousTriangleTwo2, yPreviousTriangleTwo2, xPreviousTriangleTwo3, yPreviousTriangleTwo3);
-  strokeWeight(1);
-  stroke(Black);
-  fill(resetDefaultInk);
-  //
-  //Images
-  image(MusicProgramImage[0], xQuit, yQuit, widthQuit, heightQuit);
-  image(MusicProgramImage[1], xLoop, yLoop, widthLoop, heightLoop);
-  image(MusicProgramImage[2], xReplay, yReplay, widthReplay, heightReplay);
-  image(MusicProgramImage[3], xShuffle, yShuffle, widthShuffle, heightShuffle);
-  AspectRatioMusicImage(MusicImage[SongPlaying], xMusicImage, yMusicImage, widthMusicImage, heightMusicImage);
-  //
-  //Text
-  fill(TextPurple);
-  textAlign(CENTER, CENTER);
-  textFont(TitleFont, FontSizes[0]);
-  text(Text[0], xMusicTitle, yMusicTitle, TextDIVWidth[0], TextDIVHeight[0]);
-  textFont(TitleFont, FontSizes[1]);
-  text(Text[1], xMusicAuthor, yMusicAuthor, TextDIVWidth[1], TextDIVHeight[1]);
-  textFont(TitleFont, FontSizes[1]);
-  text(Text[2], xMusicPublishDate, yMusicPublishDate, TextDIVWidth[2], TextDIVHeight[2]);
-  fill(resetDefaultInk);
+    rect(xMusicTitle, yMusicTitle, TextDIVWidth[0], TextDIVHeight[0]);
+    rect(xMusicAuthor, yMusicAuthor, TextDIVWidth[1], TextDIVHeight[1]);
+    rect(xMusicPublishDate, yMusicPublishDate, TextDIVWidth[2], TextDIVHeight[2]);
+    rect(xMusicImage, yMusicImage, widthMusicImage, heightMusicImage);
+    noStroke();
+    //
+    //Buttons
+    strokeWeight(3);
+    stroke(Purple);
+    fill(Black);
+    rect(xPlayPause, yPlayPause, widthPlayPause, heightPlayPause);
+    rect(xFastForward, yFastForward, widthFastForward, heightFastForward);
+    rect(xRewind, yRewind, widthRewind, heightRewind);
+    rect(xNext, yNext, widthNext, heightNext);
+    rect(xPrevious, yPrevious, widthPrevious, heightPrevious);
+    rect(xQuit, yQuit, widthQuit, heightQuit);
+    rect(xShuffle, yShuffle, widthShuffle, heightShuffle);
+    rect(xLoop, yLoop, widthLoop, heightLoop);
+    rect(xReplay, yReplay, widthReplay, heightReplay);
+    //
+    //Music Button Icons
+    stroke(TextPurple);
+    fill(TextPurple);
+    triangle(xPlayPauseTriangle1, yPlayPauseTriangle1, xPlayPauseTriangle2, yPlayPauseTriangle2, xPlayPauseTriangle3, yPlayPauseTriangle3);
+    triangle(xFastForwardTriangleOne1, yFastForwardTriangleOne1, xFastForwardTriangleOne2, yFastForwardTriangleOne2, xFastForwardTriangleOne3, yFastForwardTriangleOne3);
+    triangle(xFastForwardTriangleTwo1, yFastForwardTriangleTwo1, xFastForwardTriangleTwo2, yFastForwardTriangleTwo2, xFastForwardTriangleTwo3, yFastForwardTriangleTwo3);
+    triangle(xRewindTriangleOne1, yRewindTriangleOne1, xRewindTriangleOne2, yRewindTriangleOne2, xRewindTriangleOne3, yRewindTriangleOne3);
+    triangle(xRewindTriangleTwo1, yRewindTriangleTwo1, xRewindTriangleTwo2, yRewindTriangleTwo2, xRewindTriangleTwo3, yRewindTriangleTwo3);
+    triangle(xNextTriangleOne1, yNextTriangleOne1, xNextTriangleOne2, yNextTriangleOne2, xNextTriangleOne3, yNextTriangleOne3);
+    triangle(xNextTriangleTwo1, yNextTriangleTwo1, xNextTriangleTwo2, yNextTriangleTwo2, xNextTriangleTwo3, yNextTriangleTwo3);
+    triangle(xPreviousTriangleOne1, yPreviousTriangleOne1, xPreviousTriangleOne2, yPreviousTriangleOne2, xPreviousTriangleOne3, yPreviousTriangleOne3);
+    triangle(xPreviousTriangleTwo1, yPreviousTriangleTwo1, xPreviousTriangleTwo2, yPreviousTriangleTwo2, xPreviousTriangleTwo3, yPreviousTriangleTwo3);
+    strokeWeight(1);
+    stroke(Black);
+    fill(resetDefaultInk);
+    //
+    //Images
+    image(MusicProgramImage[0], xQuit, yQuit, widthQuit, heightQuit);
+    image(MusicProgramImage[1], xLoop, yLoop, widthLoop, heightLoop);
+    image(MusicProgramImage[2], xReplay, yReplay, widthReplay, heightReplay);
+    image(MusicProgramImage[3], xShuffle, yShuffle, widthShuffle, heightShuffle);
+    AspectRatioMusicImage(MusicImage[SongPlaying], xMusicImage, yMusicImage, widthMusicImage, heightMusicImage);
+    //
+    //Text
+    fill(TextPurple);
+    textAlign(CENTER, CENTER);
+    textFont(TitleFont, FontSizes[0]);
+    text(Text[0], xMusicTitle, yMusicTitle, TextDIVWidth[0], TextDIVHeight[0]);
+    textFont(TitleFont, FontSizes[1]);
+    text(Text[1], xMusicAuthor, yMusicAuthor, TextDIVWidth[1], TextDIVHeight[1]);
+    textFont(TitleFont, FontSizes[1]);
+    text(Text[2], xMusicPublishDate, yMusicPublishDate, TextDIVWidth[2], TextDIVHeight[2]);
+    fill(resetDefaultInk);
   }
   //
   //Attributions
@@ -392,25 +395,25 @@ void draw() {
   text(Text[3], xAttributions, yAttributions, TextDIVWidth[3], TextDIVHeight[3]);
   //
   if (Attributions) {
-  ImageMusicAttributions();
+    ImageMusicAttributions();
   }
   //
   //Song Auto Transition
   if (SongPlayList[SongPlaying].position() >= AlteredCurrentSongLength && SongLoop == false) {
     SongPlaying += 1;
     if (SongPlaying > SongNumber - 1) {
-    SongPlaying = 0;
+      SongPlaying = 0;
     }
     SongPlayList[SongPlaying].play();
-    } else if (SongPlayList[SongPlaying].position() >= AlteredCurrentSongLength && SongLoop == true) {
+  } else if (SongPlayList[SongPlaying].position() >= AlteredCurrentSongLength && SongLoop == true) {
     SongPlayList[SongPlaying].rewind();
   }
   //
   if (!Attributions) {
-  //Progress Bar and Progress Timer
-  textFont(TitleFont, size);
-  Music_Program_CS20_ProgressBar();
-  Music_Program_CS20_ProgressTimer();
+    //Progress Bar and Progress Timer
+    textFont(TitleFont, size);
+    Music_Program_CS20_ProgressBar();
+    Music_Program_CS20_ProgressTimer();
   }
   //
   //HoverOverColors
@@ -421,24 +424,24 @@ void draw() {
 void keyPressed() {
   //
   if (!Attributions) {
-  if (key=='p' || key=='P') {
-    KeyPlayPauseFunction ();
-  }
-  if (key=='r' || key=='R') {
-    SongPlayList[SongPlaying].rewind();
-  }
-  if (key=='m' || key=='M') {
-    KeyMuteFunction ();
-  }
-  if (key == CODED && keyCode == RIGHT) {
-    SongPlayList[SongPlaying].skip(+SongSkipTime);
-  }
-  if (key == CODED && keyCode == LEFT) {
-    SongPlayList[SongPlaying].skip(-SongSkipTime);
-  }
-  if (key >= '1' && key <= '9') {
-    KeyBasedLocationFunction ();
-  }
+    if (key=='p' || key=='P') {
+      KeyPlayPauseFunction ();
+    }
+    if (key=='r' || key=='R') {
+      SongPlayList[SongPlaying].rewind();
+    }
+    if (key=='m' || key=='M') {
+      KeyMuteFunction ();
+    }
+    if (key == CODED && keyCode == RIGHT) {
+      SongPlayList[SongPlaying].skip(+SongSkipTime);
+    }
+    if (key == CODED && keyCode == LEFT) {
+      SongPlayList[SongPlaying].skip(-SongSkipTime);
+    }
+    if (key >= '1' && key <= '9') {
+      KeyBasedLocationFunction ();
+    }
   }
   //
 } //End keyPressed
@@ -450,41 +453,41 @@ void keyReleased() {
 void mousePressed() {
   //
   if (!Attributions) {
-  //Progress Bar
-  if (MouseIsOver(xMusicProgressBar, yMusicProgressBar, widthMusicProgressBar, heightMusicProgressBar)) {
-    float ProgressBarPositionClicked = mouseX-xMusicProgressBar*5/6;
-    ProgressBarPositionClicked = constrain(ProgressBarPositionClicked, 0, widthMusicProgressBar);
-    float SongPercentageAtClickPoint = ProgressBarPositionClicked/widthMusicProgressBar;
-    int ClickedSongPosition = int(SongPercentageAtClickPoint*SongPlayList[SongPlaying].length());
-    SongPlayList[SongPlaying].cue(ClickedSongPosition);
-  }
-  //
-  //Buttons
-  if (MouseIsOver(xPlayPause, yPlayPause, widthPlayPause, heightPlayPause)) {
-    PlayPauseFunction();
-  } else if (MouseIsOver(xNext, yNext, widthNext, heightNext)) {
-    NextSongFunction();
-  } else if (MouseIsOver(xPrevious, yPrevious, widthPrevious, heightPrevious)) {
-    PreviousSongFunction();
-  } else if (MouseIsOver(xFastForward, yFastForward, widthFastForward, heightFastForward)) {
-    SongPlayList[SongPlaying].skip(SongSkipTime);
-  } else if (MouseIsOver(xRewind, yRewind, widthRewind, heightRewind)) {
-    SongPlayList[SongPlaying].skip(-SongSkipTime);
-  } else if (MouseIsOver(xReplay, yReplay, widthReplay, heightReplay)) {
-    SongPlayList[SongPlaying].rewind();
-  } else if (MouseIsOver(xShuffle, yShuffle, widthShuffle, heightShuffle)) {
-    ShuffleSongFunction();
-  } else if (MouseIsOver(xLoop, yLoop, widthLoop, heightLoop)) {
-    SongLoop = true;
-  } else if (SongLoop == true) {
-    SongLoop = false;
-  } else if (MouseIsOver(xQuit, yQuit, widthQuit, heightQuit)) {
-    SaveLastSongState();
-    exit();
-  }
+    //Progress Bar
+    if (MouseIsOver(xMusicProgressBar, yMusicProgressBar, widthMusicProgressBar, heightMusicProgressBar)) {
+      float ProgressBarPositionClicked = mouseX-xMusicProgressBar*5/6;
+      ProgressBarPositionClicked = constrain(ProgressBarPositionClicked, 0, widthMusicProgressBar);
+      float SongPercentageAtClickPoint = ProgressBarPositionClicked/widthMusicProgressBar;
+      int ClickedSongPosition = int(SongPercentageAtClickPoint*SongPlayList[SongPlaying].length());
+      SongPlayList[SongPlaying].cue(ClickedSongPosition);
+    }
+    //
+    //Buttons
+    if (MouseIsOver(xPlayPause, yPlayPause, widthPlayPause, heightPlayPause)) {
+      PlayPauseFunction();
+    } else if (MouseIsOver(xNext, yNext, widthNext, heightNext)) {
+      NextSongFunction();
+    } else if (MouseIsOver(xPrevious, yPrevious, widthPrevious, heightPrevious)) {
+      PreviousSongFunction();
+    } else if (MouseIsOver(xFastForward, yFastForward, widthFastForward, heightFastForward)) {
+      SongPlayList[SongPlaying].skip(SongSkipTime);
+    } else if (MouseIsOver(xRewind, yRewind, widthRewind, heightRewind)) {
+      SongPlayList[SongPlaying].skip(-SongSkipTime);
+    } else if (MouseIsOver(xReplay, yReplay, widthReplay, heightReplay)) {
+      SongPlayList[SongPlaying].rewind();
+    } else if (MouseIsOver(xShuffle, yShuffle, widthShuffle, heightShuffle)) {
+      ShuffleSongFunction();
+    } else if (MouseIsOver(xLoop, yLoop, widthLoop, heightLoop)) {
+      SongLoop = true;
+    } else if (SongLoop == true) {
+      SongLoop = false;
+    } else if (MouseIsOver(xQuit, yQuit, widthQuit, heightQuit)) {
+      SaveLastSongState();
+      exit();
+    }
   }
   if (Attributions) {
-  ImageMusicAttributionsMousePressed ();
+    ImageMusicAttributionsMousePressed ();
   }
   if (MouseIsOver(xAttributions, yAttributions, TextDIVWidth[3], TextDIVHeight[3])) {
     ToggleAttributions();
