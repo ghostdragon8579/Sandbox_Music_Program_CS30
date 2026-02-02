@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Yellowtail&display=swap" rel="stylesheet');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="titlestylesheet');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Rubik+Glitch&display=swap" rel="titlestylesheet');
+
+@media only screen and (min-device-width: 300px) and (max-device-width: 840px){
+
+	div {
+		width: 100%;
+		margin-left: auto;
+		margin-right: auto;
+
+	}
+	section {
+		background-color: white;
+		width: 100%;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 10px;
+		margin-bottom: 10px;
+		padding-top: 20px;
+		padding-bottom: 20px;
+	}
+		
+}
+
+@media only screen and (min-device-width: 840px){
+	div {
+		width: 30%;
+		margin-left: auto;
+		margin-right: auto;
+		padding-left: 5px;
+		padding-right: 5px;
+		display: grid;
+		flex-wrap: wrap;
+		flex: 1;
+	}
+	section { 
+	background-color: white;
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	display: grid;
+	flex-direction: row;
+	justify-content: space-evenly;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+}
+
+body {
+	max-width: 100%;
+	font-family: 'Roboto Slab', serif;
+	margin: 0;
+	padding: 0;
+	background-color: white;
+}
+
+h1 {
+	font-size: 3rem;
+	color: white;
+	display: block;
+	text-align: center;
+}
+
+h2,h3,h4 {
+	font-size: 1.8rem;
+	color: black;
+	display: block;
+	text-align: left;
+	padding-left: 25%;
+	margin-top: 10px;
+	margin-bottom: 5px;
+}
+
+p {
+	font-size: 1.4em;
+	color: black;
+	padding: 10px 40px 10px 40px;
+}
+
+ul {
+	display: block;
+	text-align: left;
+	padding-left: 25%;
+}
+
+li {
+	list-style-position: inside;
+}
+
+img {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	height: auto;
+	max-height: 400px;
+	max-width: 100%;
+}
+
+header {
+	background-color: #001bff;
+	margin-top: 0;
+	margin-bottom: 0;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+.bg1 {
+	background-color: #3fad7da8;
+}
+
+.bg2 {
+	background-color: #001bff;
+}
+
+.bg3 {
+	background-color: #d2d2d2;
+}
+
+iframe {
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	max-width: 100%
+}
+
+footer {
+	height: 100px;
+	background-color: #d2d2d2;
+}
+
+#HoloBlue {
+	background-color: rgb(71, 166, 177);
+}
+
+#PineBackground {
+	background-color: #3fad7da8;
+}
+
+#ButtonBackground {
+	background-color: black;
+}
+
+#CipherBackground {
+	background-color: rgb(66, 65, 65);
+}
+
+#incomplete {
+	background-color: red;
+}
