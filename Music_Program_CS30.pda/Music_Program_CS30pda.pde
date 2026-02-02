@@ -174,6 +174,16 @@ void setup() {
   xPreviousTriangleTwo2 = xPreviousTriangleTwo1; yPreviousTriangleTwo2 = yPlayPauseTriangle2;
   xPreviousTriangleTwo3 = xPreviousTriangleTwo1; yPreviousTriangleTwo3 = yPlayPauseTriangle3;
   //
+  /*
+  //File Pathway
+  String up = "..";
+  String open = "/";
+  String ImageFolder = "Music_Program_Images";
+  String Imagepathway = up + open;
+  String QuitImage = "exit.png";
+  Quit = loadImage(Imagepathway+ImageFolder+open+QuitImage);
+  //*/
+  //
   //Music Pathway
   String RelativeMusicPathway = "/Music_Program_CS20_Audio_Files/";
   String AbsoluteMusicPathway = sketchPath(RelativeMusicPathway);
@@ -229,7 +239,7 @@ void setup() {
   }
   //
   //Images
-  String ImagePathwayRelative = "/Music_Program_CS20_Image_FIles/";
+  String ImagePathwayRelative = "/Music_Program_CS30_Image_FIles/";
   String ImagePathwayAbsolute = sketchPath(ImagePathwayRelative);
   File ImageFolder = new File(ImagePathwayAbsolute);
   File[] ImageFiles = ImageFolder.listFiles();
@@ -241,7 +251,7 @@ void setup() {
   }
   //
   //Music Images
-  String MusicImagePathwayRelative = "/Music_Program_CS20_Music_Image_Files/";
+  String MusicImagePathwayRelative = "/Music_Program_CS30_Music_Image_Files/";
   String MusicImagePathwayAbsolute = sketchPath(MusicImagePathwayRelative);
   File MusicImageFolder = new File(MusicImagePathwayAbsolute);
   File[] MusicImageFiles = MusicImageFolder.listFiles();
