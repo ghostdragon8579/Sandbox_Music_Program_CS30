@@ -179,10 +179,10 @@ void setup() {
   //File Pathway
   String Up = "..";
   String Open = "/";
-  String ImageFolder = "Music_Program_Images";
+  String Images = "Music_Program_Images";
   String Imagepathway = Up + Open;
   String QuitImage = "exit.png";
-  Quit = loadImage(Imagepathway+ImageFolder+Open+QuitImage);
+  Quit = loadImage(Imagepathway+Images+Open+QuitImage);
   //
   //Music Pathway
   String RelativeMusicPathway = "/Music_Program_CS30_Audio_Files/";
