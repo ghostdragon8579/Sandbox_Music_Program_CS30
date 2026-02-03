@@ -136,7 +136,7 @@ void setup() {
   TextDIVHeight[12] = TextDIVHeight[13] = TextDIVHeight[14] = TextDIVHeight[15] = TextDIVHeight[16] = TextDIVHeight[17] = TextDIVHeight[6];
   //
   //Buttons
-  xQuit = appWidth*15/16; yQuit = appHeight*0; widthQuit = appWidth*1/16; heightQuit = appHeight*1/24;
+  xQuit = appWidth*23/24; yQuit = appHeight*0; widthQuit = appWidth*1/24; heightQuit = appHeight*1/30;
   xPrevious = appWidth*5/26; yPrevious = appHeight*24/40; widthPrevious = appWidth*1/26; heightPrevious = widthPrevious;
   xRewind = appWidth*9/26; yRewind = yPrevious; widthRewind = widthPrevious; heightRewind = heightPrevious;
   xPlayPause = appWidth*25/52; yPlayPause = yPrevious; widthPlayPause = widthPrevious; heightPlayPause = heightPrevious;
@@ -144,8 +144,8 @@ void setup() {
   xNext = appWidth*20/26; yNext = yPrevious; widthNext = widthPrevious; heightNext = heightPrevious; 
   xShuffle = xPlayPause; yShuffle = yPlayPause+heightPrevious*1.5; widthShuffle = widthPrevious; heightShuffle = heightPrevious;
   xReplay = xRewind; yReplay = yShuffle; widthReplay = widthPrevious; heightReplay = heightPrevious;
-  xLoop = xFastForward; yLoop = yShuffle; widthLoop = widthPrevious;
-  heightLoop = heightPrevious; xAttributions = appWidth*0; yAttributions = appHeight*11/12; TextDIVWidth[3] = appWidth*1/12; TextDIVHeight[3] = appHeight*1/12;
+  xLoop = xFastForward; yLoop = yShuffle; widthLoop = widthPrevious; heightLoop = heightPrevious;
+  xAttributions = appWidth*0; yAttributions = appHeight*23/24; TextDIVWidth[3] = appWidth*1/12; TextDIVHeight[3] = appHeight*1/24;
   //
   //Music Button Icons
   xPlayPauseTriangle1 = xPlayPause+widthPlayPause*1/5; yPlayPauseTriangle1 = yPlayPause+heightPlayPause*1/5;

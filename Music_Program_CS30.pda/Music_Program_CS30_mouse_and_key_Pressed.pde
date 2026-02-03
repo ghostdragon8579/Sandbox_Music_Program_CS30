@@ -69,7 +69,7 @@ void KeyMuteFunction () {
   }  
 }
 void KeyBasedLocationFunction () {
-  KeySongPosition = int(SongPlayList[SongPlaying].length() * (key - '0') * 0.1) - 5000;
+  KeySongPosition = int(SongPlayList[SongPlaying].length()*(key-'0')*0.1)-5000;
   SongPlayList[SongPlaying].cue(max(KeySongPosition, 0));
 }
 void SaveLastSongState() {
