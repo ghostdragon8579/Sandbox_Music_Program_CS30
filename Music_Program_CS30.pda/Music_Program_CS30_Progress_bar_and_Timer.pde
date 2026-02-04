@@ -1,4 +1,4 @@
-void Music_Program_CS20_ProgressBar () {
+void Music_Program_CS30_ProgressBar () {
   if (SongPlayList[SongPlaying].isPlaying()) {
     SongTimeCounter = millis();
   }
@@ -15,7 +15,7 @@ void Music_Program_CS20_ProgressBar () {
   stroke(Black);
   fill(resetDefaultInk);
 }
-void Music_Program_CS20_ProgressTimer () {
+void Music_Program_CS30_ProgressTimer () {
   int CurrentSongTime = SongPlayList[SongPlaying].position();
   int TotalSongTime = AlteredCurrentSongLength;
   int CurrentSongPositionMinutes = CurrentSongTime/60000;

@@ -409,8 +409,8 @@ void draw() {
   if (!Attributions) {
     //Progress Bar and Progress Timer
     textFont(TitleFont, size);
-    Music_Program_CS20_ProgressBar();
-    Music_Program_CS20_ProgressTimer();
+    Music_Program_CS30_ProgressBar();
+    Music_Program_CS30_ProgressTimer();
   }
   //
   //HoverOverColors
@@ -449,10 +449,10 @@ void keyReleased() {
 //
 void mousePressed() {
   //
+  //Progress Bar
   if (!Attributions) {
-    //Progress Bar
     if (MouseIsOver(xMusicProgressBar, yMusicProgressBar, widthMusicProgressBar, heightMusicProgressBar)) {
-      float ProgressBarPositionClicked = mouseX-xMusicProgressBar*5/6;
+      float ProgressBarPositionClicked = mouseX-xMusicProgressBar*12/11;
       ProgressBarPositionClicked = constrain(ProgressBarPositionClicked, 0, widthMusicProgressBar);
       float SongPercentageAtClickPoint = ProgressBarPositionClicked/widthMusicProgressBar;
       int ClickedSongPosition = int(SongPercentageAtClickPoint*SongPlayList[SongPlaying].length());
@@ -484,7 +484,7 @@ void mousePressed() {
     }
   }
   if (Attributions) {
-    ImageMusicAttributionsMousePressed ();
+    ImageMusicAttributionsMousePressed();
   }
   if (MouseIsOver(xAttributions, yAttributions, TextDIVWidth[3], TextDIVHeight[3])) {
     ToggleAttributions();
