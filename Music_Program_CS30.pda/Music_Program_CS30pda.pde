@@ -120,10 +120,10 @@ void setup() {
   ButtonDivRatios[3] = new float[]{25.0/52, 24.0/40, 1.0/26, 1.0/26};
   ButtonDivRatios[4] = new float[]{16.0/26, 24.0/40, 1.0/26, 1.0/26};
   ButtonDivRatios[5] = new float[]{20.0/26, 24.0/40, 1.0/26, 1.0/26};
-  xShuffle = xPlayPause; yShuffle = yPlayPause+heightPrevious*1.5; widthShuffle = widthPrevious; heightShuffle = heightPrevious;
-  xReplay = xRewind; yReplay = yShuffle; widthReplay = widthPrevious; heightReplay = heightPrevious;
-  xLoop = xFastForward; yLoop = yShuffle; widthLoop = widthPrevious; heightLoop = heightPrevious;
-  xAttributions = appWidth*0; yAttributions = appHeight*23/24; TextDIVWidth[3] = appWidth*1/12; TextDIVHeight[3] = appHeight*1/24;
+  ButtonDivRatios[6] = new float[]{25.0/52, 24.0/40+2.5/26, 1.0/26, 1.0/26};
+  ButtonDivRatios[7] = new float[]{9.0/26, 24.0/40+2.5/26, 1.0/26, 1.0/26};
+  ButtonDivRatios[8] = new float[]{16.0/26, 24.0/40+2.5/26, 1.0/26, 1.0/26};
+  ButtonDivRatios[9] = new float[]{0.0, 23.0/24, 1.0/12, 1.0/24};
   CalculateButtonDIVs();
   //
   //Background
@@ -158,10 +158,10 @@ void setup() {
   xPlayPause = ButtonDivs[12]; yPlayPause = ButtonDivs[13]; widthPlayPause = ButtonDivs[14]; heightPlayPause = ButtonDivs[15];
   xFastForward = ButtonDivs[16]; yFastForward = ButtonDivs[17]; widthFastForward = ButtonDivs[18]; heightFastForward = ButtonDivs[19]; 
   xNext = ButtonDivs[20]; yNext = ButtonDivs[21]; widthNext = ButtonDivs[22]; heightNext = ButtonDivs[23]; 
-  xShuffle = xPlayPause; yShuffle = yPlayPause+heightPrevious*1.5; widthShuffle = widthPrevious; heightShuffle = heightPrevious;
-  xReplay = xRewind; yReplay = yShuffle; widthReplay = widthPrevious; heightReplay = heightPrevious;
-  xLoop = xFastForward; yLoop = yShuffle; widthLoop = widthPrevious; heightLoop = heightPrevious;
-  xAttributions = appWidth*0; yAttributions = appHeight*23/24; TextDIVWidth[3] = appWidth*1/12; TextDIVHeight[3] = appHeight*1/24;
+  xShuffle = ButtonDivs[24]; yShuffle = ButtonDivs[25]; widthShuffle = ButtonDivs[26]; heightShuffle = ButtonDivs[27];
+  xReplay = ButtonDivs[28]; yReplay = ButtonDivs[29]; widthReplay = ButtonDivs[30]; heightReplay = ButtonDivs[31];
+  xLoop = ButtonDivs[32]; yLoop = ButtonDivs[33]; widthLoop = ButtonDivs[34]; heightLoop = ButtonDivs[35];
+  xAttributions = ButtonDivs[36]; yAttributions = ButtonDivs[37]; TextDIVWidth[3] = ButtonDivs[38]; TextDIVHeight[3] = ButtonDivs[39];
   //
   //Music Button Icons
   xPlayPauseTriangle1 = xPlayPause+widthPlayPause*1/5; yPlayPauseTriangle1 = yPlayPause+heightPlayPause*1/5;
@@ -513,7 +513,7 @@ void CalculateButtonDIVs() {
     ButtonDivs[baseIndex] = appWidth*ButtonDivRatios[i][0]; //X position
     ButtonDivs[baseIndex+1] = appHeight*ButtonDivRatios[i][1]; //Y position
     ButtonDivs[baseIndex+2] = appWidth*ButtonDivRatios[i][2]; //Width
-    if (i != 0) {
+    if (i != 0 || i == 9) {
       ButtonDivs[baseIndex+3] = ButtonDivs[baseIndex+2]; //Square Buttons
     } else {
       ButtonDivs[baseIndex+3] = appHeight*ButtonDivRatios[i][3]; //Height
