@@ -51,7 +51,7 @@ float xIcons8Location;
 float xVecteezyLocation;
 float ProgressWidth;
 int NumberOfButtonDIVs = 10; //All Music Player Buttons
-float[][] ButtonDivRatios = new float[NumberOfButtonDIVs][4]; // Store ratios (0-1 scale)
+float[][] ButtonDivRatios = new float[NumberOfButtonDIVs][4]; //Store ratios
 float[] ButtonDivs = new float [NumberOfButtonDIVs*4]; //Button Positions and Size
 PImage[] MusicProgramImage = new PImage[7];
 PImage[] MusicImage = new PImage[6];
@@ -113,14 +113,13 @@ void setup() {
   //
   minim = new Minim(this);
   //
+  //{X value in ratio of appwidth, Y value in ratio of appwidth, width value in ratio of appwidth, height value in ratio of appheight}
   ButtonDivRatios[0] = new float[]{23.0/24, 0.0, 1.0/24, 1.0/30};
   ButtonDivRatios[1] = new float[]{5.0/26, 24.0/40, 1.0/26, 1.0/26};
   ButtonDivRatios[2] = new float[]{9.0/26, 24.0/40, 1.0/26, 1.0/26};
   ButtonDivRatios[3] = new float[]{25.0/52, 24.0/40, 1.0/26, 1.0/26};
   ButtonDivRatios[4] = new float[]{16.0/26, 24.0/40, 1.0/26, 1.0/26};
   ButtonDivRatios[5] = new float[]{20.0/26, 24.0/40, 1.0/26, 1.0/26};
-  xFastForward = appWidth*16/26; yFastForward = yPlayPause; widthFastForward = widthPrevious; heightFastForward = heightPrevious; 
-  xNext = appWidth*20/26; yNext = yPrevious; widthNext = widthPrevious; heightNext = heightPrevious; 
   xShuffle = xPlayPause; yShuffle = yPlayPause+heightPrevious*1.5; widthShuffle = widthPrevious; heightShuffle = heightPrevious;
   xReplay = xRewind; yReplay = yShuffle; widthReplay = widthPrevious; heightReplay = heightPrevious;
   xLoop = xFastForward; yLoop = yShuffle; widthLoop = widthPrevious; heightLoop = heightPrevious;
@@ -514,10 +513,12 @@ void CalculateButtonDIVs() {
     ButtonDivs[baseIndex] = appWidth*ButtonDivRatios[i][0]; //X position
     ButtonDivs[baseIndex+1] = appHeight*ButtonDivRatios[i][1]; //Y position
     ButtonDivs[baseIndex+2] = appWidth*ButtonDivRatios[i][2]; //Width
-    ButtonDivs[baseIndex+3] = appHeight*ButtonDivRatios[i][3]; //Height
+    if (i != 0) {
+      ButtonDivs[baseIndex+3] = ButtonDivs[baseIndex+2]; //Square Buttons
+    } else {
+      ButtonDivs[baseIndex+3] = appHeight*ButtonDivRatios[i][3]; //Height
+    }
   }
-  // Optional: Print for debugging
-  // printArray(divs);
 }
 //
 //End MAIN Program
