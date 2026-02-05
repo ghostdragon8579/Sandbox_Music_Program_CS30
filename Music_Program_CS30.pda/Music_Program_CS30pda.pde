@@ -50,6 +50,9 @@ float xLoop, yLoop, widthLoop, heightLoop;
 float xIcons8Location;
 float xVecteezyLocation;
 float ProgressWidth;
+int NumberOfButtonDIVs = 10; //All Music Player Buttons
+float[][] ButtonDivRatios = new float[NumberOfButtonDIVs][4]; // Store ratios (0-1 scale)
+float[] ButtonDivs = new float [NumberOfButtonDIVs*4]; //Button Positions and Size
 PImage[] MusicProgramImage = new PImage[7];
 PImage[] MusicImage = new PImage[6];
 PImage NeonBackground2;
@@ -110,6 +113,20 @@ void setup() {
   //
   minim = new Minim(this);
   //
+  ButtonDivRatios[0] = new float[]{23.0/24, 0.0, 1.0/24, 1.0/30};
+  ButtonDivRatios[1] = new float[]{5.0/26, 24.0/40, 1.0/26, 1.0/26};
+  ButtonDivRatios[2] = new float[]{9.0/26, 24.0/40, 1.0/26, 1.0/26};
+  ButtonDivRatios[3] = new float[]{25.0/52, 24.0/40, 1.0/26, 1.0/26};
+  ButtonDivRatios[4] = new float[]{16.0/26, 24.0/40, 1.0/26, 1.0/26};
+  ButtonDivRatios[5] = new float[]{20.0/26, 24.0/40, 1.0/26, 1.0/26};
+  xFastForward = appWidth*16/26; yFastForward = yPlayPause; widthFastForward = widthPrevious; heightFastForward = heightPrevious; 
+  xNext = appWidth*20/26; yNext = yPrevious; widthNext = widthPrevious; heightNext = heightPrevious; 
+  xShuffle = xPlayPause; yShuffle = yPlayPause+heightPrevious*1.5; widthShuffle = widthPrevious; heightShuffle = heightPrevious;
+  xReplay = xRewind; yReplay = yShuffle; widthReplay = widthPrevious; heightReplay = heightPrevious;
+  xLoop = xFastForward; yLoop = yShuffle; widthLoop = widthPrevious; heightLoop = heightPrevious;
+  xAttributions = appWidth*0; yAttributions = appHeight*23/24; TextDIVWidth[3] = appWidth*1/12; TextDIVHeight[3] = appHeight*1/24;
+  CalculateButtonDIVs();
+  //
   //Background
   xPopupBackground = appWidth*0; yPopupBackground = appHeight*0; widthPopupBackground = appWidth-1; heightPopupBackground = appHeight-1;
   //
@@ -136,12 +153,12 @@ void setup() {
   TextDIVHeight[12] = TextDIVHeight[13] = TextDIVHeight[14] = TextDIVHeight[15] = TextDIVHeight[16] = TextDIVHeight[17] = TextDIVHeight[6];
   //
   //Buttons
-  xQuit = appWidth*23/24; yQuit = appHeight*0; widthQuit = appWidth*1/24; heightQuit = appHeight*1/30;
-  xPrevious = appWidth*5/26; yPrevious = appHeight*24/40; widthPrevious = appWidth*1/26; heightPrevious = widthPrevious;
-  xRewind = appWidth*9/26; yRewind = yPrevious; widthRewind = widthPrevious; heightRewind = heightPrevious;
-  xPlayPause = appWidth*25/52; yPlayPause = yPrevious; widthPlayPause = widthPrevious; heightPlayPause = heightPrevious;
-  xFastForward = appWidth*16/26; yFastForward = yPlayPause; widthFastForward = widthPrevious; heightFastForward = heightPrevious; 
-  xNext = appWidth*20/26; yNext = yPrevious; widthNext = widthPrevious; heightNext = heightPrevious; 
+  xQuit = ButtonDivs[0]; yQuit = ButtonDivs[1]; widthQuit = ButtonDivs[2]; heightQuit = ButtonDivs[3];
+  xPrevious = ButtonDivs[4]; yPrevious = ButtonDivs[5]; widthPrevious = ButtonDivs[6]; heightPrevious = ButtonDivs[7];
+  xRewind = ButtonDivs[8]; yRewind = ButtonDivs[9]; widthRewind = ButtonDivs[10]; heightRewind = ButtonDivs[11];
+  xPlayPause = ButtonDivs[12]; yPlayPause = ButtonDivs[13]; widthPlayPause = ButtonDivs[14]; heightPlayPause = ButtonDivs[15];
+  xFastForward = ButtonDivs[16]; yFastForward = ButtonDivs[17]; widthFastForward = ButtonDivs[18]; heightFastForward = ButtonDivs[19]; 
+  xNext = ButtonDivs[20]; yNext = ButtonDivs[21]; widthNext = ButtonDivs[22]; heightNext = ButtonDivs[23]; 
   xShuffle = xPlayPause; yShuffle = yPlayPause+heightPrevious*1.5; widthShuffle = widthPrevious; heightShuffle = heightPrevious;
   xReplay = xRewind; yReplay = yShuffle; widthReplay = widthPrevious; heightReplay = heightPrevious;
   xLoop = xFastForward; yLoop = yShuffle; widthLoop = widthPrevious; heightLoop = heightPrevious;
@@ -452,7 +469,7 @@ void mousePressed() {
   //Progress Bar
   if (!Attributions) {
     if (MouseIsOver(xMusicProgressBar, yMusicProgressBar, widthMusicProgressBar, heightMusicProgressBar)) {
-      float ProgressBarPositionClicked = mouseX-xMusicProgressBar*12/11;
+      float ProgressBarPositionClicked = mouseX-xMusicProgressBar*15/14;
       ProgressBarPositionClicked = constrain(ProgressBarPositionClicked, 0, widthMusicProgressBar);
       float SongPercentageAtClickPoint = ProgressBarPositionClicked/widthMusicProgressBar;
       int ClickedSongPosition = int(SongPercentageAtClickPoint*SongPlayList[SongPlaying].length());
@@ -491,5 +508,18 @@ void mousePressed() {
   }
   //
 } //End mousePressed
+void CalculateButtonDIVs() {
+  for (int i = 0; i < NumberOfButtonDIVs; i++) {
+    int baseIndex = i * 4;
+    ButtonDivs[baseIndex] = appWidth*ButtonDivRatios[i][0]; //X position
+    ButtonDivs[baseIndex+1] = appHeight*ButtonDivRatios[i][1]; //Y position
+    ButtonDivs[baseIndex+2] = appWidth*ButtonDivRatios[i][2]; //Width
+    ButtonDivs[baseIndex+3] = appHeight*ButtonDivRatios[i][3]; //Height
+  }
+  // Optional: Print for debugging
+  // printArray(divs);
+}
+//
+//End MAIN Program
 //
 //End MAIN Program
