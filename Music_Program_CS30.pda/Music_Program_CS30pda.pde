@@ -178,6 +178,9 @@ void setup() {
   xLoop = ButtonDivs[32]; yLoop = ButtonDivs[33]; widthLoop = ButtonDivs[34]; heightLoop = ButtonDivs[35];
   xAttributions = ButtonDivs[36]; yAttributions = ButtonDivs[37]; TextDIVWidth[3] = ButtonDivs[38]; TextDIVHeight[3] = ButtonDivs[39];
   //
+  xPlayPauseTriangle1 = xPlayPause+widthPlayPause*1/5; yPlayPauseTriangle1 = yPlayPause+heightPlayPause*1/5;
+  xPlayPauseTriangle2 = xPlayPauseTriangle1; yPlayPauseTriangle2 = yPlayPause+heightPlayPause*4/5;
+  xPlayPauseTriangle3 = xPlayPause+widthPlayPause*4/5; yPlayPauseTriangle3 = yPlayPause+heightPlayPause*1/2;
   xFastForwardTriangleOne1 = xFastForward+widthFastForward*1/6; yFastForwardTriangleOne1 = yPlayPauseTriangle1;
   xFastForwardTriangleOne2 = xFastForwardTriangleOne1; yFastForwardTriangleOne2 = yPlayPauseTriangle2;
   xFastForwardTriangleOne3 = xFastForward+widthFastForward*1/2; yFastForwardTriangleOne3 = yPlayPauseTriangle3;
