@@ -60,7 +60,11 @@ void MusicPanelTextSetup2() {
 void Music_Program_CS20_HoverOver () {
   color hoverOverColor=color(255, 255, 255, 64);
   if (!Attributions) {
-  if (MouseIsOver(xPrevious, yPrevious, widthPrevious, heightPrevious)) {
+  if (MouseIsOver(ButtonDivs[0], ButtonDivs[1], ButtonDivs[2], ButtonDivs[3])) {
+    fill(hoverOverColor);
+    rect(ButtonDivs[0], ButtonDivs[1], ButtonDivs[2], ButtonDivs[3]);
+    fill(resetDefaultInk);
+  } else if (MouseIsOver(xPrevious, yPrevious, widthPrevious, heightPrevious)) {
     fill(hoverOverColor);
     rect(xPrevious, yPrevious, widthPrevious, heightPrevious);
     fill(resetDefaultInk);
@@ -79,10 +83,6 @@ void Music_Program_CS20_HoverOver () {
   } else if (MouseIsOver(xNext, yNext, widthNext, heightNext)) {
     fill(hoverOverColor);
     rect(xNext, yNext, widthNext, heightNext);
-    fill(resetDefaultInk);
-  } else if (MouseIsOver(xQuit, yQuit, widthQuit, heightQuit)) {
-    fill(hoverOverColor);
-    rect(xQuit, yQuit, widthQuit, heightQuit);
     fill(resetDefaultInk);
   } else if (MouseIsOver(xShuffle, yShuffle, widthShuffle, heightShuffle)) {
     fill(hoverOverColor);

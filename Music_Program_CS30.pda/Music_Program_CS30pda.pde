@@ -51,8 +51,11 @@ float xIcons8Location;
 float xVecteezyLocation;
 float ProgressWidth;
 int NumberOfButtonDIVs = 10; //All Music Player Buttons
-float[][] ButtonDivRatios = new float[NumberOfButtonDIVs][4]; //Store ratios
+float[][] ButtonDivRatios = new float[NumberOfButtonDIVs][4]; //Store ratios (Rectangles)
 float[] ButtonDivs = new float [NumberOfButtonDIVs*4]; //Button Positions and Size
+int NumberOfButtonIconDIVs = 9; //All Music Player Button Icons
+float[][] ButtonIconDivRatios = new float[NumberOfButtonIconDIVs][6]; //Store ratios (Triangles)
+float[] ButtonIconDivs = new float [NumberOfButtonIconDIVs*6]; //Icon Positions and Size
 PImage[] MusicProgramImage = new PImage[7];
 PImage[] MusicImage = new PImage[6];
 PImage NeonBackground2;
@@ -114,16 +117,16 @@ void setup() {
   minim = new Minim(this);
   //
   //{X value in ratio of appwidth, Y value in ratio of appwidth, width value in ratio of appwidth, height value in ratio of appheight}
-  ButtonDivRatios[0] = new float[]{23.0/24, 0.0, 1.0/24, 1.0/30};
-  ButtonDivRatios[1] = new float[]{5.0/26, 24.0/40, 1.0/26, 1.0/26};
-  ButtonDivRatios[2] = new float[]{9.0/26, 24.0/40, 1.0/26, 1.0/26};
-  ButtonDivRatios[3] = new float[]{25.0/52, 24.0/40, 1.0/26, 1.0/26};
-  ButtonDivRatios[4] = new float[]{16.0/26, 24.0/40, 1.0/26, 1.0/26};
-  ButtonDivRatios[5] = new float[]{20.0/26, 24.0/40, 1.0/26, 1.0/26};
-  ButtonDivRatios[6] = new float[]{25.0/52, 24.0/40+2.5/26, 1.0/26, 1.0/26};
-  ButtonDivRatios[7] = new float[]{9.0/26, 24.0/40+2.5/26, 1.0/26, 1.0/26};
-  ButtonDivRatios[8] = new float[]{16.0/26, 24.0/40+2.5/26, 1.0/26, 1.0/26};
-  ButtonDivRatios[9] = new float[]{0.0, 23.0/24, 1.0/12, 1.0/24};
+  ButtonDivRatios[0] = new float[]{23.0/24, 0.0, 1.0/24, 1.0/30}; //Quit Button
+  ButtonDivRatios[1] = new float[]{5.0/26, 24.0/40, 1.0/26, 1.0/26}; //Previous Song Button
+  ButtonDivRatios[2] = new float[]{9.0/26, 24.0/40, 1.0/26, 1.0/26}; //Rewind Button
+  ButtonDivRatios[3] = new float[]{25.0/52, 24.0/40, 1.0/26, 1.0/26}; //Play/Pause Button
+  ButtonDivRatios[4] = new float[]{16.0/26, 24.0/40, 1.0/26, 1.0/26}; //Fast Forward Button
+  ButtonDivRatios[5] = new float[]{20.0/26, 24.0/40, 1.0/26, 1.0/26}; //Next Song Button
+  ButtonDivRatios[6] = new float[]{25.0/52, 24.0/40+2.5/26, 1.0/26, 1.0/26}; //Shuffle Songs Button
+  ButtonDivRatios[7] = new float[]{9.0/26, 24.0/40+2.5/26, 1.0/26, 1.0/26}; //Replay Song Button
+  ButtonDivRatios[8] = new float[]{16.0/26, 24.0/40+2.5/26, 1.0/26, 1.0/26}; //Loop Button
+  ButtonDivRatios[9] = new float[]{0.0, 23.0/24, 1.0/12, 1.0/24}; //Attribution Button
   CalculateButtonDIVs();
   //
   //Background
@@ -152,7 +155,6 @@ void setup() {
   TextDIVHeight[12] = TextDIVHeight[13] = TextDIVHeight[14] = TextDIVHeight[15] = TextDIVHeight[16] = TextDIVHeight[17] = TextDIVHeight[6];
   //
   //Buttons
-  xQuit = ButtonDivs[0]; yQuit = ButtonDivs[1]; widthQuit = ButtonDivs[2]; heightQuit = ButtonDivs[3];
   xPrevious = ButtonDivs[4]; yPrevious = ButtonDivs[5]; widthPrevious = ButtonDivs[6]; heightPrevious = ButtonDivs[7];
   xRewind = ButtonDivs[8]; yRewind = ButtonDivs[9]; widthRewind = ButtonDivs[10]; heightRewind = ButtonDivs[11];
   xPlayPause = ButtonDivs[12]; yPlayPause = ButtonDivs[13]; widthPlayPause = ButtonDivs[14]; heightPlayPause = ButtonDivs[15];
@@ -280,27 +282,27 @@ void setup() {
   //
   /*
   //Song Debugging
-   println("File Name", SongPlayListMetaData[SongPlaying].fileName());
-   println("Song Length (in milliseconds)", SongPlayListMetaData[SongPlaying].length());
-   println("Song Length (in seconds)", SongPlayListMetaData[SongPlaying].length()/1000);
-   println("Song Length (in minutes and seconds)", SongPlayListMetaData[SongPlaying].length()/1000/60, "minutes", SongPlayListMetaData[SongPlaying].length()/1000 - ((SongPlayListMetaData[SongPlaying].length()/1000/60)*60), "seconds");
-   println("Song Title", SongPlayListMetaData[SongPlaying].title());
-   println("Author", SongPlayListMetaData[SongPlaying].author());
-   println("Composer", SongPlayListMetaData[SongPlaying].composer());
-   println("Orchestra", SongPlayListMetaData[SongPlaying].orchestra());
-   println("Album", SongPlayListMetaData[SongPlaying].album());
-   println("Disc", SongPlayListMetaData[SongPlaying].disc());
-   println("Publisher", SongPlayListMetaData[SongPlaying].publisher());
-   println("Date Released", SongPlayListMetaData[SongPlaying].date());
-   println("Copyright", SongPlayListMetaData[SongPlaying].copyright());
-   println("Comments", SongPlayListMetaData[SongPlaying].comment());
-   println("Lyrics", SongPlayListMetaData[SongPlaying].lyrics());
-   println("Track", SongPlayListMetaData[SongPlaying].track());
-   println("Genre", SongPlayListMetaData[SongPlaying].genre());
-   println("Encoded", SongPlayListMetaData[SongPlaying].encoded());
-   //
-   println(SongPlaying);
-   */
+  println("File Name", SongPlayListMetaData[SongPlaying].fileName());
+  println("Song Length (in milliseconds)", SongPlayListMetaData[SongPlaying].length());
+  println("Song Length (in seconds)", SongPlayListMetaData[SongPlaying].length()/1000);
+  println("Song Length (in minutes and seconds)", SongPlayListMetaData[SongPlaying].length()/1000/60, "minutes", SongPlayListMetaData[SongPlaying].length()/1000 - ((SongPlayListMetaData[SongPlaying].length()/1000/60)*60), "seconds");
+  println("Song Title", SongPlayListMetaData[SongPlaying].title());
+  println("Author", SongPlayListMetaData[SongPlaying].author());
+  println("Composer", SongPlayListMetaData[SongPlaying].composer());
+  println("Orchestra", SongPlayListMetaData[SongPlaying].orchestra());
+  println("Album", SongPlayListMetaData[SongPlaying].album());
+  println("Disc", SongPlayListMetaData[SongPlaying].disc());
+  println("Publisher", SongPlayListMetaData[SongPlaying].publisher());
+  println("Date Released", SongPlayListMetaData[SongPlaying].date());
+  println("Copyright", SongPlayListMetaData[SongPlaying].copyright());
+  println("Comments", SongPlayListMetaData[SongPlaying].comment());
+  println("Lyrics", SongPlayListMetaData[SongPlaying].lyrics());
+  println("Track", SongPlayListMetaData[SongPlaying].track());
+  println("Genre", SongPlayListMetaData[SongPlaying].genre());
+  println("Encoded", SongPlayListMetaData[SongPlaying].encoded());
+  //
+  println(SongPlaying);
+  */
   //
   xIcons8Location = xIconAttribution + textWidth("Loop, Shuffle, and Rewind icons by ");
   xVecteezyLocation = xBackgroundAttribution + textWidth("Background Image by Tinnapon Wuttichaikitcharoen on ");
@@ -330,13 +332,11 @@ void draw() {
   MusicPanelTextSetup1();
   MusicPanelTextSetup2();
   //
-  //Background
+  //  //Music Player Panel
   fill(Black);
   rect(xPopupBackground, yPopupBackground, widthPopupBackground, heightPopupBackground);
   image(MusicProgramImage[4], xPopupBackground, yPopupBackground, widthPopupBackground, heightPopupBackground);
   fill(resetDefaultInk);
-  //
-  //Music Player Panel
   strokeWeight(3);
   stroke(Purple);
   fill(Black);
@@ -352,15 +352,10 @@ void draw() {
     strokeWeight(3);
     stroke(Purple);
     fill(Black);
-    rect(xPlayPause, yPlayPause, widthPlayPause, heightPlayPause);
-    rect(xFastForward, yFastForward, widthFastForward, heightFastForward);
-    rect(xRewind, yRewind, widthRewind, heightRewind);
-    rect(xNext, yNext, widthNext, heightNext);
-    rect(xPrevious, yPrevious, widthPrevious, heightPrevious);
-    rect(xQuit, yQuit, widthQuit, heightQuit);
-    rect(xShuffle, yShuffle, widthShuffle, heightShuffle);
-    rect(xLoop, yLoop, widthLoop, heightLoop);
-    rect(xReplay, yReplay, widthReplay, heightReplay);
+    for (int i = 0; i < NumberOfButtonDIVs; i++) {
+      int baseIndex = i * 4;
+      rect(ButtonDivs[baseIndex], ButtonDivs[baseIndex + 1], ButtonDivs[baseIndex + 2], ButtonDivs[baseIndex + 3]);
+    }
     //
     //Music Button Icons
     stroke(TextPurple);
@@ -379,10 +374,10 @@ void draw() {
     fill(resetDefaultInk);
     //
     //Images
-    image(MusicProgramImage[0], xQuit, yQuit, widthQuit, heightQuit);
-    image(MusicProgramImage[1], xLoop, yLoop, widthLoop, heightLoop);
-    image(MusicProgramImage[2], xReplay, yReplay, widthReplay, heightReplay);
-    image(MusicProgramImage[3], xShuffle, yShuffle, widthShuffle, heightShuffle);
+    image(MusicProgramImage[0], ButtonDivs[0], ButtonDivs[1], ButtonDivs[2], ButtonDivs[3]); //Quit Button Image
+    image(MusicProgramImage[1], xLoop, yLoop, widthLoop, heightLoop); //Loop Button Image
+    image(MusicProgramImage[2], xReplay, yReplay, widthReplay, heightReplay); //Repalay Button Image
+    image(MusicProgramImage[3], xShuffle, yShuffle, widthShuffle, heightShuffle); //Shuffle Button Image
     AspectRatioMusicImage(MusicImage[SongPlaying], xMusicImage, yMusicImage, widthMusicImage, heightMusicImage);
     //
     //Text
@@ -397,6 +392,10 @@ void draw() {
     fill(resetDefaultInk);
   }
   //
+  if (Attributions) {
+    ImageMusicAttributions();
+  }
+  //  
   //Attributions
   strokeWeight(3);
   stroke(Purple);
@@ -406,10 +405,6 @@ void draw() {
   textFont(TitleFont, FontSizes[3]);
   fill(TextPurple);
   text(Text[3], xAttributions, yAttributions, TextDIVWidth[3], TextDIVHeight[3]);
-  //
-  if (Attributions) {
-    ImageMusicAttributions();
-  }
   //
   //Song Auto Transition
   if (SongPlayList[SongPlaying].position() >= AlteredCurrentSongLength && SongLoop == false) {
@@ -476,27 +471,28 @@ void mousePressed() {
     }
     //
     //Buttons
-    if (MouseIsOver(xPlayPause, yPlayPause, widthPlayPause, heightPlayPause)) {
-      PlayPauseFunction();
-    } else if (MouseIsOver(xNext, yNext, widthNext, heightNext)) {
-      NextSongFunction();
-    } else if (MouseIsOver(xPrevious, yPrevious, widthPrevious, heightPrevious)) {
+    if (MouseIsOver(ButtonDivs[0], ButtonDivs[1], ButtonDivs[2], ButtonDivs[3])) {
+      SaveLastSongState();
+      exit();
+    } else if (MouseIsOver(ButtonDivs[4], ButtonDivs[5], ButtonDivs[6], ButtonDivs[7])) {
       PreviousSongFunction();
-    } else if (MouseIsOver(xFastForward, yFastForward, widthFastForward, heightFastForward)) {
-      SongPlayList[SongPlaying].skip(SongSkipTime);
-    } else if (MouseIsOver(xRewind, yRewind, widthRewind, heightRewind)) {
+    } else if (MouseIsOver(ButtonDivs[8], ButtonDivs[9], ButtonDivs[10], ButtonDivs[11])) {
       SongPlayList[SongPlaying].skip(-SongSkipTime);
-    } else if (MouseIsOver(xReplay, yReplay, widthReplay, heightReplay)) {
-      SongPlayList[SongPlaying].rewind();
-    } else if (MouseIsOver(xShuffle, yShuffle, widthShuffle, heightShuffle)) {
+    } else if (MouseIsOver(ButtonDivs[12], ButtonDivs[13], ButtonDivs[14], ButtonDivs[15])) {
+      PlayPauseFunction();
+    } else if (MouseIsOver(ButtonDivs[16], ButtonDivs[17], ButtonDivs[18], ButtonDivs[19])) {
+      SongPlayList[SongPlaying].skip(SongSkipTime);
+    } else if (MouseIsOver(ButtonDivs[20], ButtonDivs[21], ButtonDivs[22], ButtonDivs[23])) {
+      NextSongFunction();
+    } else if (MouseIsOver(ButtonDivs[24], ButtonDivs[25], ButtonDivs[26], ButtonDivs[27])) {
       ShuffleSongFunction();
-    } else if (MouseIsOver(xLoop, yLoop, widthLoop, heightLoop)) {
+    } else if (MouseIsOver(ButtonDivs[28], ButtonDivs[29], ButtonDivs[30], ButtonDivs[31])) {
+      SongPlayList[SongPlaying].rewind();
+    } else if (MouseIsOver(ButtonDivs[32], ButtonDivs[33], ButtonDivs[34], ButtonDivs[35])) {
       SongLoop = true;
     } else if (SongLoop == true) {
       SongLoop = false;
-    } else if (MouseIsOver(xQuit, yQuit, widthQuit, heightQuit)) {
-      SaveLastSongState();
-      exit();
+
     }
   }
   if (Attributions) {
