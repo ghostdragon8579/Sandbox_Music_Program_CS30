@@ -38,6 +38,15 @@ float xNext, yNext, widthNext, heightNext;
 float xShuffle, yShuffle, widthShuffle, heightShuffle;
 float xReplay, yReplay, widthReplay, heightReplay;
 float xLoop, yLoop, widthLoop, heightLoop;
+float xPlayPauseTriangle1, yPlayPauseTriangle1, xPlayPauseTriangle2, yPlayPauseTriangle2, xPlayPauseTriangle3, yPlayPauseTriangle3;
+float xFastForwardTriangleOne1, yFastForwardTriangleOne1, xFastForwardTriangleOne2, yFastForwardTriangleOne2, xFastForwardTriangleOne3, yFastForwardTriangleOne3;
+float xFastForwardTriangleTwo1, yFastForwardTriangleTwo1, xFastForwardTriangleTwo2, yFastForwardTriangleTwo2, xFastForwardTriangleTwo3, yFastForwardTriangleTwo3;
+float xRewindTriangleOne1, yRewindTriangleOne1, xRewindTriangleOne2, yRewindTriangleOne2, xRewindTriangleOne3, yRewindTriangleOne3;
+float xRewindTriangleTwo1, yRewindTriangleTwo1, xRewindTriangleTwo2, yRewindTriangleTwo2, xRewindTriangleTwo3, yRewindTriangleTwo3;
+float xNextTriangleOne1, yNextTriangleOne1, xNextTriangleOne2, yNextTriangleOne2, xNextTriangleOne3, yNextTriangleOne3;
+float xNextTriangleTwo1, yNextTriangleTwo1, xNextTriangleTwo2, yNextTriangleTwo2, xNextTriangleTwo3, yNextTriangleTwo3;
+float xPreviousTriangleOne1, yPreviousTriangleOne1, xPreviousTriangleOne2, yPreviousTriangleOne2, xPreviousTriangleOne3, yPreviousTriangleOne3;
+float xPreviousTriangleTwo1, yPreviousTriangleTwo1, xPreviousTriangleTwo2, yPreviousTriangleTwo2, xPreviousTriangleTwo3, yPreviousTriangleTwo3;
 float xIcons8Location;
 float xVecteezyLocation;
 float ProgressWidth;
@@ -120,17 +129,18 @@ void setup() {
   ButtonDivRatios[9] = new float[]{0.0, 23.0/24, 1.0/12, 1.0/24}; //Attribution Button
   CalculateButtonDIVs();
   //
-  //{The first, third and fifth ratios are X values in ratio of appwidth. The second, fourth and sixth ratios are y values in ratio of appheight}
-  ButtonIconDivRatios[0] = new float[]{35.0/156, 79.0/130, 35.0/156, 82.0/130, 21.0/104, 161.0/260}; //Previous Button Triangle One
-  ButtonIconDivRatios[1] = new float[]{31.0/156, 79.0/130, 31.0/156, 82.0/130, 31.0/156, 161.0/260}; //Previous Button Triangle Two
-  ButtonIconDivRatios[2] = new float[]{55.0/156, 161.0/260, 19.0/52, 79.0/130, 19.0/52, 82.0/130}; //Rewind Button Triangle One
-  ButtonIconDivRatios[3] = new float[]{19.0/52, 161.0/260, 59.0/156, 79.0/130, 59.0/156, 82.0/130}; //Rewind Button Triangle Two
+   //{The first, third and fifth ratios are X values in ratio of appwidth. The second, fourth and sixth ratios are y values in ratio of appheight}
+  /*
+  ButtonIconDivRatios[0] = new float[]{}; //Previous Button Triangle One
+  ButtonIconDivRatios[1] = new float[]{}; //Previous Button Triangle Two
+  ButtonIconDivRatios[2] = new float[]{}; //Rewind Button Triangle One
+  ButtonIconDivRatios[3] = new float[]{}; //Rewind Button Triangle Two
   ButtonIconDivRatios[4] = new float[]{25.0/52+1.0/130, 24.0/40+1.0/130, 25.0/52+1.0/130, 24.0/40+5/104, 25.0/52+5/104, 24.0/40+1.0/52}; //Play/Pause Button Triangle
-  ButtonIconDivRatios[5] = new float[]{97.0/156, 79.0/130, 97.0/156, 82.0/130, 19.0/52, 161.0/260}; //Fast Forward Button Triangle One
-  ButtonIconDivRatios[6] = new float[]{19.0/52, 79.0/130, 19.0/52, 82.0/130, 101.0/156, 161.0/260}; //Fast Forward Button Triangle Two
-  ButtonIconDivRatios[7] = new float[]{121.0/156, 79.0/130, 121.0/156, 82.0/130, 83.0/104, 161.0/260}; //Next Button Triangle One
-  ButtonIconDivRatios[8] = new float[]{125.0/156, 79.0/130, 125.0/156, 82.0/130, 125.0/156, 161.0/260}; //Next Button Triangle Two
-  CalculateButtonIconDIVs();
+  ButtonIconDivRatios[5] = new float[]{}; //Fast Forward Button Triangle One
+  ButtonIconDivRatios[6] = new float[]{}; //Fast Forward Button Triangle Two
+  ButtonIconDivRatios[7] = new float[]{}; //Next Button Triangle One
+  ButtonIconDivRatios[8] = new float[]{}; //Next Button Triangle Two
+  */
   //
   //Background
   xPopupBackground = appWidth*0; yPopupBackground = appHeight*0; widthPopupBackground = appWidth-1; heightPopupBackground = appHeight-1;
@@ -167,7 +177,31 @@ void setup() {
   xReplay = ButtonDivs[28]; yReplay = ButtonDivs[29]; widthReplay = ButtonDivs[30]; heightReplay = ButtonDivs[31];
   xLoop = ButtonDivs[32]; yLoop = ButtonDivs[33]; widthLoop = ButtonDivs[34]; heightLoop = ButtonDivs[35];
   xAttributions = ButtonDivs[36]; yAttributions = ButtonDivs[37]; TextDIVWidth[3] = ButtonDivs[38]; TextDIVHeight[3] = ButtonDivs[39];
-
+  //
+  xFastForwardTriangleOne1 = xFastForward+widthFastForward*1/6; yFastForwardTriangleOne1 = yPlayPauseTriangle1;
+  xFastForwardTriangleOne2 = xFastForwardTriangleOne1; yFastForwardTriangleOne2 = yPlayPauseTriangle2;
+  xFastForwardTriangleOne3 = xFastForward+widthFastForward*1/2; yFastForwardTriangleOne3 = yPlayPauseTriangle3;
+  xFastForwardTriangleTwo1 = xFastForwardTriangleOne3; yFastForwardTriangleTwo1 = yPlayPauseTriangle1;
+  xFastForwardTriangleTwo2 = xFastForwardTriangleOne3; yFastForwardTriangleTwo2 = yPlayPauseTriangle2;
+  xFastForwardTriangleTwo3 = xFastForward+widthFastForward*5/6; yFastForwardTriangleTwo3 = yPlayPauseTriangle3;
+  xRewindTriangleOne1 = xRewind+widthRewind*1/6; yRewindTriangleOne1 = yPlayPauseTriangle3;
+  xRewindTriangleOne2 = xRewind+widthRewind*1/2; yRewindTriangleOne2 = yPlayPauseTriangle1;
+  xRewindTriangleOne3 = xRewindTriangleOne2; yRewindTriangleOne3 = yPlayPauseTriangle2; 
+  xRewindTriangleTwo1 = xRewindTriangleOne2; yRewindTriangleTwo1 = yPlayPauseTriangle3;
+  xRewindTriangleTwo2 = xRewind+widthRewind*5/6; yRewindTriangleTwo2 = yPlayPauseTriangle1;
+  xRewindTriangleTwo3 = xRewindTriangleTwo2; yRewindTriangleTwo3 = yPlayPauseTriangle2;
+  xNextTriangleOne1 = xNext+widthNext*1/6; yNextTriangleOne1 = yPlayPauseTriangle1;
+  xNextTriangleOne2 = xNextTriangleOne1; yNextTriangleOne2 = yPlayPauseTriangle2;
+  xNextTriangleOne3 = xNext+widthNext*3/4; yNextTriangleOne3 = yPlayPauseTriangle3;
+  xNextTriangleTwo1 = xNext+widthNext*5/6; yNextTriangleTwo1 = yPlayPauseTriangle1;
+  xNextTriangleTwo2 = xNextTriangleTwo1; yNextTriangleTwo2 = yPlayPauseTriangle2;
+  xNextTriangleTwo3 = xNextTriangleTwo1; yNextTriangleTwo3 = yPlayPauseTriangle3;
+  xPreviousTriangleOne1 = xPrevious+widthPrevious*5/6; yPreviousTriangleOne1 = yPlayPauseTriangle1;
+  xPreviousTriangleOne2 = xPreviousTriangleOne1; yPreviousTriangleOne2 = yPlayPauseTriangle2;
+  xPreviousTriangleOne3 = xPrevious+widthPrevious*1/4; yPreviousTriangleOne3 = yPlayPauseTriangle3;
+  xPreviousTriangleTwo1 = xPrevious+widthPrevious*1/6; yPreviousTriangleTwo1 = yPlayPauseTriangle1;
+  xPreviousTriangleTwo2 = xPreviousTriangleTwo1; yPreviousTriangleTwo2 = yPlayPauseTriangle2;
+  xPreviousTriangleTwo3 = xPreviousTriangleTwo1; yPreviousTriangleTwo3 = yPlayPauseTriangle3;
   //
   //File Pathway
   String Up = "..";
@@ -334,15 +368,15 @@ void draw() {
     //Music Button Icons
     stroke(TextPurple);
     fill(TextPurple);
-    triangle(ButtonIconDivs[24], ButtonIconDivs[25], ButtonIconDivs[26], ButtonIconDivs[27], ButtonIconDivs[28], ButtonIconDivs[29]); //Play/Pause
-    triangle(ButtonIconDivs[30], ButtonIconDivs[31], ButtonIconDivs[32], ButtonIconDivs[33], ButtonIconDivs[34], ButtonIconDivs[35]); //Fast Forward One
-    triangle(ButtonIconDivs[36], ButtonIconDivs[37], ButtonIconDivs[38], ButtonIconDivs[39], ButtonIconDivs[40], ButtonIconDivs[41]); //Fast Forward Two
-    triangle(ButtonIconDivs[12], ButtonIconDivs[13], ButtonIconDivs[14], ButtonIconDivs[15], ButtonIconDivs[16], ButtonIconDivs[17]); //Rewind One
-    triangle(ButtonIconDivs[18], ButtonIconDivs[19], ButtonIconDivs[20], ButtonIconDivs[21], ButtonIconDivs[22], ButtonIconDivs[23]); //Rewind Two
-    triangle(ButtonIconDivs[42], ButtonIconDivs[43], ButtonIconDivs[44], ButtonIconDivs[45], ButtonIconDivs[46], ButtonIconDivs[47]); //Next One
-    triangle(ButtonIconDivs[48], ButtonIconDivs[49], ButtonIconDivs[50], ButtonIconDivs[51], ButtonIconDivs[52], ButtonIconDivs[53]); //Next Two
-    triangle(ButtonIconDivs[0], ButtonIconDivs[1], ButtonIconDivs[2], ButtonIconDivs[3], ButtonIconDivs[4], ButtonIconDivs[5]); //Previous One
-    triangle(ButtonIconDivs[6], ButtonIconDivs[7], ButtonIconDivs[8], ButtonIconDivs[9], ButtonIconDivs[10], ButtonIconDivs[11]); //Previous Two
+    triangle(xPlayPauseTriangle1, yPlayPauseTriangle1, xPlayPauseTriangle2, yPlayPauseTriangle2, xPlayPauseTriangle3, yPlayPauseTriangle3);
+    triangle(xFastForwardTriangleOne1, yFastForwardTriangleOne1, xFastForwardTriangleOne2, yFastForwardTriangleOne2, xFastForwardTriangleOne3, yFastForwardTriangleOne3);
+    triangle(xFastForwardTriangleTwo1, yFastForwardTriangleTwo1, xFastForwardTriangleTwo2, yFastForwardTriangleTwo2, xFastForwardTriangleTwo3, yFastForwardTriangleTwo3);
+    triangle(xRewindTriangleOne1, yRewindTriangleOne1, xRewindTriangleOne2, yRewindTriangleOne2, xRewindTriangleOne3, yRewindTriangleOne3);
+    triangle(xRewindTriangleTwo1, yRewindTriangleTwo1, xRewindTriangleTwo2, yRewindTriangleTwo2, xRewindTriangleTwo3, yRewindTriangleTwo3);
+    triangle(xNextTriangleOne1, yNextTriangleOne1, xNextTriangleOne2, yNextTriangleOne2, xNextTriangleOne3, yNextTriangleOne3);
+    triangle(xNextTriangleTwo1, yNextTriangleTwo1, xNextTriangleTwo2, yNextTriangleTwo2, xNextTriangleTwo3, yNextTriangleTwo3);
+    triangle(xPreviousTriangleOne1, yPreviousTriangleOne1, xPreviousTriangleOne2, yPreviousTriangleOne2, xPreviousTriangleOne3, yPreviousTriangleOne3);
+    triangle(xPreviousTriangleTwo1, yPreviousTriangleTwo1, xPreviousTriangleTwo2, yPreviousTriangleTwo2, xPreviousTriangleTwo3, yPreviousTriangleTwo3);
     strokeWeight(1);
     stroke(Black);
     fill(resetDefaultInk);
@@ -488,17 +522,6 @@ void CalculateButtonDIVs() {
     } else {
       ButtonDivs[baseIndex+3] = appHeight*ButtonDivRatios[i][3]; //Height
     }
-  }
-}
-void CalculateButtonIconDIVs() {
-  for (int i = 0; i < NumberOfButtonIconDIVs; i++) {
-    int baseIndex = i*6;
-    ButtonIconDivs[baseIndex] = appWidth*ButtonIconDivRatios[i][0]; //X position
-    ButtonIconDivs[baseIndex+1] = appHeight*ButtonIconDivRatios[i][1]; //Y position
-    ButtonIconDivs[baseIndex+2] = appWidth*ButtonIconDivRatios[i][2]; //2nd X position
-    ButtonIconDivs[baseIndex+3] = appHeight*ButtonIconDivRatios[i][3]; //2nd y position
-    ButtonIconDivs[baseIndex+4] = appWidth*ButtonIconDivRatios[i][4]; //3rd X position
-    ButtonIconDivs[baseIndex+5] = appHeight*ButtonIconDivRatios[i][5]; //3rd y position
   }
 }
 //
