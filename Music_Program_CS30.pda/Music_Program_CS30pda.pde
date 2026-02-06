@@ -29,9 +29,12 @@ float xAttributionBackground, yAttributionBackground, widthAttributionBackground
 float xMusicPanel, yMusicPanel, widthMusicPanel, heightMusicPanel;
 float xMusicImage, yMusicImage, widthMusicImage, heightMusicImage;
 float xMusicProgressBar, yMusicProgressBar, widthMusicProgressBar, heightMusicProgressBar;
-float xPlayPause, yPlayPause, widthPlayPause, heightPlayPause;
-
 float xQuit, yQuit, widthQuit, heightQuit;
+float xPrevious, yPrevious, widthPrevious, heightPrevious;
+float xRewind, yRewind, widthRewind, heightRewind;
+float xPlayPause, yPlayPause, widthPlayPause, heightPlayPause;
+float xFastForward, yFastForward, widthFastForward, heightFastForward;
+float xNext, yNext, widthNext, heightNext;
 float xShuffle, yShuffle, widthShuffle, heightShuffle;
 float xReplay, yReplay, widthReplay, heightReplay;
 float xLoop, yLoop, widthLoop, heightLoop;
@@ -127,8 +130,7 @@ void setup() {
   ButtonIconDivRatios[6] = new float[]{19.0/52, 79.0/130, 19.0/52, 82.0/130, 101.0/156, 161.0/260}; //Fast Forward Button Triangle Two
   ButtonIconDivRatios[7] = new float[]{121.0/156, 79.0/130, 121.0/156, 82.0/130, 83.0/104, 161.0/260}; //Next Button Triangle One
   ButtonIconDivRatios[8] = new float[]{125.0/156, 79.0/130, 125.0/156, 82.0/130, 125.0/156, 161.0/260}; //Next Button Triangle Two
-
-  CalculateButtonIconDIVs()
+  CalculateButtonIconDIVs();
   //
   //Background
   xPopupBackground = appWidth*0; yPopupBackground = appHeight*0; widthPopupBackground = appWidth-1; heightPopupBackground = appHeight-1;
