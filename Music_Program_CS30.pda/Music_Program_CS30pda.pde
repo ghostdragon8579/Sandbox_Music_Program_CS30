@@ -140,6 +140,30 @@ void setup() {
   ButtonIconDivRatios[6] = new float[]{}; //Fast Forward Button Triangle Two
   ButtonIconDivRatios[7] = new float[]{}; //Next Button Triangle One
   ButtonIconDivRatios[8] = new float[]{}; //Next Button Triangle Two
+  xFastForwardTriangleOne1 = xFastForward+widthFastForward*1/6; yFastForwardTriangleOne1 = yPlayPauseTriangle1;
+  xFastForwardTriangleOne2 = xFastForwardTriangleOne1; yFastForwardTriangleOne2 = yPlayPauseTriangle2;
+  xFastForwardTriangleOne3 = xFastForward+widthFastForward*1/2; yFastForwardTriangleOne3 = yPlayPauseTriangle3;
+  xFastForwardTriangleTwo1 = xFastForwardTriangleOne3; yFastForwardTriangleTwo1 = yPlayPauseTriangle1;
+  xFastForwardTriangleTwo2 = xFastForwardTriangleOne3; yFastForwardTriangleTwo2 = yPlayPauseTriangle2;
+  xFastForwardTriangleTwo3 = xFastForward+widthFastForward*5/6; yFastForwardTriangleTwo3 = yPlayPauseTriangle3;
+  xRewindTriangleOne1 = xRewind+widthRewind*1/6; yRewindTriangleOne1 = yPlayPauseTriangle3;
+  xRewindTriangleOne2 = xRewind+widthRewind*1/2; yRewindTriangleOne2 = yPlayPauseTriangle1;
+  xRewindTriangleOne3 = xRewindTriangleOne2; yRewindTriangleOne3 = yPlayPauseTriangle2; 
+  xRewindTriangleTwo1 = xRewindTriangleOne2; yRewindTriangleTwo1 = yPlayPauseTriangle3;
+  xRewindTriangleTwo2 = xRewind+widthRewind*5/6; yRewindTriangleTwo2 = yPlayPauseTriangle1;
+  xRewindTriangleTwo3 = xRewindTriangleTwo2; yRewindTriangleTwo3 = yPlayPauseTriangle2;
+  xNextTriangleOne1 = xNext+widthNext*1/6; yNextTriangleOne1 = yPlayPauseTriangle1;
+  xNextTriangleOne2 = xNextTriangleOne1; yNextTriangleOne2 = yPlayPauseTriangle2;
+  xNextTriangleOne3 = xNext+widthNext*3/4; yNextTriangleOne3 = yPlayPauseTriangle3;
+  xNextTriangleTwo1 = xNext+widthNext*5/6; yNextTriangleTwo1 = yPlayPauseTriangle1;
+  xNextTriangleTwo2 = xNextTriangleTwo1; yNextTriangleTwo2 = yPlayPauseTriangle2;
+  xNextTriangleTwo3 = xNextTriangleTwo1; yNextTriangleTwo3 = yPlayPauseTriangle3;
+  xPreviousTriangleOne1 = xPrevious+widthPrevious*5/6; yPreviousTriangleOne1 = yPlayPauseTriangle1;
+  xPreviousTriangleOne2 = xPreviousTriangleOne1; yPreviousTriangleOne2 = yPlayPauseTriangle2;
+  xPreviousTriangleOne3 = xPrevious+widthPrevious*1/4; yPreviousTriangleOne3 = yPlayPauseTriangle3;
+  xPreviousTriangleTwo1 = xPrevious+widthPrevious*1/6; yPreviousTriangleTwo1 = yPlayPauseTriangle1;
+  xPreviousTriangleTwo2 = xPreviousTriangleTwo1; yPreviousTriangleTwo2 = yPlayPauseTriangle2;
+  xPreviousTriangleTwo3 = xPreviousTriangleTwo1; yPreviousTriangleTwo3 = yPlayPauseTriangle3;
   */
   //
   //Background
