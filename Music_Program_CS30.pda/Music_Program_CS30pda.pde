@@ -129,17 +129,24 @@ void setup() {
   ButtonDivRatios[9] = new float[]{0.0, 23.0/24, 1.0/12, 1.0/24}; //Attribution Button
   CalculateButtonDIVs();
   //
-   //{The first, third and fifth ratios are X values in ratio of appwidth. The second, fourth and sixth ratios are y values in ratio of appheight}
+  //{The first, third and fifth ratios are X values in ratio of appwidth. The second, fourth and sixth ratios are y values in ratio of appheight}
+  ButtonIconDivRatios[0] = new float[]{5.0/26+5.0/156, 24.0/40, 5.0/26+5.0/156, 24.0/40+5.0/104, 5.0/26+1/104, 24.0/40+1/52}; //Previous Button Triangle One
+  //CalculateButtonIconDIVs();
   /*
-  ButtonIconDivRatios[0] = new float[]{}; //Previous Button Triangle One
   ButtonIconDivRatios[1] = new float[]{}; //Previous Button Triangle Two
   ButtonIconDivRatios[2] = new float[]{}; //Rewind Button Triangle One
   ButtonIconDivRatios[3] = new float[]{}; //Rewind Button Triangle Two
-  ButtonIconDivRatios[4] = new float[]{25.0/52+1.0/130, 24.0/40+1.0/130, 25.0/52+1.0/130, 24.0/40+5/104, 25.0/52+5/104, 24.0/40+1.0/52}; //Play/Pause Button Triangle
+  ButtonIconDivRatios[4] = new float[]{25.0/52+1/130, 24.0/40+1/130, 25.0/52+1/130, 24.0/40+5/104, 25.0/52+5/104, 24.0/40+1/52}; //Play/Pause Button Triangle
   ButtonIconDivRatios[5] = new float[]{}; //Fast Forward Button Triangle One
   ButtonIconDivRatios[6] = new float[]{}; //Fast Forward Button Triangle Two
   ButtonIconDivRatios[7] = new float[]{}; //Next Button Triangle One
   ButtonIconDivRatios[8] = new float[]{}; //Next Button Triangle Two
+  xPreviousTriangleOne1 = xPrevious+widthPrevious*5/6; yPreviousTriangleOne1 = yPlayPauseTriangle1;
+  xPreviousTriangleOne2 = xPreviousTriangleOne1; yPreviousTriangleOne2 = yPlayPauseTriangle2;
+  xPreviousTriangleOne3 = xPrevious+widthPrevious*1/4; yPreviousTriangleOne3 = yPlayPauseTriangle3;
+  xPreviousTriangleTwo1 = xPrevious+widthPrevious*1/6; yPreviousTriangleTwo1 = yPlayPauseTriangle1;
+  xPreviousTriangleTwo2 = xPreviousTriangleTwo1; yPreviousTriangleTwo2 = yPlayPauseTriangle2;
+  xPreviousTriangleTwo3 = xPreviousTriangleTwo1; yPreviousTriangleTwo3 = yPlayPauseTriangle3;
   xFastForwardTriangleOne1 = xFastForward+widthFastForward*1/6; yFastForwardTriangleOne1 = yPlayPauseTriangle1;
   xFastForwardTriangleOne2 = xFastForwardTriangleOne1; yFastForwardTriangleOne2 = yPlayPauseTriangle2;
   xFastForwardTriangleOne3 = xFastForward+widthFastForward*1/2; yFastForwardTriangleOne3 = yPlayPauseTriangle3;
@@ -158,12 +165,6 @@ void setup() {
   xNextTriangleTwo1 = xNext+widthNext*5/6; yNextTriangleTwo1 = yPlayPauseTriangle1;
   xNextTriangleTwo2 = xNextTriangleTwo1; yNextTriangleTwo2 = yPlayPauseTriangle2;
   xNextTriangleTwo3 = xNextTriangleTwo1; yNextTriangleTwo3 = yPlayPauseTriangle3;
-  xPreviousTriangleOne1 = xPrevious+widthPrevious*5/6; yPreviousTriangleOne1 = yPlayPauseTriangle1;
-  xPreviousTriangleOne2 = xPreviousTriangleOne1; yPreviousTriangleOne2 = yPlayPauseTriangle2;
-  xPreviousTriangleOne3 = xPrevious+widthPrevious*1/4; yPreviousTriangleOne3 = yPlayPauseTriangle3;
-  xPreviousTriangleTwo1 = xPrevious+widthPrevious*1/6; yPreviousTriangleTwo1 = yPlayPauseTriangle1;
-  xPreviousTriangleTwo2 = xPreviousTriangleTwo1; yPreviousTriangleTwo2 = yPlayPauseTriangle2;
-  xPreviousTriangleTwo3 = xPreviousTriangleTwo1; yPreviousTriangleTwo3 = yPlayPauseTriangle3;
   */
   //
   //Background
@@ -389,8 +390,8 @@ void draw() {
     stroke(Purple);
     fill(Black);
     for (int i = 0; i < NumberOfButtonDIVs; i++) {
-      int baseIndex = i * 4;
-      rect(ButtonDivs[baseIndex], ButtonDivs[baseIndex + 1], ButtonDivs[baseIndex + 2], ButtonDivs[baseIndex + 3]);
+      int baseIndex = i*4;
+      rect(ButtonDivs[baseIndex], ButtonDivs[baseIndex+1], ButtonDivs[baseIndex+2], ButtonDivs[baseIndex+3]);
     }
     //Music Button Icons
     stroke(TextPurple);
