@@ -130,10 +130,10 @@ void setup() {
   CalculateButtonDIVs();
   //
   //{The first, third and fifth ratios are X values in ratio of appwidth. The second, fourth and sixth ratios are y values in ratio of appheight}
-  ButtonIconDivRatios[0] = new float[]{5.0/26+5.0/156, 24.0/40, 5.0/26+5.0/156, 24.0/40+5.0/104, 5.0/26+1/104, 24.0/40+1/52}; //Previous Button Triangle One
-  //CalculateButtonIconDIVs();
+  ButtonIconDivRatios[0] = new float[]{5.0/26+5.0/156, 24.0/40+1.0/104, 5.0/26+5.0/156, 24.0/40+5.0/104, 4.0/20, 25.0/40+1.0/208}; //Previous Button Triangle One
+  //ButtonIconDivRatios[1] = new float[]{0.0/0, 24.0/40+1.0/104, 0.0/0, 24.0/40+5.0/104, 0.0/0, 25.0/40+1.0/208}; //Previous Button Triangle Two
+  CalculateButtonIconDIVs();
   /*
-  ButtonIconDivRatios[1] = new float[]{}; //Previous Button Triangle Two
   ButtonIconDivRatios[2] = new float[]{}; //Rewind Button Triangle One
   ButtonIconDivRatios[3] = new float[]{}; //Rewind Button Triangle Two
   ButtonIconDivRatios[4] = new float[]{25.0/52+1/130, 24.0/40+1/130, 25.0/52+1/130, 24.0/40+5/104, 25.0/52+5/104, 24.0/40+1/52}; //Play/Pause Button Triangle
@@ -403,8 +403,8 @@ void draw() {
     triangle(xRewindTriangleTwo1, yRewindTriangleTwo1, xRewindTriangleTwo2, yRewindTriangleTwo2, xRewindTriangleTwo3, yRewindTriangleTwo3);
     triangle(xNextTriangleOne1, yNextTriangleOne1, xNextTriangleOne2, yNextTriangleOne2, xNextTriangleOne3, yNextTriangleOne3);
     triangle(xNextTriangleTwo1, yNextTriangleTwo1, xNextTriangleTwo2, yNextTriangleTwo2, xNextTriangleTwo3, yNextTriangleTwo3);
-    triangle(xPreviousTriangleOne1, yPreviousTriangleOne1, xPreviousTriangleOne2, yPreviousTriangleOne2, xPreviousTriangleOne3, yPreviousTriangleOne3);
-    triangle(xPreviousTriangleTwo1, yPreviousTriangleTwo1, xPreviousTriangleTwo2, yPreviousTriangleTwo2, xPreviousTriangleTwo3, yPreviousTriangleTwo3);
+    triangle(ButtonIconDivs[0], ButtonIconDivs[1], ButtonIconDivs[2], ButtonIconDivs[3], ButtonIconDivs[4], ButtonIconDivs[5]);
+    //triangle(xPreviousTriangleTwo1, yPreviousTriangleTwo1, xPreviousTriangleTwo2, yPreviousTriangleTwo2, xPreviousTriangleTwo3, yPreviousTriangleTwo3);
     strokeWeight(1);
     stroke(Black);
     fill(resetDefaultInk);
@@ -550,6 +550,17 @@ void CalculateButtonDIVs() {
     } else {
       ButtonDivs[baseIndex+3] = appHeight*ButtonDivRatios[i][3]; //Height
     }
+  }
+}
+void CalculateButtonIconDIVs() {
+  for (int i = 0; i < NumberOfButtonIconDIVs; i++) {
+    int baseIndex = i * 6;
+    ButtonIconDivs[baseIndex] = appWidth*ButtonIconDivRatios[i][0]; // X1 position
+    ButtonIconDivs[baseIndex+1] = appHeight*ButtonIconDivRatios[i][1]; // Y1 position
+    ButtonIconDivs[baseIndex+2] = appWidth*ButtonIconDivRatios[i][2]; // X2 position
+    ButtonIconDivs[baseIndex+3] = appHeight*ButtonIconDivRatios[i][3]; // Y2 position
+    ButtonIconDivs[baseIndex+4] = appWidth*ButtonIconDivRatios[i][4]; // X3 position
+    ButtonIconDivs[baseIndex+5] = appHeight*ButtonIconDivRatios[i][5]; // Y3 position
   }
 }
 //
