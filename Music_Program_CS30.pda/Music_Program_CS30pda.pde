@@ -29,15 +29,6 @@ float xAttributionBackground, yAttributionBackground, widthAttributionBackground
 float xMusicPanel, yMusicPanel, widthMusicPanel, heightMusicPanel;
 float xMusicImage, yMusicImage, widthMusicImage, heightMusicImage;
 float xMusicProgressBar, yMusicProgressBar, widthMusicProgressBar, heightMusicProgressBar;
-float xQuit, yQuit, widthQuit, heightQuit;
-float xPrevious, yPrevious, widthPrevious, heightPrevious;
-float xRewind, yRewind, widthRewind, heightRewind;
-float xPlayPause, yPlayPause, widthPlayPause, heightPlayPause;
-float xFastForward, yFastForward, widthFastForward, heightFastForward;
-float xNext, yNext, widthNext, heightNext;
-float xShuffle, yShuffle, widthShuffle, heightShuffle;
-float xReplay, yReplay, widthReplay, heightReplay;
-float xLoop, yLoop, widthLoop, heightLoop;
 float xIcons8Location;
 float xVecteezyLocation;
 float ProgressWidth;
@@ -156,17 +147,6 @@ void setup() {
   TextDIVWidth[12] = TextDIVWidth[13] = TextDIVWidth[14] = TextDIVWidth[15] = TextDIVWidth[16] = TextDIVWidth[17] = TextDIVWidth[6];
   TextDIVHeight[6] = TextDIVHeight[7] = TextDIVHeight[8] = TextDIVHeight[9] = TextDIVHeight[10] = TextDIVHeight[11] = TextDIVHeight[4];
   TextDIVHeight[12] = TextDIVHeight[13] = TextDIVHeight[14] = TextDIVHeight[15] = TextDIVHeight[16] = TextDIVHeight[17] = TextDIVHeight[6];
-  //
-  //Buttons
-  xPrevious = ButtonDivs[4]; yPrevious = ButtonDivs[5]; widthPrevious = ButtonDivs[6]; heightPrevious = ButtonDivs[7];
-  xRewind = ButtonDivs[8]; yRewind = ButtonDivs[9]; widthRewind = ButtonDivs[10]; heightRewind = ButtonDivs[11];
-  xPlayPause = ButtonDivs[12]; yPlayPause = ButtonDivs[13]; widthPlayPause = ButtonDivs[14]; heightPlayPause = ButtonDivs[15];
-  xFastForward = ButtonDivs[16]; yFastForward = ButtonDivs[17]; widthFastForward = ButtonDivs[18]; heightFastForward = ButtonDivs[19]; 
-  xNext = ButtonDivs[20]; yNext = ButtonDivs[21]; widthNext = ButtonDivs[22]; heightNext = ButtonDivs[23]; 
-  xShuffle = ButtonDivs[24]; yShuffle = ButtonDivs[25]; widthShuffle = ButtonDivs[26]; heightShuffle = ButtonDivs[27];
-  xReplay = ButtonDivs[28]; yReplay = ButtonDivs[29]; widthReplay = ButtonDivs[30]; heightReplay = ButtonDivs[31];
-  xLoop = ButtonDivs[32]; yLoop = ButtonDivs[33]; widthLoop = ButtonDivs[34]; heightLoop = ButtonDivs[35];
-  xAttributions = ButtonDivs[36]; yAttributions = ButtonDivs[37]; TextDIVWidth[3] = ButtonDivs[38]; TextDIVHeight[3] = ButtonDivs[39];
   //
   //File Pathway
   String Up = "..";
@@ -342,9 +322,9 @@ void draw() {
     //
     //Images
     image(MusicProgramImage[0], ButtonDivs[0], ButtonDivs[1], ButtonDivs[2], ButtonDivs[3]); //Quit Button Image
-    image(MusicProgramImage[1], xLoop, yLoop, widthLoop, heightLoop); //Loop Button Image
-    image(MusicProgramImage[2], xReplay, yReplay, widthReplay, heightReplay); //Repalay Button Image
-    image(MusicProgramImage[3], xShuffle, yShuffle, widthShuffle, heightShuffle); //Shuffle Button Image
+    image(MusicProgramImage[3], ButtonDivs[24], ButtonDivs[25], ButtonDivs[26], ButtonDivs[27]); //Shuffle Button Image
+    image(MusicProgramImage[2], ButtonDivs[28], ButtonDivs[29], ButtonDivs[30], ButtonDivs[31]); //Replay Button Image
+    image(MusicProgramImage[1], ButtonDivs[32], ButtonDivs[33], ButtonDivs[34], ButtonDivs[35]); //Loop Button Image
     AspectRatioMusicImage(MusicImage[SongPlaying], xMusicImage, yMusicImage, widthMusicImage, heightMusicImage);
     //
     //Text
