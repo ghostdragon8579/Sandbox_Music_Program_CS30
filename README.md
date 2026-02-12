@@ -6,5 +6,6 @@ Current music program made in CS30 used as add-on for other CS30 projects
 - [x] Bring Old Music Player
 - [x] Create repository folders
 - [x] Case Study
+- [ ] Convert to DIV format (Currently in progress)
 - [ ] To Be Added
 ---
