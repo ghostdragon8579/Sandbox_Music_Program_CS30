@@ -135,10 +135,10 @@ void setup() {
   ButtonIconDivRatios[2] = new float[]{9.0/26+2.0/104, 24.0/40+1.3/104, 9.0/26+2.0/104, 24.0/40+4.7/104, 9.0/26+1.0/156, 25.0/40+1.0/208}; //Rewind Button Triangle One
   ButtonIconDivRatios[3] = new float[]{9.0/26+2.0/104+2.0/156, 24.0/40+1.3/104, 9.0/26+2.0/104+2.0/156, 24.0/40+4.7/104, 9.0/26+2.0/104, 25.0/40+1.0/208}; //Rewind Button Triangle Two
   ButtonIconDivRatios[4] = new float[]{25.4/52, 24.0/40+1.0/104, 25.4/52, 24.0/40+5.0/104, 26.6/52, 25.0/40+1.0/208}; //Play/Pause Button Triangle
+  ButtonIconDivRatios[5] = new float[]{16.0/26+1.0/156, 24.0/40+1.3/104, 16.0/26+1.0/156, 24.0/40+4.7/104, 16.0/26+3.0/156, 25.0/40+1.0/208}; //Fast Forward Button Triangle One
+  ButtonIconDivRatios[6] = new float[]{16.0/26+3.0/156, 24.0/40+1.3/104, 16.0/26+3.0/156, 24.0/40+4.7/104, 16.0/26+5.0/156, 25.0/40+1.0/208}; //Fast Forward Button Triangle Two
   CalculateButtonIconDIVs();
   /*
-  ButtonIconDivRatios[5] = new float[]{}; //Fast Forward Button Triangle One
-  ButtonIconDivRatios[6] = new float[]{}; //Fast Forward Button Triangle Two
   ButtonIconDivRatios[7] = new float[]{}; //Next Button Triangle One
   ButtonIconDivRatios[8] = new float[]{}; //Next Button Triangle Two
   xFastForwardTriangleOne1 = xFastForward+widthFastForward*1/6; yFastForwardTriangleOne1 = yPlayPauseTriangle1;
@@ -381,6 +381,15 @@ void draw() {
       int baseIndex = i*4;
       rect(ButtonDivs[baseIndex], ButtonDivs[baseIndex+1], ButtonDivs[baseIndex+2], ButtonDivs[baseIndex+3]);
     }
+    /*
+    strokeWeight(3);
+    stroke(Purple);
+    fill(Black);
+    for (int i = 0; i < NumberOfButtonIconDIVs; i++) {
+      int baseIndex = i*6;
+      triangle(ButtonIconDivs[baseIndex], ButtonIconDivs[baseIndex+1], ButtonIconDivs[baseIndex+2], ButtonIconDivs[baseIndex+3], ButtonIconDivs[baseIndex+4], ButtonIconDivs[baseIndex+5]);
+    }
+    */
     //Music Button Icons
     stroke(TextPurple);
     fill(TextPurple);
@@ -389,9 +398,10 @@ void draw() {
     triangle(ButtonIconDivs[12], ButtonIconDivs[13], ButtonIconDivs[14], ButtonIconDivs[15], ButtonIconDivs[16], ButtonIconDivs[17]);
     triangle(ButtonIconDivs[18], ButtonIconDivs[19], ButtonIconDivs[20], ButtonIconDivs[21], ButtonIconDivs[22], ButtonIconDivs[23]);
     triangle(ButtonIconDivs[24], ButtonIconDivs[25], ButtonIconDivs[26], ButtonIconDivs[27], ButtonIconDivs[28], ButtonIconDivs[29]);
-    //triangle(xPlayPauseTriangle1, yPlayPauseTriangle1, xPlayPauseTriangle2, yPlayPauseTriangle2, xPlayPauseTriangle3, yPlayPauseTriangle3);
-    triangle(xFastForwardTriangleOne1, yFastForwardTriangleOne1, xFastForwardTriangleOne2, yFastForwardTriangleOne2, xFastForwardTriangleOne3, yFastForwardTriangleOne3);
-    triangle(xFastForwardTriangleTwo1, yFastForwardTriangleTwo1, xFastForwardTriangleTwo2, yFastForwardTriangleTwo2, xFastForwardTriangleTwo3, yFastForwardTriangleTwo3);
+    triangle(ButtonIconDivs[30], ButtonIconDivs[31], ButtonIconDivs[32], ButtonIconDivs[33], ButtonIconDivs[34], ButtonIconDivs[35]);
+    triangle(ButtonIconDivs[36], ButtonIconDivs[37], ButtonIconDivs[38], ButtonIconDivs[39], ButtonIconDivs[40], ButtonIconDivs[41]);
+    //triangle(xFastForwardTriangleOne1, yFastForwardTriangleOne1, xFastForwardTriangleOne2, yFastForwardTriangleOne2, xFastForwardTriangleOne3, yFastForwardTriangleOne3);
+    //triangle(xFastForwardTriangleTwo1, yFastForwardTriangleTwo1, xFastForwardTriangleTwo2, yFastForwardTriangleTwo2, xFastForwardTriangleTwo3, yFastForwardTriangleTwo3);
     triangle(xNextTriangleOne1, yNextTriangleOne1, xNextTriangleOne2, yNextTriangleOne2, xNextTriangleOne3, yNextTriangleOne3);
     triangle(xNextTriangleTwo1, yNextTriangleTwo1, xNextTriangleTwo2, yNextTriangleTwo2, xNextTriangleTwo3, yNextTriangleTwo3);
     strokeWeight(1);
