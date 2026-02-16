@@ -59,46 +59,18 @@ void MusicPanelTextSetup2() {
 }
 void Music_Program_CS30_HoverOver () {
   color hoverOverColor=color(255, 255, 255, 64);
-  if (!Attributions) {
-  if (MouseIsOver(ButtonDivs[0], ButtonDivs[1], ButtonDivs[2], ButtonDivs[3])) {
-    fill(hoverOverColor);
-    rect(ButtonDivs[0], ButtonDivs[1], ButtonDivs[2], ButtonDivs[3]);
-    fill(resetDefaultInk);
-  } else if (MouseIsOver(ButtonDivs[4], ButtonDivs[5], ButtonDivs[6], ButtonDivs[7])) {
-    fill(hoverOverColor);
-    rect(ButtonDivs[4], ButtonDivs[5], ButtonDivs[6], ButtonDivs[7]);
-    fill(resetDefaultInk);
-   } else if (MouseIsOver(ButtonDivs[8], ButtonDivs[9], ButtonDivs[10], ButtonDivs[11])) {
-    fill(hoverOverColor);
-    rect(ButtonDivs[8], ButtonDivs[9], ButtonDivs[10], ButtonDivs[11]);
-    fill(resetDefaultInk);
-  } else if (MouseIsOver(ButtonDivs[12], ButtonDivs[13], ButtonDivs[14], ButtonDivs[15])) {
-    fill(hoverOverColor);
-    rect(ButtonDivs[12], ButtonDivs[13], ButtonDivs[14], ButtonDivs[15]);
-    fill(resetDefaultInk);
-  } else if (MouseIsOver(ButtonDivs[16], ButtonDivs[17], ButtonDivs[18], ButtonDivs[19])) {
-    fill(hoverOverColor);
-    rect(ButtonDivs[16], ButtonDivs[17], ButtonDivs[18], ButtonDivs[19]);
-    fill(resetDefaultInk);
-  } else if (MouseIsOver(ButtonDivs[20], ButtonDivs[21], ButtonDivs[22], ButtonDivs[23])) {
-    fill(hoverOverColor);
-    rect(ButtonDivs[20], ButtonDivs[21], ButtonDivs[22], ButtonDivs[23]);
-    fill(resetDefaultInk);
-  } else if (MouseIsOver(ButtonDivs[24], ButtonDivs[25], ButtonDivs[26], ButtonDivs[27])) {
-    fill(hoverOverColor);
-    rect(ButtonDivs[24], ButtonDivs[25], ButtonDivs[26], ButtonDivs[27]);
-    fill(resetDefaultInk);
-  } else if (MouseIsOver(ButtonDivs[28], ButtonDivs[29], ButtonDivs[30], ButtonDivs[31])) {
-    fill(hoverOverColor);
-    rect(ButtonDivs[28], ButtonDivs[29], ButtonDivs[30], ButtonDivs[31]);
-    fill(resetDefaultInk);
-  } else if (MouseIsOver(ButtonDivs[32], ButtonDivs[33], ButtonDivs[34], ButtonDivs[35])) {
-    fill(hoverOverColor);
-    rect(ButtonDivs[32], ButtonDivs[33], ButtonDivs[34], ButtonDivs[35]);
-    fill(resetDefaultInk);
+if (!Attributions) {
+    for (int i = 0; i < 9; i++) {
+      int baseIndex = i * 4;
+    if (MouseIsOver(ButtonDivs[baseIndex], ButtonDivs[baseIndex+1], ButtonDivs[baseIndex+2], ButtonDivs[baseIndex+3])) {
+      fill(hoverOverColor);
+      rect(ButtonDivs[baseIndex], ButtonDivs[baseIndex+1], ButtonDivs[baseIndex+2], ButtonDivs[baseIndex+3]);
+      fill(resetDefaultInk);
+      return;
+    }
   }
-  }
-  if (MouseIsOver(ButtonDivs[36], ButtonDivs[37], ButtonDivs[38], ButtonDivs[39])) {
+}
+if (MouseIsOver(ButtonDivs[36], ButtonDivs[37], ButtonDivs[38], ButtonDivs[39])) {
     fill(hoverOverColor);
     rect(ButtonDivs[36], ButtonDivs[37], ButtonDivs[38], ButtonDivs[39]);
     fill(resetDefaultInk);
