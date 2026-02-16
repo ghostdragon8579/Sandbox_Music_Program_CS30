@@ -57,7 +57,7 @@ void MusicPanelTextSetup2() {
     textFont(TitleFont, TemporaryFontSize);
   }
 }
-void Music_Program_CS20_HoverOver () {
+void Music_Program_CS30_HoverOver () {
   color hoverOverColor=color(255, 255, 255, 64);
   if (!Attributions) {
   if (MouseIsOver(ButtonDivs[0], ButtonDivs[1], ButtonDivs[2], ButtonDivs[3])) {
@@ -98,9 +98,9 @@ void Music_Program_CS20_HoverOver () {
     fill(resetDefaultInk);
   }
   }
-  if (MouseIsOver(xAttributions, yAttributions, TextDIVWidth[3], TextDIVHeight[3])) {
+  if (MouseIsOver(ButtonDivs[36], ButtonDivs[37], ButtonDivs[38], ButtonDivs[39])) {
     fill(hoverOverColor);
-    rect(xAttributions, yAttributions, TextDIVWidth[3], TextDIVHeight[3]);
+    rect(ButtonDivs[36], ButtonDivs[37], ButtonDivs[38], ButtonDivs[39]);
     fill(resetDefaultInk);
   }
 }

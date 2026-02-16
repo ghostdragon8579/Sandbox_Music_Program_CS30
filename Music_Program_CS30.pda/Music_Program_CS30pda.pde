@@ -15,14 +15,14 @@ float[] TextDIVHeight = new float[18];
 float xMusicTitle, yMusicTitle;
 float xMusicAuthor, yMusicAuthor;
 float xMusicPublishDate, yMusicPublishDate;
-float xAttributions, yAttributions;
-float xIconAttribution, yIconAttribution;
 float xPopupBackground, yPopupBackground, widthPopupBackground, heightPopupBackground;
-float xAttributionBackground, yAttributionBackground, widthAttributionBackground, heightAttributionBackground;
-float xBackgroundAttribution, yBackgroundAttribution;
 float xMusicPanel, yMusicPanel, widthMusicPanel, heightMusicPanel;
 float xMusicImage, yMusicImage, widthMusicImage, heightMusicImage;
 float xMusicProgressBar, yMusicProgressBar, widthMusicProgressBar, heightMusicProgressBar;
+float xAttributionBackground, yAttributionBackground, widthAttributionBackground, heightAttributionBackground;
+float xBackgroundAttribution, yBackgroundAttribution;
+float xAttributions, yAttributions;
+float xIconAttribution, yIconAttribution;
 float xSongAttribution1, ySongAttribution1, xSongAttribution1Line2, ySongAttribution1Line2;
 float xSongAttribution2, ySongAttribution2, xSongAttribution2Line2, ySongAttribution2Line2;
 float xSongAttribution3, ySongAttribution3, xSongAttribution3Line2, ySongAttribution3Line2;
@@ -347,11 +347,11 @@ void draw() {
   strokeWeight(3);
   stroke(Purple);
   fill(Black);
-  rect(xAttributions, yAttributions, TextDIVWidth[3], TextDIVHeight[3]);
+  rect(ButtonDivs[36], ButtonDivs[37], ButtonDivs[38], ButtonDivs[39]);
   textAlign(CENTER, CENTER);
   textFont(TitleFont, FontSizes[3]);
   fill(TextPurple);
-  text(Text[3], xAttributions, yAttributions, TextDIVWidth[3], TextDIVHeight[3]);
+  text(Text[3], ButtonDivs[36], ButtonDivs[37], ButtonDivs[38], ButtonDivs[39]);
   //
   //Song Auto Transition
   if (SongPlayList[SongPlaying].position() >= AlteredCurrentSongLength && SongLoop == false) {
@@ -372,7 +372,7 @@ void draw() {
   }
   //
   //HoverOverColors
-  Music_Program_CS20_HoverOver();
+  Music_Program_CS30_HoverOver();
   //
 } //End draw
 //
@@ -445,7 +445,7 @@ void mousePressed() {
   if (Attributions) {
     ImageMusicAttributionsMousePressed();
   }
-  if (MouseIsOver(xAttributions, yAttributions, TextDIVWidth[3], TextDIVHeight[3])) {
+  if (MouseIsOver(ButtonDivs[36], ButtonDivs[37], ButtonDivs[38], ButtonDivs[39])) {
     ToggleAttributions();
   }
   //
