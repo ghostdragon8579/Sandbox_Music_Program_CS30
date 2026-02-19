@@ -101,16 +101,15 @@ void setup() {
   //
   minim = new Minim(this);
   //
-  /*
   //Music Panel Divs
   //{X value in ratio of appwidth, Y value in ratio of appwidth, width value in ratio of appwidth, height value in ratio of appheight}
-  MusicPanelDivRatios[0] = new float[]{}; //Quit Button
-  MusicPanelDivRatios[1] = new float[]{}; //Previous Song Button
-  MusicPanelDivRatios[2] = new float[]{}; //Rewind Button
-  MusicPanelDivRatios[3] = new float[]{}; //Play/Pause Button
-  MusicPanelDivRatios[4] = new float[]{}; //Fast Forward Button
-  MusicPanelDivRatios[5] = new float[]{}; //Next Song Button
-  */
+  MusicPanelDivRatios[0] = new float[]{2.0/27, 1.0/10, 23.0/27, 4.0/5}; //Music Panel Component
+  MusicPanelDivRatios[1] = new float[]{2.0/7, 3.0/20, 3.0/7, 1.0/11}; //Song Title Component
+  MusicPanelDivRatios[2] = new float[]{1.0/3, 3.0/20+1.0/11, 1.0/3, 1.0/18}; //Song Author Component
+  MusicPanelDivRatios[3] = new float[]{1.0/3, 3.0/20+1.0/11+1.0/18, 1.0/3, 1.0/18}; //Date of Publish/Release
+  MusicPanelDivRatios[4] = new float[]{1.0/3, 3.0/20+1.0/11+1.0/9, 1.0/3, 1.0/6}; //Song Image Component
+  MusicPanelDivRatios[5] = new float[]{5.0/26, 13.0/16, 8.0/13, 1.0/48}; //Song Progress Bar
+  CalculateMusicPanelDIVs();
   //
   //Button Divs
   //{X value in ratio of appwidth, Y value in ratio of appwidth, width value in ratio of appwidth, height value in ratio of appheight}
@@ -313,10 +312,13 @@ void draw() {
   fill(Black);
   rect(xMusicPanel, yMusicPanel, widthMusicPanel, heightMusicPanel);
   if (!Attributions) {
-    rect(xMusicTitle, yMusicTitle, TextDIVWidth[0], TextDIVHeight[0]);
-    rect(xMusicAuthor, yMusicAuthor, TextDIVWidth[1], TextDIVHeight[1]);
-    rect(xMusicPublishDate, yMusicPublishDate, TextDIVWidth[2], TextDIVHeight[2]);
-    rect(xMusicImage, yMusicImage, widthMusicImage, heightMusicImage);
+    strokeWeight(3);
+    stroke(Purple);
+    fill(Black);
+    for (int i = 0; i < NumberOfMusicPanelDIVs; i++) {
+      int baseIndex = i*4;
+      rect(MusicPanelDivs[baseIndex], MusicPanelDivs[baseIndex+1], MusicPanelDivs[baseIndex+2], MusicPanelDivs[baseIndex+3]);
+    }
     noStroke();
     //
     //Buttons
@@ -467,6 +469,15 @@ void mousePressed() {
   }
   //
 } //End mousePressed
+void CalculateMusicPanelDIVs() {
+  for (int i = 0; i < NumberOfMusicPanelDIVs; i++) {
+    int baseIndex = i * 4;
+    MusicPanelDivs[baseIndex] = appWidth*MusicPanelDivRatios[i][0]; //X position
+    MusicPanelDivs[baseIndex+1] = appHeight*MusicPanelDivRatios[i][1]; //Y position
+    MusicPanelDivs[baseIndex+2] = appWidth*MusicPanelDivRatios[i][2]; //Width
+    MusicPanelDivs[baseIndex+3] = appHeight*MusicPanelDivRatios[i][3]; //Height
+  }
+}
 void CalculateButtonDIVs() {
   for (int i = 0; i < NumberOfButtonDIVs; i++) {
     int baseIndex = i * 4;
