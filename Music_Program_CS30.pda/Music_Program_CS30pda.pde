@@ -32,6 +32,9 @@ float xSongAttribution6, ySongAttribution6, xSongAttribution6Line2, ySongAttribu
 float xIcons8Location;
 float xVecteezyLocation;
 float ProgressWidth;
+int NumberOfMusicPanelDIVs = 6; //All Music Panel components
+float[][] MusicPanelDivRatios = new float[NumberOfMusicPanelDIVs][4]; //Store ratios (Rectangles)
+float[] MusicPanelDivs = new float [NumberOfMusicPanelDIVs*4]; //Music Panel Position and Size of components
 int NumberOfButtonDIVs = 10; //All Music Player Buttons
 float[][] ButtonDivRatios = new float[NumberOfButtonDIVs][4]; //Store ratios (Rectangles)
 float[] ButtonDivs = new float [NumberOfButtonDIVs*4]; //Button Positions and Size
@@ -98,6 +101,18 @@ void setup() {
   //
   minim = new Minim(this);
   //
+  /*
+  //Music Panel Divs
+  //{X value in ratio of appwidth, Y value in ratio of appwidth, width value in ratio of appwidth, height value in ratio of appheight}
+  MusicPanelDivRatios[0] = new float[]{}; //Quit Button
+  MusicPanelDivRatios[1] = new float[]{}; //Previous Song Button
+  MusicPanelDivRatios[2] = new float[]{}; //Rewind Button
+  MusicPanelDivRatios[3] = new float[]{}; //Play/Pause Button
+  MusicPanelDivRatios[4] = new float[]{}; //Fast Forward Button
+  MusicPanelDivRatios[5] = new float[]{}; //Next Song Button
+  */
+  //
+  //Button Divs
   //{X value in ratio of appwidth, Y value in ratio of appwidth, width value in ratio of appwidth, height value in ratio of appheight}
   ButtonDivRatios[0] = new float[]{23.0/24, 0.0, 1.0/24, 1.0/30}; //Quit Button
   ButtonDivRatios[1] = new float[]{5.0/26, 24.0/40, 1.0/26, 1.0/26}; //Previous Song Button
@@ -111,6 +126,7 @@ void setup() {
   ButtonDivRatios[9] = new float[]{0.0, 23.0/24, 1.0/12, 1.0/24}; //Attribution Button
   CalculateButtonDIVs();
   //
+  //Button Icon Divs
   //{The first, third and fifth ratios are X values in ratio of appwidth. The second, fourth and sixth ratios are y values in ratio of appheight}
   ButtonIconDivRatios[0] = new float[]{5.0/26+5.0/156, 24.0/40+1.2/104, 5.0/26+5.0/156, 24.0/40+4.8/104, 2.0/10, 25.0/40+1.0/208}; //Previous Button Triangle One
   ButtonIconDivRatios[1] = new float[]{5.0/26+1.0/156, 24.0/40+1.0/104, 5.0/26+1.0/156, 24.0/40+5.0/104, 5.0/26+1.0/156, 25.0/40+1.0/208}; //Previous Button Triangle Two
