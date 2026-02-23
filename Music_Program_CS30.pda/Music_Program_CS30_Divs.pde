@@ -12,7 +12,8 @@ float[][] TextDivRatios = new float[NumberOfTextDIVs][4]; //Store ratios (Rectan
 float[] TextDivs = new float [NumberOfTextDIVs*4]; //Text Positions and Size
 //
 void MusicProgramDivs() {
-    //Music Panel Divs
+  //
+  //Music Panel Divs
   //{X value in ratio of appwidth, Y value in ratio of appwidth, width value in ratio of appwidth, height value in ratio of appheight}
   MusicPanelDivRatios[0] = new float[]{2.0/27, 1.0/10, 23.0/27, 4.0/5}; //Music Panel Component
   MusicPanelDivRatios[1] = new float[]{2.0/7, 3.0/20, 3.0/7, 1.0/11}; //Song Title Component
@@ -51,10 +52,29 @@ void MusicProgramDivs() {
   //
   //Text Divs
   //{The first, third and fifth ratios are X values in ratio of appwidth. The second, fourth and sixth ratios are y values in ratio of appheight}
+  /*
   //TextDivRatios[0] = new float[]{2.0/7, 3.0/20, 3.0/7, 1.0/11}; //Song Title
   //TextDivRatios[1] = new float[]{1.0/3, 3.0/20+1.0/11, 1.0/3, 1.0/18}; //Song Author
   //TextDivRatios[2] = new float[]{1.0/3, 3.0/20+1.0/11+1.0/18, 1.0/3, 1.0/18}; //Song Publish Date
   //TextDivRatios[3] = new float[]{0.0, 23.0/24, 1.0/12, 1.0/24}; //Attribution Button Text
+  //TextDivRatios[4] = new float[]{2.0/27+23/432, 1.0/10+1.0/20, 7.0/8, 1.0/42}; //Icon Attribution
+  //TextDivRatios[5] = new float[]{2.0/27+23/432, 23.0/100+23.0/243, 7.0/8, 1.0/42}; //Background Attribution
+  //TextDivRatios[6] = new float[]{2.0/27+23/432, 23.0/100+46.0/243, 7.0/8, 1.0/42}; //Song Attribution 1
+  //TextDivRatios[7] = new float[]{2.0/27+23/432, 23.0/100+69.0/243, 7.0/8, 1.0/42}; //Song Attribution 2
+  //TextDivRatios[8] = new float[]{2.0/27+23/432, 23.0/100+92.0/243, 7.0/8, 1.0/42}; //Song Attribution 3
+  //TextDivRatios[9] = new float[]{2.0/27+23/432, 23.0/100+105.0/243, 7.0/8, 1.0/42}; //Song Attribution 4
+  //TextDivRatios[10] = new float[]{2.0/27+23/432, 23.0/100+128.0/243, 7.0/8, 1.0/42}; //Song Attribution 5
+  //TextDivRatios[11] = new float[]{2.0/27+23/432, 23.0/100+151.0/243, 7.0/8, 1.0/42}; //Song Attribution 6
+  //TextDivRatios[12] = new float[]{2.0/27+23/432, 23.0/100+46.0/243, 7.0/8, 1.0/42}; //Song Attribution 1 line 2
+  //TextDivRatios[13] = new float[]{2.0/27+23/432, 23.0/100+69.0/243, 7.0/8, 1.0/42}; //Song Attribution 2 line 2
+  //TextDivRatios[14] = new float[]{2.0/27+23/432, 23.0/100+92.0/243, 7.0/8, 1.0/42}; //Song Attribution 3 line 2
+  //TextDivRatios[15] = new float[]{2.0/27+23/432, 23.0/100+105.0/243, 7.0/8, 1.0/42}; //Song Attribution 4 line 2
+  //TextDivRatios[16] = new float[]{2.0/27+23/432, 23.0/100+128.0/243, 7.0/8, 1.0/42}; //Song Attribution 5 line 2
+  //TextDivRatios[17] = new float[]{2.0/27+23/432, 23.0/100+151.0/243, 7.0/8, 1.0/42}; //Song Attribution 6 line 2
+  ySongAttribution1Line2 = ySongAttribution1+heightMusicPanel*1/27; ySongAttribution2Line2 = ySongAttribution2+heightMusicPanel*1/27;
+  ySongAttribution3Line2 = ySongAttribution3+heightMusicPanel*1/27; ySongAttribution4Line2 = ySongAttribution4+heightMusicPanel*1/27;
+  ySongAttribution5Line2 = ySongAttribution5+heightMusicPanel*1/27; ySongAttribution6Line2 = ySongAttribution6+heightMusicPanel*1/27;
+  */
   //CalculateTextDIVs();
   //
 }
@@ -89,5 +109,16 @@ void CalculateButtonIconDIVs() {
     ButtonIconDivs[baseIndex+3] = appHeight*ButtonIconDivRatios[i][3]; // Y2 position
     ButtonIconDivs[baseIndex+4] = appWidth*ButtonIconDivRatios[i][4]; // X3 position
     ButtonIconDivs[baseIndex+5] = appHeight*ButtonIconDivRatios[i][5]; // Y3 position
+  }
+}
+void CalculateTextDIVs() {
+  for (int i = 0; i < NumberOfTextDIVs; i++) {
+    int baseIndex = i * 4;
+    TextDivs[baseIndex] = appWidth*TextDivRatios[i][0];
+    TextDivs[baseIndex+1] = appHeight*TextDivRatios[i][1];
+    TextDivs[baseIndex+2] = appWidth*TextDivRatios[i][2];
+    TextDivs[baseIndex+3] = appHeight*TextDivRatios[i][3];
+    TextDIVWidth[i] = TextDivs[baseIndex+2];
+    TextDIVHeight[i] = TextDivs[baseIndex+3];
   }
 }
