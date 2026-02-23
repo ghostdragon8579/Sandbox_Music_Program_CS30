@@ -32,15 +32,6 @@ float xSongAttribution6, ySongAttribution6, xSongAttribution6Line2, ySongAttribu
 float xIcons8Location;
 float xVecteezyLocation;
 float ProgressWidth;
-int NumberOfMusicPanelDIVs = 6; //All Music Panel components
-float[][] MusicPanelDivRatios = new float[NumberOfMusicPanelDIVs][4]; //Store ratios (Rectangles)
-float[] MusicPanelDivs = new float [NumberOfMusicPanelDIVs*4]; //Music Panel Position and Size of components
-int NumberOfButtonDIVs = 10; //All Music Player Buttons
-float[][] ButtonDivRatios = new float[NumberOfButtonDIVs][4]; //Store ratios (Rectangles)
-float[] ButtonDivs = new float [NumberOfButtonDIVs*4]; //Button Positions and Size
-int NumberOfButtonIconDIVs = 9; //All Music Player Button Icons
-float[][] ButtonIconDivRatios = new float[NumberOfButtonIconDIVs][6]; //Store ratios (Triangles)
-float[] ButtonIconDivs = new float [NumberOfButtonIconDIVs*6]; //Icon Positions and Size
 PImage[] MusicProgramImage = new PImage[7];
 PImage[] MusicImage = new PImage[6];
 PImage NeonBackground2;
@@ -101,42 +92,7 @@ void setup() {
   //
   minim = new Minim(this);
   //
-  //Music Panel Divs
-  //{X value in ratio of appwidth, Y value in ratio of appwidth, width value in ratio of appwidth, height value in ratio of appheight}
-  MusicPanelDivRatios[0] = new float[]{2.0/27, 1.0/10, 23.0/27, 4.0/5}; //Music Panel Component
-  MusicPanelDivRatios[1] = new float[]{2.0/7, 3.0/20, 3.0/7, 1.0/11}; //Song Title Component
-  MusicPanelDivRatios[2] = new float[]{1.0/3, 3.0/20+1.0/11, 1.0/3, 1.0/18}; //Song Author Component
-  MusicPanelDivRatios[3] = new float[]{1.0/3, 3.0/20+1.0/11+1.0/18, 1.0/3, 1.0/18}; //Date of Publish/Release
-  MusicPanelDivRatios[4] = new float[]{1.0/3, 3.0/20+1.0/11+1.0/9, 1.0/3, 1.0/6}; //Song Image Component
-  MusicPanelDivRatios[5] = new float[]{5.0/26, 13.0/16, 8.0/13, 1.0/48}; //Song Progress Bar
-  CalculateMusicPanelDIVs();
-  //
-  //Button Divs
-  //{X value in ratio of appwidth, Y value in ratio of appwidth, width value in ratio of appwidth, height value in ratio of appheight}
-  ButtonDivRatios[0] = new float[]{23.0/24, 0.0, 1.0/24, 1.0/30}; //Quit Button
-  ButtonDivRatios[1] = new float[]{5.0/26, 24.0/40, 1.0/26, 1.0/26}; //Previous Song Button
-  ButtonDivRatios[2] = new float[]{9.0/26, 24.0/40, 1.0/26, 1.0/26}; //Rewind Button
-  ButtonDivRatios[3] = new float[]{25.0/52, 24.0/40, 1.0/26, 1.0/26}; //Play/Pause Button
-  ButtonDivRatios[4] = new float[]{16.0/26, 24.0/40, 1.0/26, 1.0/26}; //Fast Forward Button
-  ButtonDivRatios[5] = new float[]{20.0/26, 24.0/40, 1.0/26, 1.0/26}; //Next Song Button
-  ButtonDivRatios[6] = new float[]{25.0/52, 24.0/40+2.5/26, 1.0/26, 1.0/26}; //Shuffle Songs Button
-  ButtonDivRatios[7] = new float[]{9.0/26, 24.0/40+2.5/26, 1.0/26, 1.0/26}; //Replay Song Button
-  ButtonDivRatios[8] = new float[]{16.0/26, 24.0/40+2.5/26, 1.0/26, 1.0/26}; //Loop Button
-  ButtonDivRatios[9] = new float[]{0.0, 23.0/24, 1.0/12, 1.0/24}; //Attribution Button
-  CalculateButtonDIVs();
-  //
-  //Button Icon Divs
-  //{The first, third and fifth ratios are X values in ratio of appwidth. The second, fourth and sixth ratios are y values in ratio of appheight}
-  ButtonIconDivRatios[0] = new float[]{5.0/26+5.0/156, 24.0/40+1.2/104, 5.0/26+5.0/156, 24.0/40+4.8/104, 2.0/10, 25.0/40+1.0/208}; //Previous Button Triangle One
-  ButtonIconDivRatios[1] = new float[]{5.0/26+1.0/156, 24.0/40+1.0/104, 5.0/26+1.0/156, 24.0/40+5.0/104, 5.0/26+1.0/156, 25.0/40+1.0/208}; //Previous Button Triangle Two
-  ButtonIconDivRatios[2] = new float[]{9.0/26+2.0/104, 24.0/40+1.3/104, 9.0/26+2.0/104, 24.0/40+4.7/104, 9.0/26+1.0/156, 25.0/40+1.0/208}; //Rewind Button Triangle One
-  ButtonIconDivRatios[3] = new float[]{9.0/26+2.0/104+2.0/156, 24.0/40+1.3/104, 9.0/26+2.0/104+2.0/156, 24.0/40+4.7/104, 9.0/26+2.0/104, 25.0/40+1.0/208}; //Rewind Button Triangle Two
-  ButtonIconDivRatios[4] = new float[]{25.4/52, 24.0/40+1.0/104, 25.4/52, 24.0/40+5.0/104, 26.6/52, 25.0/40+1.0/208}; //Play/Pause Button Triangle
-  ButtonIconDivRatios[5] = new float[]{16.0/26+1.0/156, 24.0/40+1.3/104, 16.0/26+1.0/156, 24.0/40+4.7/104, 16.0/26+3.0/156, 25.0/40+1.0/208}; //Fast Forward Button Triangle One
-  ButtonIconDivRatios[6] = new float[]{16.0/26+3.0/156, 24.0/40+1.3/104, 16.0/26+3.0/156, 24.0/40+4.7/104, 16.0/26+5.0/156, 25.0/40+1.0/208}; //Fast Forward Button Triangle Two
-  ButtonIconDivRatios[7] = new float[]{20.0/26+1.0/156, 24.0/40+1.2/104, 20.0/26+1.0/156, 24.0/40+4.8/104, 20.0/26+4.7/156, 25.0/40+1.0/208}; //Next Button Triangle One
-  ButtonIconDivRatios[8] = new float[]{20.0/26+5.0/156, 24.0/40+1.0/104, 20.0/26+5.0/156, 24.0/40+5.0/104, 20.0/26+5.0/156, 25.0/40+1.0/208}; //Next Button Triangle Two
-  CalculateButtonIconDIVs();
+  MusicProgramDivs();
   //
   //Background
   xPopupBackground = appWidth*0; yPopupBackground = appHeight*0; widthPopupBackground = appWidth-1; heightPopupBackground = appHeight-1;
@@ -310,6 +266,7 @@ void draw() {
   strokeWeight(3);
   stroke(Purple);
   fill(Black);
+  rect(MusicPanelDivs[0], MusicPanelDivs[1], MusicPanelDivs[2], MusicPanelDivs[3]);
   if (!Attributions) {
     strokeWeight(3);
     stroke(Purple);
@@ -468,38 +425,5 @@ void mousePressed() {
   }
   //
 } //End mousePressed
-void CalculateMusicPanelDIVs() {
-  for (int i = 0; i < NumberOfMusicPanelDIVs; i++) {
-    int baseIndex = i * 4;
-    MusicPanelDivs[baseIndex] = appWidth*MusicPanelDivRatios[i][0]; //X position
-    MusicPanelDivs[baseIndex+1] = appHeight*MusicPanelDivRatios[i][1]; //Y position
-    MusicPanelDivs[baseIndex+2] = appWidth*MusicPanelDivRatios[i][2]; //Width
-    MusicPanelDivs[baseIndex+3] = appHeight*MusicPanelDivRatios[i][3]; //Height
-  }
-}
-void CalculateButtonDIVs() {
-  for (int i = 0; i < NumberOfButtonDIVs; i++) {
-    int baseIndex = i * 4;
-    ButtonDivs[baseIndex] = appWidth*ButtonDivRatios[i][0]; //X position
-    ButtonDivs[baseIndex+1] = appHeight*ButtonDivRatios[i][1]; //Y position
-    ButtonDivs[baseIndex+2] = appWidth*ButtonDivRatios[i][2]; //Width
-    if (i != 0 || i == 9) {
-      ButtonDivs[baseIndex+3] = ButtonDivs[baseIndex+2]; //Square Buttons
-    } else {
-      ButtonDivs[baseIndex+3] = appHeight*ButtonDivRatios[i][3]; //Height
-    }
-  }
-}
-void CalculateButtonIconDIVs() {
-  for (int i = 0; i < NumberOfButtonIconDIVs; i++) {
-    int baseIndex = i * 6;
-    ButtonIconDivs[baseIndex] = appWidth*ButtonIconDivRatios[i][0]; // X1 position
-    ButtonIconDivs[baseIndex+1] = appHeight*ButtonIconDivRatios[i][1]; // Y1 position
-    ButtonIconDivs[baseIndex+2] = appWidth*ButtonIconDivRatios[i][2]; // X2 position
-    ButtonIconDivs[baseIndex+3] = appHeight*ButtonIconDivRatios[i][3]; // Y2 position
-    ButtonIconDivs[baseIndex+4] = appWidth*ButtonIconDivRatios[i][4]; // X3 position
-    ButtonIconDivs[baseIndex+5] = appHeight*ButtonIconDivRatios[i][5]; // Y3 position
-  }
-}
 //
 //End MAIN Program
