@@ -310,7 +310,6 @@ void draw() {
   strokeWeight(3);
   stroke(Purple);
   fill(Black);
-  rect(xMusicPanel, yMusicPanel, widthMusicPanel, heightMusicPanel);
   if (!Attributions) {
     strokeWeight(3);
     stroke(Purple);
