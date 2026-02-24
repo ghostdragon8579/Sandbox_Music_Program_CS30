@@ -3,13 +3,13 @@ void ImageMusicAttributions () {
   fill(TextPurple);
   textAlign(CENTER, CENTER);
   textFont(TitleFont, FontSizes[5]);
-  for (int i = 16; i < NumberOfButtonDIVs; i++) {
-  for (int t = 0; i < NumberOfButtonDIVs; i++) {
-    int baseIndex = i*4;
-    text(Text[t], TextDivs[baseIndex], TextDivs[baseIndex+1], TextDivs[baseIndex+2], TextDivs[baseIndex+3]);
-    }
-  }
   /*
+  for (int i = 16; i < NumberOfTextDIVs; i++) {
+    int baseIndex = i*4;
+    text(Text[baseIndex/4], TextDivs[baseIndex], TextDivs[baseIndex+1], TextDivs[baseIndex+2], TextDivs[baseIndex+3]);
+  }
+  */
+  ///*
   text(Text[4], xIconAttribution, yIconAttribution, TextDIVWidth[4], TextDIVHeight[4]);
   text(Text[5], xBackgroundAttribution, yBackgroundAttribution, TextDIVWidth[5], TextDIVHeight[5]);
   //Song Attributions
@@ -26,7 +26,7 @@ void ImageMusicAttributions () {
   text(Text[16], xSongAttribution5Line2, ySongAttribution5Line2, TextDIVWidth[16], TextDIVHeight[16]);
   text(Text[17], xSongAttribution6Line2, ySongAttribution6Line2, TextDIVWidth[17], TextDIVHeight[17]);
   fill(resetDefaultInk);
-  */
+  //*/
   //
 }
 void ImageMusicAttributionsMousePressed () {
