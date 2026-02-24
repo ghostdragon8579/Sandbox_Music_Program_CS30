@@ -64,20 +64,20 @@ void MusicProgramDivs() {
   TextDivRatios[1] = new float[]{1.0/3, 3.0/20+1.0/11, 1.0/3, 1.0/18}; //Song Author
   TextDivRatios[2] = new float[]{1.0/3, 3.0/20+1.0/11+1.0/18, 1.0/3, 1.0/18}; //Song Publish Date
   TextDivRatios[3] = new float[]{0.0, 23.0/24, 1.0/12, 1.0/24}; //Attribution Button Text
-  TextDivRatios[4] = new float[]{2.0/27+23/432, 1.0/10+1.0/20, 7.0/8, 1.0/42}; //Icon Attribution
-  TextDivRatios[5] = new float[]{2.0/27+23/432, 23.0/100+23.0/243, 7.0/8, 1.0/42}; //Background Attribution
-  TextDivRatios[6] = new float[]{2.0/27+23/432, 23.0/100+46.0/243, 7.0/8, 1.0/42}; //Song Attribution 1
-  TextDivRatios[7] = new float[]{2.0/27+23/432, 23.0/100+69.0/243, 7.0/8, 1.0/42}; //Song Attribution 2
-  TextDivRatios[8] = new float[]{2.0/27+23/432, 23.0/100+92.0/243, 7.0/8, 1.0/42}; //Song Attribution 3
-  TextDivRatios[9] = new float[]{2.0/27+23/432, 23.0/100+105.0/243, 7.0/8, 1.0/42}; //Song Attribution 4
-  TextDivRatios[10] = new float[]{2.0/27+23/432, 23.0/100+128.0/243, 7.0/8, 1.0/42}; //Song Attribution 5
-  TextDivRatios[11] = new float[]{2.0/27+23/432, 23.0/100+151.0/243, 7.0/8, 1.0/42}; //Song Attribution 6
-  TextDivRatios[12] = new float[]{2.0/27+23/432, 23.0/100+46.0/243+4.0/135, 7.0/8, 1.0/42}; //Song Attribution 1 line 2
-  TextDivRatios[13] = new float[]{2.0/27+23/432, 23.0/100+69.0/243+4.0/135, 7.0/8, 1.0/42}; //Song Attribution 2 line 2
-  TextDivRatios[14] = new float[]{2.0/27+23/432, 23.0/100+92.0/243+4.0/135, 7.0/8, 1.0/42}; //Song Attribution 3 line 2
-  TextDivRatios[15] = new float[]{2.0/27+23/432, 23.0/100+105.0/243+4.0/135, 7.0/8, 1.0/42}; //Song Attribution 4 line 2
-  TextDivRatios[16] = new float[]{2.0/27+23/432, 23.0/100+128.0/243+4.0/135, 7.0/8, 1.0/42}; //Song Attribution 5 line 2
-  TextDivRatios[17] = new float[]{2.0/27+23/432, 23.0/100+151.0/243+4.0/135, 7.0/8, 1.0/42}; //Song Attribution 6 line 2
+  TextDivRatios[4] = new float[]{2.0/27+23/432, 1.0/10+1.0/20, 23.0/27, 1.0/42}; //Icon Attribution
+  TextDivRatios[5] = new float[]{2.0/27+23/432, 23.0/100, 23.0/27, 1.0/42}; //Background Attribution
+  TextDivRatios[6] = new float[]{2.0/27+23/432, 23.0/100+22.0/243, 23.0/27, 1.0/42}; //Song Attribution 1
+  TextDivRatios[7] = new float[]{2.0/27+23/432, 23.0/100+44.0/243, 23.0/27, 1.0/42}; //Song Attribution 2
+  TextDivRatios[8] = new float[]{2.0/27+23/432, 23.0/100+65.0/243, 23.0/27, 1.0/42}; //Song Attribution 3
+  TextDivRatios[9] = new float[]{2.0/27+23/432, 23.0/100+86.0/243, 23.0/27, 1.0/42}; //Song Attribution 4
+  TextDivRatios[10] = new float[]{2.0/27+23/432, 23.0/100+108.0/243, 23.0/27, 1.0/42}; //Song Attribution 5
+  TextDivRatios[11] = new float[]{2.0/27+23/432, 23.0/100+130.0/243, 23.0/27, 1.0/42}; //Song Attribution 6
+  TextDivRatios[12] = new float[]{2.0/27+23/432, 23.0/100+22.0/243+4.0/135, 23.0/27, 1.0/42}; //Song Attribution 1 line 2
+  TextDivRatios[13] = new float[]{2.0/27+23/432, 23.0/100+44.0/243+4.0/135, 23.0/27, 1.0/42}; //Song Attribution 2 line 2
+  TextDivRatios[14] = new float[]{2.0/27+23/432, 23.0/100+65.0/243+4.0/135, 23.0/27, 1.0/42}; //Song Attribution 3 line 2
+  TextDivRatios[15] = new float[]{2.0/27+23/432, 23.0/100+86.0/243+4.0/135, 23.0/27, 1.0/42}; //Song Attribution 4 line 2
+  TextDivRatios[16] = new float[]{2.0/27+23/432, 23.0/100+108.0/243+4.0/135, 23.0/27, 1.0/42}; //Song Attribution 5 line 2
+  TextDivRatios[17] = new float[]{2.0/27+23/432, 23.0/100+130.0/243+4.0/135, 23.0/27, 1.0/42}; //Song Attribution 6 line 2
   CalculateTextDIVs();
   //
 }

@@ -4,11 +4,13 @@ void ImageMusicAttributions () {
   textAlign(CENTER, CENTER);
   textFont(TitleFont, FontSizes[5]);
   /*
-  for (int i = 16; i < NumberOfTextDIVs; i++) {
+  //Correct Locations
+  for (int i = 4; i < NumberOfTextDIVs; i++) {
     int baseIndex = i*4;
-    text(Text[baseIndex/4], TextDivs[baseIndex], TextDivs[baseIndex+1], TextDivs[baseIndex+2], TextDivs[baseIndex+3]);
+    rect(TextDivs[baseIndex], TextDivs[baseIndex+1], TextDivs[baseIndex+2], TextDivs[baseIndex+3]);
   }
   */
+  //
   ///*
   text(Text[4], xIconAttribution, yIconAttribution, TextDIVWidth[4], TextDIVHeight[4]);
   text(Text[5], xBackgroundAttribution, yBackgroundAttribution, TextDIVWidth[5], TextDIVHeight[5]);
