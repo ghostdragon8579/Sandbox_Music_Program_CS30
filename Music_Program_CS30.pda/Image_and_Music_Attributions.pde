@@ -3,6 +3,10 @@ void ImageMusicAttributions () {
   fill(TextPurple);
   textAlign(CENTER, CENTER);
   textFont(TitleFont, FontSizes[5]);
+   for (int i = 0; i < NumberOfTextDIVs; i++) {
+   int baseIndex = i*4;
+   rect(TextDivs[baseIndex], TextDivs[baseIndex+1], TextDivs[baseIndex+2], TextDivs[baseIndex+3]);
+  }
   text(Text[4], xIconAttribution, yIconAttribution, TextDIVWidth[4], TextDIVHeight[4]);
   text(Text[5], xBackgroundAttribution, yBackgroundAttribution, TextDIVWidth[5], TextDIVHeight[5]);
   //Song Attributions
