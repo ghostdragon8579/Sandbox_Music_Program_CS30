@@ -7,7 +7,7 @@ float[] ButtonDivs = new float [NumberOfButtonDIVs*4]; //Button Positions and Si
 int NumberOfButtonIconDIVs = 9; //All Music Player Button Icons
 float[][] ButtonIconDivRatios = new float[NumberOfButtonIconDIVs][6]; //Store ratios (Triangles)
 float[] ButtonIconDivs = new float [NumberOfButtonIconDIVs*6]; //Icon Positions and Size
-int NumberOfTextDIVs = 10; //All Text instances
+int NumberOfTextDIVs = 18; //All Text instances
 float[][] TextDivRatios = new float[NumberOfTextDIVs][4]; //Store ratios (Rectangles)
 float[] TextDivs = new float [NumberOfTextDIVs*4]; //Text Positions and Size
 //
