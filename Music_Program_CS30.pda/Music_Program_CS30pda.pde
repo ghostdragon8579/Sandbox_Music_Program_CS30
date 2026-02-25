@@ -19,16 +19,6 @@ float xPopupBackground, yPopupBackground, widthPopupBackground, heightPopupBackg
 float xMusicPanel, yMusicPanel, widthMusicPanel, heightMusicPanel;
 float xMusicImage, yMusicImage, widthMusicImage, heightMusicImage;
 float xMusicProgressBar, yMusicProgressBar, widthMusicProgressBar, heightMusicProgressBar;
-float xAttributionBackground, yAttributionBackground, widthAttributionBackground, heightAttributionBackground;
-float xBackgroundAttribution, yBackgroundAttribution;
-float xAttributions, yAttributions;
-float xIconAttribution, yIconAttribution;
-float xSongAttribution1, ySongAttribution1, xSongAttribution1Line2, ySongAttribution1Line2;
-float xSongAttribution2, ySongAttribution2, xSongAttribution2Line2, ySongAttribution2Line2;
-float xSongAttribution3, ySongAttribution3, xSongAttribution3Line2, ySongAttribution3Line2;
-float xSongAttribution4, ySongAttribution4, xSongAttribution4Line2, ySongAttribution4Line2;
-float xSongAttribution5, ySongAttribution5, xSongAttribution5Line2, ySongAttribution5Line2;
-float xSongAttribution6, ySongAttribution6, xSongAttribution6Line2, ySongAttribution6Line2;
 float xIcons8Location;
 float xVecteezyLocation;
 float ProgressWidth;
@@ -104,21 +94,6 @@ void setup() {
   xMusicPublishDate = xMusicAuthor; yMusicPublishDate = yMusicAuthor+TextDIVHeight[1]; TextDIVWidth[2] = TextDIVWidth[1]; TextDIVHeight[2] = TextDIVHeight[1];
   xMusicImage = appWidth*1/3; yMusicImage = yMusicPublishDate+TextDIVHeight[2]; widthMusicImage = appWidth*1/3; heightMusicImage = appHeight*1/6;
   xMusicProgressBar = appWidth*5/26; yMusicProgressBar = appHeight*13/16; widthMusicProgressBar = appWidth*8/13; heightMusicProgressBar = appHeight*1/48;
-  xIconAttribution = xMusicPanel+widthMusicPanel*1/16; yIconAttribution = yMusicPanel+heightMusicPanel*1/16; TextDIVWidth[4] = widthMusicPanel*7/8; TextDIVHeight[4] = appHeight*1/42;
-  xBackgroundAttribution = xIconAttribution; yBackgroundAttribution = yIconAttribution+heightMusicPanel*1/10; TextDIVWidth[5] = TextDIVWidth[4]; TextDIVHeight[5] = TextDIVHeight[4];
-  xSongAttribution1 = xSongAttribution2 = xSongAttribution3 = xSongAttribution4 = xSongAttribution5 = xSongAttribution6 = xIconAttribution;
-  xSongAttribution1Line2 = xSongAttribution2Line2 = xSongAttribution3Line2 = xSongAttribution4Line2 = xSongAttribution5Line2 = xSongAttribution6Line2 = xSongAttribution1;
-  ySongAttribution1 = yBackgroundAttribution+heightMusicPanel*1/9; ySongAttribution2 = ySongAttribution1+heightMusicPanel*1/9;
-  ySongAttribution3 = ySongAttribution2+heightMusicPanel*1/9; ySongAttribution4 = ySongAttribution3+heightMusicPanel*1/9;
-  ySongAttribution5 = ySongAttribution4+heightMusicPanel*1/9; ySongAttribution6 = ySongAttribution5+heightMusicPanel*1/9;
-  ySongAttribution1Line2 = ySongAttribution1+heightMusicPanel*1/27; ySongAttribution2Line2 = ySongAttribution2+heightMusicPanel*1/27;
-  ySongAttribution3Line2 = ySongAttribution3+heightMusicPanel*1/27; ySongAttribution4Line2 = ySongAttribution4+heightMusicPanel*1/27;
-  ySongAttribution5Line2 = ySongAttribution5+heightMusicPanel*1/27; ySongAttribution6Line2 = ySongAttribution6+heightMusicPanel*1/27;
-  TextDIVWidth[6] = TextDIVWidth[7] = TextDIVWidth[8] = TextDIVWidth[9] = TextDIVWidth[10] = TextDIVWidth[11] = TextDIVWidth[4];
-  TextDIVWidth[12] = TextDIVWidth[13] = TextDIVWidth[14] = TextDIVWidth[15] = TextDIVWidth[16] = TextDIVWidth[17] = TextDIVWidth[6];
-  TextDIVHeight[6] = TextDIVHeight[7] = TextDIVHeight[8] = TextDIVHeight[9] = TextDIVHeight[10] = TextDIVHeight[11] = TextDIVHeight[4];
-  TextDIVHeight[12] = TextDIVHeight[13] = TextDIVHeight[14] = TextDIVHeight[15] = TextDIVHeight[16] = TextDIVHeight[17] = TextDIVHeight[6];
-  TextDIVWidth[3] = ButtonDivs[38]; TextDIVHeight[3] = ButtonDivs[39];
   //
   //File Pathway
   String Up = "..";
@@ -230,8 +205,8 @@ void setup() {
   println(SongPlaying);
   */
   //
-  xIcons8Location = xIconAttribution + textWidth("Loop, Shuffle, and Rewind icons by ");
-  xVecteezyLocation = xBackgroundAttribution + textWidth("Background Image by Tinnapon Wuttichaikitcharoen on ");
+  xIcons8Location = TextDivs[16]+textWidth("Loop, Shuffle, and Rewind icons by ");
+  xVecteezyLocation = TextDivs[20]+textWidth("Background Image by Tinnapon Wuttichaikitcharoen on ");
   //
   SongSkipTime = 5000;
   SongLengthAlteration = 5000;
