@@ -281,11 +281,11 @@ void draw() {
     fill(TextPurple);
     textAlign(CENTER, CENTER);
     textFont(TitleFont, FontSizes[0]);
-    text(Text[0], xMusicTitle, yMusicTitle, TextDIVWidth[0], TextDIVHeight[0]);
+    text(Text[0], TextDivs[0], TextDivs[1], TextDivs[2], TextDivs[3]);
     textFont(TitleFont, FontSizes[1]);
-    text(Text[1], xMusicAuthor, yMusicAuthor, TextDIVWidth[1], TextDIVHeight[1]);
+    text(Text[1], TextDivs[4], TextDivs[5], TextDivs[6], TextDivs[7]);
     textFont(TitleFont, FontSizes[1]);
-    text(Text[2], xMusicPublishDate, yMusicPublishDate, TextDIVWidth[2], TextDIVHeight[2]);
+    text(Text[2], TextDivs[8], TextDivs[9], TextDivs[10], TextDivs[11]);
     fill(resetDefaultInk);
   }
   //
@@ -301,7 +301,7 @@ void draw() {
   textAlign(CENTER, CENTER);
   textFont(TitleFont, FontSizes[3]);
   fill(TextPurple);
-  text(Text[3], ButtonDivs[36], ButtonDivs[37], ButtonDivs[38], ButtonDivs[39]);
+  text(Text[3], TextDivs[12], TextDivs[13], TextDivs[14], TextDivs[15]);
   //
   //Song Auto Transition
   if (SongPlayList[SongPlaying].position() >= AlteredCurrentSongLength && SongLoop == false) {
