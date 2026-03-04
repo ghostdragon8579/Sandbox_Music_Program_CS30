@@ -12,12 +12,12 @@ import ddf.minim.ugens.*;
 //Global Variables
 float[] TextDIVWidth = new float[18];
 float[] TextDIVHeight = new float[18];
-float xMusicTitle, yMusicTitle;
-float xMusicAuthor, yMusicAuthor;
-float xMusicPublishDate, yMusicPublishDate;
 float xPopupBackground, yPopupBackground, widthPopupBackground, heightPopupBackground;
-float xMusicPanel, yMusicPanel, widthMusicPanel, heightMusicPanel;
-float xMusicImage, yMusicImage, widthMusicImage, heightMusicImage;
+float xMusicPanel, yMusicPanel, widthMusicPanel, heightMusicPanel; //Divs system done waiting for integration
+float xMusicTitle, yMusicTitle; //Divs system done waiting for integration
+float xMusicPublishDate, yMusicPublishDate; //Divs system done waiting for integration
+float xMusicAuthor, yMusicAuthor; //Divs system done waiting for integration
+float xMusicImage, yMusicImage, widthMusicImage, heightMusicImage; //Divs system done waiting for integration
 float xMusicProgressBar, yMusicProgressBar, widthMusicProgressBar, heightMusicProgressBar;
 float xIcons8Location;
 float xVecteezyLocation;

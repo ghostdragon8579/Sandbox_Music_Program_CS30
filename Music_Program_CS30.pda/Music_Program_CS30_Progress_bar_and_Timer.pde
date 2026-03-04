@@ -29,10 +29,8 @@ void Music_Program_CS30_ProgressTimer () {
     nf(CurrentSongPositionMinutes, 2)+":"+nf(CurrentSongPositionSeconds, 2)+" / "+
     nf(TotalSongMinutes, 2)+":"+nf(TotalSongSeconds, 2),
     xMusicProgressBar+widthMusicProgressBar-textWidth("/"+
-    nf(TotalSongMinutes, 2)+":"+nf(TotalSongSeconds, 2)
-    ),
-    yMusicProgressBar+heightMusicProgressBar+appHeight*3/160
-  );
+    nf(TotalSongMinutes, 2)+":"+nf(TotalSongSeconds, 2)),
+    yMusicProgressBar+heightMusicProgressBar+appHeight*3/160);
   fill(resetDefaultInk);
 }
 void AspectRatioMusicImage(PImage img, float x, float y, float Width, float Height) {
