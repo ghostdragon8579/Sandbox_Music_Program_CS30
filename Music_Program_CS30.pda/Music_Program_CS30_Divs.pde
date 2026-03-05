@@ -1,4 +1,3 @@
-//class MusicPlayerDivs {
 int NumberOfMusicPanelDIVs = 6; //All Music Panel components
 float[][] MusicPanelDivRatios = new float[NumberOfMusicPanelDIVs][4]; //Store ratios (Rectangles)
 float[] MusicPanelDivs = new float [NumberOfMusicPanelDIVs*4]; //Music Panel Position and Size of components

@@ -78,7 +78,7 @@ void setup() {
   //
   minim = new Minim(this);
   //
-  //MusicProgramDivs();
+  MusicProgramDivs();
   //
   //Background
   xPopupBackground = appWidth*0; yPopupBackground = appHeight*0; widthPopupBackground = appWidth-1; heightPopupBackground = appHeight-1;
@@ -267,7 +267,7 @@ void draw() {
     image(MusicProgramImage[3], ButtonDivs[24], ButtonDivs[25], ButtonDivs[26], ButtonDivs[27]); //Shuffle Button Image
     image(MusicProgramImage[2], ButtonDivs[28], ButtonDivs[29], ButtonDivs[30], ButtonDivs[31]); //Replay Button Image
     image(MusicProgramImage[1], ButtonDivs[32], ButtonDivs[33], ButtonDivs[34], ButtonDivs[35]); //Loop Button Image
-    AspectRatioMusicImage(MusicImage[SongPlaying], xMusicImage, yMusicImage, widthMusicImage, heightMusicImage);
+    AspectRatioMusicImage(MusicImage[SongPlaying], MusicPanelDivs[16], MusicPanelDivs[17], MusicPanelDivs[18], MusicPanelDivs[19]);
     //
     //Text
     fill(TextPurple);
