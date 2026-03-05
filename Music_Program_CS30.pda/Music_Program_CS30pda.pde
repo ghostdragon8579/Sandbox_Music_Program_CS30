@@ -13,10 +13,6 @@ import ddf.minim.ugens.*;
 float[] TextDIVWidth = new float[18];
 float[] TextDIVHeight = new float[18];
 float xPopupBackground, yPopupBackground, widthPopupBackground, heightPopupBackground;
-float xMusicPanel, yMusicPanel, widthMusicPanel, heightMusicPanel; //Divs system done waiting for integration
-float xMusicTitle, yMusicTitle; //Divs system done waiting for integration
-float xMusicPublishDate, yMusicPublishDate; //Divs system done waiting for integration
-float xMusicAuthor, yMusicAuthor; //Divs system done waiting for integration
 float xMusicImage, yMusicImage, widthMusicImage, heightMusicImage; //Divs system done waiting for integration
 float xMusicProgressBar, yMusicProgressBar, widthMusicProgressBar, heightMusicProgressBar;
 float xIcons8Location;
@@ -82,17 +78,13 @@ void setup() {
   //
   minim = new Minim(this);
   //
-  MusicProgramDivs();
+  //MusicProgramDivs();
   //
   //Background
   xPopupBackground = appWidth*0; yPopupBackground = appHeight*0; widthPopupBackground = appWidth-1; heightPopupBackground = appHeight-1;
   //
   //Music Panel
-  xMusicPanel = appWidth*2/27; yMusicPanel = appHeight*1/10; widthMusicPanel = appWidth*23/27; heightMusicPanel = appHeight*4/5;
-  xMusicTitle = appWidth*2/7; yMusicTitle = appHeight*3/20; TextDIVWidth[0] = appWidth*3/7; TextDIVHeight[0] = appHeight*1/11;
-  xMusicAuthor = appWidth*1/3; yMusicAuthor = yMusicTitle+TextDIVHeight[0]; TextDIVWidth[1] = appWidth*1/3; TextDIVHeight[1] = appHeight*1/18;
-  xMusicPublishDate = xMusicAuthor; yMusicPublishDate = yMusicAuthor+TextDIVHeight[1]; TextDIVWidth[2] = TextDIVWidth[1]; TextDIVHeight[2] = TextDIVHeight[1];
-  xMusicImage = appWidth*1/3; yMusicImage = yMusicPublishDate+TextDIVHeight[2]; widthMusicImage = appWidth*1/3; heightMusicImage = appHeight*1/6;
+  xMusicImage = appWidth*1/3; yMusicImage = appHeight*3/20+TextDIVHeight[0]+TextDIVHeight[1]+TextDIVHeight[2]; widthMusicImage = appWidth*1/3; heightMusicImage = appHeight*1/6;
   xMusicProgressBar = appWidth*5/26; yMusicProgressBar = appHeight*13/16; widthMusicProgressBar = appWidth*8/13; heightMusicProgressBar = appHeight*1/48;
   //
   //File Pathway
@@ -243,6 +235,8 @@ void draw() {
   fill(Black);
   rect(MusicPanelDivs[0], MusicPanelDivs[1], MusicPanelDivs[2], MusicPanelDivs[3]);
   if (!Attributions) {
+    //MusicPlayerGUI();
+    ///*
     strokeWeight(3);
     stroke(Purple);
     fill(Black);
@@ -250,6 +244,7 @@ void draw() {
       int baseIndex = i*4;
       rect(MusicPanelDivs[baseIndex], MusicPanelDivs[baseIndex+1], MusicPanelDivs[baseIndex+2], MusicPanelDivs[baseIndex+3]);
     }
+    //*/
     noStroke();
     //
     //Buttons
@@ -400,5 +395,14 @@ void mousePressed() {
   }
   //
 } //End mousePressed
+void MusicPlayerRectDIV(float xVariable, float yVariable, float widthVariable, float heightVariable) {
+  rect(xVariable, yVariable, widthVariable, heightVariable);
+  strokeWeight(3);
+  stroke(Purple);
+  fill(Black);
+}
+void MusicPlayerTriangleDIV(float xVariable1, float yVariable1, float xVariable2, float yVariable2, float xVariable3, float yVariable3) {
+  triangle(xVariable1, yVariable1, xVariable2, yVariable2, xVariable3, yVariable3);
+}
 //
 //End MAIN Program
