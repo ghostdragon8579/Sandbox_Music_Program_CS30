@@ -235,8 +235,6 @@ void draw() {
   fill(Black);
   rect(MusicPanelDivs[0], MusicPanelDivs[1], MusicPanelDivs[2], MusicPanelDivs[3]);
   if (!Attributions) {
-    //MusicPlayerGUI();
-    ///*
     strokeWeight(3);
     stroke(Purple);
     fill(Black);
@@ -244,7 +242,6 @@ void draw() {
       int baseIndex = i*4;
       rect(MusicPanelDivs[baseIndex], MusicPanelDivs[baseIndex+1], MusicPanelDivs[baseIndex+2], MusicPanelDivs[baseIndex+3]);
     }
-    //*/
     noStroke();
     //
     //Buttons
