@@ -12,8 +12,6 @@ import ddf.minim.ugens.*;
 //Global Variables
 float[] TextDIVWidth = new float[18];
 float[] TextDIVHeight = new float[18];
-float xPopupBackground, yPopupBackground, widthPopupBackground, heightPopupBackground;
-float xMusicImage, yMusicImage, widthMusicImage, heightMusicImage; //Divs system done waiting for integration
 float xMusicProgressBar, yMusicProgressBar, widthMusicProgressBar, heightMusicProgressBar;
 float xIcons8Location;
 float xVecteezyLocation;
@@ -80,11 +78,7 @@ void setup() {
   //
   MusicProgramDivs();
   //
-  //Background
-  xPopupBackground = appWidth*0; yPopupBackground = appHeight*0; widthPopupBackground = appWidth-1; heightPopupBackground = appHeight-1;
-  //
   //Music Panel
-  xMusicImage = appWidth*1/3; yMusicImage = appHeight*3/20+TextDIVHeight[0]+TextDIVHeight[1]+TextDIVHeight[2]; widthMusicImage = appWidth*1/3; heightMusicImage = appHeight*1/6;
   xMusicProgressBar = appWidth*5/26; yMusicProgressBar = appHeight*13/16; widthMusicProgressBar = appWidth*8/13; heightMusicProgressBar = appHeight*1/48;
   //
   //File Pathway
@@ -227,18 +221,17 @@ void draw() {
   //
   //  //Music Player Panel
   fill(Black);
-  rect(xPopupBackground, yPopupBackground, widthPopupBackground, heightPopupBackground);
-  image(MusicProgramImage[4], xPopupBackground, yPopupBackground, widthPopupBackground, heightPopupBackground);
+  image(MusicProgramImage[4], MusicPanelDivs[0], MusicPanelDivs[1], MusicPanelDivs[2], MusicPanelDivs[3]);
   fill(resetDefaultInk);
   strokeWeight(3);
   stroke(Purple);
   fill(Black);
-  rect(MusicPanelDivs[0], MusicPanelDivs[1], MusicPanelDivs[2], MusicPanelDivs[3]);
+  rect(MusicPanelDivs[4], MusicPanelDivs[5], MusicPanelDivs[6], MusicPanelDivs[7]);
   if (!Attributions) {
     strokeWeight(3);
     stroke(Purple);
     fill(Black);
-    for (int i = 0; i < NumberOfMusicPanelDIVs; i++) {
+    for (int i = 1; i < NumberOfMusicPanelDIVs; i++) {
       int baseIndex = i*4;
       rect(MusicPanelDivs[baseIndex], MusicPanelDivs[baseIndex+1], MusicPanelDivs[baseIndex+2], MusicPanelDivs[baseIndex+3]);
     }
@@ -267,7 +260,7 @@ void draw() {
     image(MusicProgramImage[3], ButtonDivs[24], ButtonDivs[25], ButtonDivs[26], ButtonDivs[27]); //Shuffle Button Image
     image(MusicProgramImage[2], ButtonDivs[28], ButtonDivs[29], ButtonDivs[30], ButtonDivs[31]); //Replay Button Image
     image(MusicProgramImage[1], ButtonDivs[32], ButtonDivs[33], ButtonDivs[34], ButtonDivs[35]); //Loop Button Image
-    AspectRatioMusicImage(MusicImage[SongPlaying], MusicPanelDivs[16], MusicPanelDivs[17], MusicPanelDivs[18], MusicPanelDivs[19]);
+    AspectRatioMusicImage(MusicImage[SongPlaying], MusicPanelDivs[20], MusicPanelDivs[21], MusicPanelDivs[22], MusicPanelDivs[23]);
     //
     //Text
     fill(TextPurple);

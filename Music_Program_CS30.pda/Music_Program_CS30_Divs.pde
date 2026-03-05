@@ -1,4 +1,4 @@
-int NumberOfMusicPanelDIVs = 6; //All Music Panel components
+int NumberOfMusicPanelDIVs = 7; //All Music Panel components
 float[][] MusicPanelDivRatios = new float[NumberOfMusicPanelDIVs][4]; //Store ratios (Rectangles)
 float[] MusicPanelDivs = new float [NumberOfMusicPanelDIVs*4]; //Music Panel Position and Size of components
 int NumberOfButtonDIVs = 10; //All Music Player Buttons
@@ -25,12 +25,13 @@ void MusicProgramDivs() {
   //
   //Music Panel Divs
   //{X value in ratio of appwidth, Y value in ratio of appwidth, width value in ratio of appwidth, height value in ratio of appheight}
-  MusicPanelDivRatios[0] = new float[]{2.0/27, 1.0/10, 23.0/27, 4.0/5}; //Music Panel Component
-  MusicPanelDivRatios[1] = new float[]{2.0/7, 3.0/20, 3.0/7, 1.0/11}; //Song Title Component
-  MusicPanelDivRatios[2] = new float[]{1.0/3, 3.0/20+1.0/11, 1.0/3, 1.0/18}; //Song Author Component
-  MusicPanelDivRatios[3] = new float[]{1.0/3, 3.0/20+1.0/11+1.0/18, 1.0/3, 1.0/18}; //Date of Publish/Release
-  MusicPanelDivRatios[4] = new float[]{1.0/3, 3.0/20+1.0/11+1.0/9, 1.0/3, 1.0/6}; //Song Image Component
-  MusicPanelDivRatios[5] = new float[]{5.0/26, 13.0/16, 8.0/13, 1.0/48}; //Song Progress Bar
+  MusicPanelDivRatios[0] = new float[]{0.0, 0.0, 1.0/1, 1.0/1}; //Background Component
+  MusicPanelDivRatios[1] = new float[]{2.0/27, 1.0/10, 23.0/27, 4.0/5}; //Music Panel Component
+  MusicPanelDivRatios[2] = new float[]{2.0/7, 3.0/20, 3.0/7, 1.0/11}; //Song Title Component
+  MusicPanelDivRatios[3] = new float[]{1.0/3, 3.0/20+1.0/11, 1.0/3, 1.0/18}; //Song Author Component
+  MusicPanelDivRatios[4] = new float[]{1.0/3, 3.0/20+1.0/11+1.0/18, 1.0/3, 1.0/18}; //Date of Publish/Release
+  MusicPanelDivRatios[5] = new float[]{1.0/3, 3.0/20+1.0/11+1.0/9, 1.0/3, 1.0/6}; //Song Image Component
+  MusicPanelDivRatios[6] = new float[]{5.0/26, 13.0/16, 8.0/13, 1.0/48}; //Song Progress Bar
   //
   //Button Divs
   //{X value in ratio of appwidth, Y value in ratio of appwidth, width value in ratio of appwidth, height value in ratio of appheight}
