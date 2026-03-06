@@ -9,6 +9,9 @@ import ddf.minim.signals.*;
 import ddf.minim.spi.*;
 import ddf.minim.ugens.*;
 //
+//Classes
+//MusicPlayer musicPlayer;
+//
 //Global Variables
 float[] TextDIVWidth = new float[18];
 float[] TextDIVHeight = new float[18];
@@ -77,6 +80,7 @@ void setup() {
   minim = new Minim(this);
   //
   MusicProgramDivs();
+  //musicPlayer.setup();
   //
   //Music Panel
   xMusicProgressBar = appWidth*5/26; yMusicProgressBar = appHeight*13/16; widthMusicProgressBar = appWidth*8/13; heightMusicProgressBar = appHeight*1/48;
@@ -216,10 +220,13 @@ void draw() {
   //
   shapeMode(CENTER);
   //
+  //musicPlayer.draw();
+  //
   MusicPanelTextSetup1();
   MusicPanelTextSetup2();
   //
-  //  //Music Player Panel
+  //  
+  //Music Player Panel
   fill(Black);
   image(MusicProgramImage[4], MusicPanelDivs[0], MusicPanelDivs[1], MusicPanelDivs[2], MusicPanelDivs[3]);
   fill(resetDefaultInk);
