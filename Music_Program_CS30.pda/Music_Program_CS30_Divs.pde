@@ -1,3 +1,4 @@
+//class MusicPLayer {
 int NumberOfMusicPanelDIVs = 7; //All Music Panel components
 float[][] MusicPanelDivRatios = new float[NumberOfMusicPanelDIVs][4]; //Store ratios (Rectangles)
 float[] MusicPanelDivs = new float [NumberOfMusicPanelDIVs*4]; //Music Panel Position and Size of components
@@ -22,6 +23,7 @@ However the function conversion and generation are the same but creating triangl
 */
 //
 void MusicProgramDivs() {
+//void setup() {
   //
   //Music Panel Divs
   //{X value in ratio of appwidth, Y value in ratio of appwidth, width value in ratio of appwidth, height value in ratio of appheight}
@@ -127,7 +129,95 @@ void MusicPlayerGUI() {
   }
 /*
 void draw() {
-    MusicPlayerGUI();
+  fill(Black);
+  image(MusicProgramImage[4], MusicPanelDivs[0], MusicPanelDivs[1], MusicPanelDivs[2], MusicPanelDivs[3]);
+  fill(resetDefaultInk);
+  strokeWeight(3);
+  stroke(Purple);
+  fill(Black);
+  rect(MusicPanelDivs[4], MusicPanelDivs[5], MusicPanelDivs[6], MusicPanelDivs[7]);
+  if (!Attributions) {
+    strokeWeight(3);
+    stroke(Purple);
+    fill(Black);
+    for (int i = 1; i < NumberOfMusicPanelDIVs; i++) {
+      int baseIndex = i*4;
+      rect(MusicPanelDivs[baseIndex], MusicPanelDivs[baseIndex+1], MusicPanelDivs[baseIndex+2], MusicPanelDivs[baseIndex+3]);
+    }
+    noStroke();
+    //
+    //Buttons
+    strokeWeight(3);
+    stroke(Purple);
+    fill(Black);
+    for (int i = 0; i < NumberOfButtonDIVs; i++) {
+      int baseIndex = i*4;
+      rect(ButtonDivs[baseIndex], ButtonDivs[baseIndex+1], ButtonDivs[baseIndex+2], ButtonDivs[baseIndex+3]);
+    }
+    //
+    //Music Button Icons
+    strokeWeight(3);
+    stroke(TextPurple);
+    fill(TextPurple);
+    for (int i = 0; i < NumberOfButtonIconDIVs; i++) {
+      int baseIndex = i*6;
+      triangle(ButtonIconDivs[baseIndex], ButtonIconDivs[baseIndex+1], ButtonIconDivs[baseIndex+2], ButtonIconDivs[baseIndex+3], ButtonIconDivs[baseIndex+4], ButtonIconDivs[baseIndex+5]);
+    }
+    //
+    //Images
+    image(MusicProgramImage[0], ButtonDivs[0], ButtonDivs[1], ButtonDivs[2], ButtonDivs[3]); //Quit Button Image
+    image(MusicProgramImage[3], ButtonDivs[24], ButtonDivs[25], ButtonDivs[26], ButtonDivs[27]); //Shuffle Button Image
+    image(MusicProgramImage[2], ButtonDivs[28], ButtonDivs[29], ButtonDivs[30], ButtonDivs[31]); //Replay Button Image
+    image(MusicProgramImage[1], ButtonDivs[32], ButtonDivs[33], ButtonDivs[34], ButtonDivs[35]); //Loop Button Image
+    AspectRatioMusicImage(MusicImage[SongPlaying], MusicPanelDivs[20], MusicPanelDivs[21], MusicPanelDivs[22], MusicPanelDivs[23]);
+    //
+    //Text
+    fill(TextPurple);
+    textAlign(CENTER, CENTER);
+    textFont(TitleFont, FontSizes[0]);
+    text(Text[0], TextDivs[0], TextDivs[1], TextDivs[2], TextDivs[3]);
+    textFont(TitleFont, FontSizes[1]);
+    text(Text[1], TextDivs[4], TextDivs[5], TextDivs[6], TextDivs[7]);
+    textFont(TitleFont, FontSizes[1]);
+    text(Text[2], TextDivs[8], TextDivs[9], TextDivs[10], TextDivs[11]);
+    fill(resetDefaultInk);
+  }
+  //
+  if (Attributions) {
+    ImageMusicAttributions();
+  }
+  //  
+  //Attributions
+  strokeWeight(3);
+  stroke(Purple);
+  fill(Black);
+  rect(ButtonDivs[36], ButtonDivs[37], ButtonDivs[38], ButtonDivs[39]);
+  textAlign(CENTER, CENTER);
+  textFont(TitleFont, FontSizes[3]);
+  fill(TextPurple);
+  text(Text[3], TextDivs[12], TextDivs[13], TextDivs[14], TextDivs[15]);
+  //
+  //Song Auto Transition
+  if (SongPlayList[SongPlaying].position() >= AlteredCurrentSongLength && SongLoop == false) {
+    SongPlaying += 1;
+    if (SongPlaying > SongNumber - 1) {
+      SongPlaying = 0;
+    }
+    SongPlayList[SongPlaying].play();
+  } else if (SongPlayList[SongPlaying].position() >= AlteredCurrentSongLength && SongLoop == true) {
+    SongPlayList[SongPlaying].rewind();
+  }
+  //
+  if (!Attributions) {
+    //Progress Bar and Progress Timer
+    textFont(TitleFont, size);
+    Music_Program_CS30_ProgressBar();
+    Music_Program_CS30_ProgressTimer();
+  }
+  //
+  //HoverOverColors
+  Music_Program_CS30_HoverOver();
+  //
   }
 void mousePressed() {
     if (MouseIsOver(ButtonDivs[0], ButtonDivs[1], ButtonDivs[2], ButtonDivs[3])) {
