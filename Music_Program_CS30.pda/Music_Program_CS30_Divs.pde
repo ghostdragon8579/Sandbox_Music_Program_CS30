@@ -122,11 +122,6 @@ void CalculateDIVs() {
     TextDIVHeight[i] = TextDivs[baseIndex+3];
   }
 }
-void MusicPlayerGUI() {
-  int baseIndex=0;
-  MusicPlayerRectDIV(MusicPanelDivs[baseIndex], MusicPanelDivs[baseIndex+1], MusicPanelDivs[baseIndex+2], MusicPanelDivs[baseIndex+3]);
-  MusicPlayerTriangleDIV(ButtonIconDivs[baseIndex], ButtonIconDivs[baseIndex+1], ButtonIconDivs[baseIndex+2], ButtonIconDivs[baseIndex+3], ButtonIconDivs[baseIndex+4], ButtonIconDivs[baseIndex+5]);
-}
 /*
 void draw() {
   //
@@ -211,5 +206,5 @@ void draw() {
   //HoverOverColors
   Music_Program_CS30_HoverOver();
   //
-  }
-*/
+}
+//*/
