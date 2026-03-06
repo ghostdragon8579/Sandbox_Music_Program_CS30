@@ -10,7 +10,8 @@ import ddf.minim.spi.*;
 import ddf.minim.ugens.*;
 //
 //Classes
-//MusicPlayer musicPlayer;
+//MusicPlayerDivs musicPlayerDivs;
+//MusicPlayerSoundImages musicPlayerSoundImages
 //
 //Global Variables
 float[] TextDIVWidth = new float[18];
@@ -212,8 +213,8 @@ void setup() {
   //
   /*
   String[] fontList = PFont.list();
-   printArray(fontList);
-   */
+  printArray(fontList);
+  */
   //
 } //End setup
 void draw() {
@@ -295,6 +296,16 @@ void draw() {
   fill(TextPurple);
   text(Text[3], TextDivs[12], TextDivs[13], TextDivs[14], TextDivs[15]);
   //
+  if (!Attributions) {
+    //Progress Bar and Progress Timer
+    textFont(TitleFont, size);
+    Music_Program_CS30_ProgressBar();
+    Music_Program_CS30_ProgressTimer();
+  }
+  //
+  //HoverOverColors
+  Music_Program_CS30_HoverOver();
+  //
   //Song Auto Transition
   if (SongPlayList[SongPlaying].position() >= AlteredCurrentSongLength && SongLoop == false) {
     SongPlaying += 1;
@@ -305,16 +316,6 @@ void draw() {
   } else if (SongPlayList[SongPlaying].position() >= AlteredCurrentSongLength && SongLoop == true) {
     SongPlayList[SongPlaying].rewind();
   }
-  //
-  if (!Attributions) {
-    //Progress Bar and Progress Timer
-    textFont(TitleFont, size);
-    Music_Program_CS30_ProgressBar();
-    Music_Program_CS30_ProgressTimer();
-  }
-  //
-  //HoverOverColors
-  Music_Program_CS30_HoverOver();
   //
 } //End draw
 //
@@ -337,7 +338,7 @@ void keyPressed() {
       SongPlayList[SongPlaying].skip(-SongSkipTime);
     }
     if (key >= '1' && key <= '9') {
-      KeyBasedLocationFunction ();
+      KeyBasedLocationFunction();
     }
   }
   //
@@ -360,29 +361,8 @@ void mousePressed() {
     }
     //
     //Buttons
-    if (MouseIsOver(ButtonDivs[0], ButtonDivs[1], ButtonDivs[2], ButtonDivs[3])) {
-      SaveLastSongState();
-      exit();
-    } else if (MouseIsOver(ButtonDivs[4], ButtonDivs[5], ButtonDivs[6], ButtonDivs[7])) {
-      PreviousSongFunction();
-    } else if (MouseIsOver(ButtonDivs[8], ButtonDivs[9], ButtonDivs[10], ButtonDivs[11])) {
-      SongPlayList[SongPlaying].skip(-SongSkipTime);
-    } else if (MouseIsOver(ButtonDivs[12], ButtonDivs[13], ButtonDivs[14], ButtonDivs[15])) {
-      PlayPauseFunction();
-    } else if (MouseIsOver(ButtonDivs[16], ButtonDivs[17], ButtonDivs[18], ButtonDivs[19])) {
-      SongPlayList[SongPlaying].skip(SongSkipTime);
-    } else if (MouseIsOver(ButtonDivs[20], ButtonDivs[21], ButtonDivs[22], ButtonDivs[23])) {
-      NextSongFunction();
-    } else if (MouseIsOver(ButtonDivs[24], ButtonDivs[25], ButtonDivs[26], ButtonDivs[27])) {
-      ShuffleSongFunction();
-    } else if (MouseIsOver(ButtonDivs[28], ButtonDivs[29], ButtonDivs[30], ButtonDivs[31])) {
-      SongPlayList[SongPlaying].rewind();
-    } else if (MouseIsOver(ButtonDivs[32], ButtonDivs[33], ButtonDivs[34], ButtonDivs[35])) {
-      SongLoop = true;
-    } else if (SongLoop == true) {
-      SongLoop = false;
-
-    }
+    ButtonPressed();
+    //
   }
   if (Attributions) {
     ImageMusicAttributionsMousePressed();
@@ -392,14 +372,5 @@ void mousePressed() {
   }
   //
 } //End mousePressed
-void MusicPlayerRectDIV(float xVariable, float yVariable, float widthVariable, float heightVariable) {
-  rect(xVariable, yVariable, widthVariable, heightVariable);
-  strokeWeight(3);
-  stroke(Purple);
-  fill(Black);
-}
-void MusicPlayerTriangleDIV(float xVariable1, float yVariable1, float xVariable2, float yVariable2, float xVariable3, float yVariable3) {
-  triangle(xVariable1, yVariable1, xVariable2, yVariable2, xVariable3, yVariable3);
-}
 //
 //End MAIN Program
