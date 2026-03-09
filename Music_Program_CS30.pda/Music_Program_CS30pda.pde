@@ -303,7 +303,6 @@ void draw() {
   //
   //HoverOverColors
   Music_Program_CS30_HoverOver();
-  //*/
   //
   //Song Auto Transition
   if (SongPlayList[SongPlaying].position() >= AlteredCurrentSongLength && SongLoop == false) {
