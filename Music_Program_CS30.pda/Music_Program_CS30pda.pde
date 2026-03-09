@@ -11,7 +11,6 @@ import ddf.minim.ugens.*;
 //
 //Classes
 //MusicPlayerDivs musicPlayerDivs;
-//MusicPlayerSoundImages musicPlayerSoundImages
 //
 //Global Variables
 float[] TextDIVWidth = new float[18];
@@ -81,7 +80,6 @@ void setup() {
   minim = new Minim(this);
   //
   MusicProgramDivs();
-  //musicPlayer.setup();
   //
   //Music Panel
   xMusicProgressBar = appWidth*5/26; yMusicProgressBar = appHeight*13/16; widthMusicProgressBar = appWidth*8/13; heightMusicProgressBar = appHeight*1/48;
@@ -221,7 +219,7 @@ void draw() {
   //
   shapeMode(CENTER);
   //
-  //musicPlayer.draw();
+  //musicPlayerDivs.draw();
   //
   MusicPanelTextSetup1();
   MusicPanelTextSetup2();
@@ -305,6 +303,7 @@ void draw() {
   //
   //HoverOverColors
   Music_Program_CS30_HoverOver();
+  //*/
   //
   //Song Auto Transition
   if (SongPlayList[SongPlaying].position() >= AlteredCurrentSongLength && SongLoop == false) {
