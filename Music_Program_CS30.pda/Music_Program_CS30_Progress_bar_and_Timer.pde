@@ -1,3 +1,4 @@
+/*
 void Music_Program_CS30_ProgressBar () {
   if (SongPlayList[SongPlaying].isPlaying()) {
     SongTimeCounter = millis();
@@ -48,3 +49,4 @@ void AspectRatioMusicImage(PImage img, float x, float y, float Width, float Heig
   float drawY =y+(Height-drawHeight)/2;
   image(img, drawX, drawY, drawWidth, drawHeight);
 }
+*/

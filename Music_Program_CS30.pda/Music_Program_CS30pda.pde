@@ -10,47 +10,14 @@ import ddf.minim.spi.*;
 import ddf.minim.ugens.*;
 //
 //Classes
-//MusicPlayerDivs musicPlayerDivs;
+MusicPlayerDivs musicPlayerDivs;
 //
 //Global Variables
-float[] TextDIVWidth = new float[18];
-float[] TextDIVHeight = new float[18];
-float xMusicProgressBar, yMusicProgressBar, widthMusicProgressBar, heightMusicProgressBar;
-float xIcons8Location;
-float xVecteezyLocation;
-float ProgressWidth;
-PImage[] MusicProgramImage = new PImage[7];
-PImage[] MusicImage = new PImage[6];
-PImage NeonBackground2;
-PImage Quit;
-PImage Shuffle;
-PImage Loop;
-PImage Replay;
-PFont TitleFont;
-PFont AttributionFont;
-color resetDefaultInk=#FFFFFF;
-color Gray=#C9C9C9;
-color LightGray=#CECECE;
-color Black=#000000;
-color Purple=#B031E8;
-color TextPurple=#F986FF;
 int appWidth, appHeight;
 int size;
 int ShorterSide;
 int SongNumber = 6;
-int SongPlaying = SongNumber - SongNumber;
 int SoundEffectNumber = 1;
-int SoundEffectPlaying = 0;
-int SongTimeCounter;
-int SongLengthAlteration;
-int AlteredCurrentSongLength;
-int KeySongPosition;
-int SongSkipTime;
-int LastSongState;
-String SongStateTxtPath_LastSongState;
-boolean SongLoop = false;
-boolean IsFontSizeUpdated = false;
-boolean Attributions = false;
 boolean MouseIsOver(float xVariable, float yVariable, float widthVariable, float heightVariable) {
   return mouseX > xVariable && mouseX < xVariable + widthVariable && mouseY > yVariable && mouseY < yVariable + heightVariable;
 }
@@ -79,266 +46,20 @@ void setup() {
   //
   minim = new Minim(this);
   //
-  MusicProgramDivs();
-  //
-  //Music Panel
-  xMusicProgressBar = appWidth*5/26; yMusicProgressBar = appHeight*13/16; widthMusicProgressBar = appWidth*8/13; heightMusicProgressBar = appHeight*1/48;
-  //
-  //File Pathway
-  String Up = "..";
-  String Open = "/";
-  String Images = "Music_Program_Images";
-  String Imagepathway = Up + Open;
-  String QuitImage = "exit.png";
-  Quit = loadImage(Imagepathway+Images+Open+QuitImage);
-  //
-  //Music Pathway
-  String RelativeMusicPathway = "/Music_Program_CS30_Audio_Files/";
-  String AbsoluteMusicPathway = sketchPath(RelativeMusicPathway);
-  AudioFiles = new File(AbsoluteMusicPathway);
-  int AudioFileCount = AudioFiles.list().length;
-  SongNumber = AudioFiles.list().length;
-  File[] SongFiles = AudioFiles.listFiles();
-  String[] SongFilePathway = new String[AudioFileCount];
-  for (int i = SongPlaying; i < SongFiles.length; i++) {
-    SongFilePathway[i] = (SongFiles[i].toString());
-  }
-  //
-  String PathDirectory = sketchPath(AbsoluteMusicPathway);
-  println("Main Directory to Music Folder", PathDirectory);
-  file = new File(PathDirectory);
-  int fileCount = file.list().length;
-  println("File Count of the Music Folder:", fileCount);
-  File[] files = file.listFiles();
-  printArray(files);
-  for (int i = SongPlaying; i < files.length; i++) {
-    println("File Name", files[i].getName());
-  }
-  //
-  for (int i=SongPlaying; i<AudioFileCount; i++) {
-    SongPlayList[i]= minim.loadFile(SongFilePathway[i]);
-    SongPlayListMetaData[i] = SongPlayList[i].getMetaData();
-  }
-  //
-  //Sound Effects
-  String RelativeSoundEffectPathway = "../Sound Effects/";
-  String AbsoluteSoundEffectPathway = sketchPath(RelativeSoundEffectPathway);
-  SoundEffectFiles = new File(AbsoluteSoundEffectPathway);
-  int SoundEffectFileCount = SoundEffectFiles.list().length;
-  File[] SoundEffectfiles2 = SoundEffectFiles.listFiles();
-  String[] SoundEffectFilePathway = new String[SoundEffectFileCount];
-  for (int i = SoundEffectPlaying; i < SoundEffectfiles2.length; i++) {
-    SoundEffectFilePathway[i] = (SoundEffectfiles2[i].toString());
-  }
-  //
-  String SoundEffectPathDirectory = sketchPath(AbsoluteSoundEffectPathway);
-  println("Main Directory to Sound Effect Folder", SoundEffectPathDirectory);
-  file = new File(SoundEffectPathDirectory);
-  int SoundEffectfileCount = file.list().length;
-  println("File Count of the Sound Effect Folder:", SoundEffectfileCount);
-  File[] SoundEffectfiles = file.listFiles();
-  for (int i = SoundEffectPlaying; i < SoundEffectfiles.length; i++) {
-    println("File Name", SoundEffectfiles[i].getName());
-  }
-  //
-  for (int i=SoundEffectPlaying; i<SoundEffectFileCount; i++) {
-    SoundEffectPlayList[i]= minim.loadFile(SoundEffectFilePathway[i]);
-    SoundEffectPlayListMetaData[i] = SoundEffectPlayList[i].getMetaData();
-  }
-  //
-  //Images
-  String ImagePathwayRelative = "/Music_Program_CS30_Image_Files/";
-  String ImagePathwayAbsolute = sketchPath(ImagePathwayRelative);
-  File ImageFolder = new File(ImagePathwayAbsolute);
-  File[] ImageFiles = ImageFolder.listFiles();
-  MusicProgramImage = new PImage[ImageFiles.length];
-  for (int i = 0; i < ImageFiles.length; i++) {
-    if (ImageFiles[i].isFile()) {
-      MusicProgramImage[i] = loadImage(ImageFiles[i].getAbsolutePath());
-    }
-  }
-  //
-  //Music Images
-  String MusicImagePathwayRelative = "/Music_Program_CS30_Music_Image_Files/";
-  String MusicImagePathwayAbsolute = sketchPath(MusicImagePathwayRelative);
-  File MusicImageFolder = new File(MusicImagePathwayAbsolute);
-  File[] MusicImageFiles = MusicImageFolder.listFiles();
-  MusicImage = new PImage[MusicImageFiles.length];
-  for (int i = 0; i < MusicImageFiles.length; i++) {
-    if (MusicImageFiles[i].isFile()) {
-      MusicImage[i] = loadImage(MusicImageFiles[i].getAbsolutePath());
-    }
-  }
-  //
-  /*
-  //Song Debugging
-  println("File Name", SongPlayListMetaData[SongPlaying].fileName());
-  println("Song Length (in milliseconds)", SongPlayListMetaData[SongPlaying].length());
-  println("Song Length (in seconds)", SongPlayListMetaData[SongPlaying].length()/1000);
-  println("Song Length (in minutes and seconds)", SongPlayListMetaData[SongPlaying].length()/1000/60, "minutes", SongPlayListMetaData[SongPlaying].length()/1000 - ((SongPlayListMetaData[SongPlaying].length()/1000/60)*60), "seconds");
-  println("Song Title", SongPlayListMetaData[SongPlaying].title());
-  println("Author", SongPlayListMetaData[SongPlaying].author());
-  println("Composer", SongPlayListMetaData[SongPlaying].composer());
-  println("Orchestra", SongPlayListMetaData[SongPlaying].orchestra());
-  println("Album", SongPlayListMetaData[SongPlaying].album());
-  println("Disc", SongPlayListMetaData[SongPlaying].disc());
-  println("Publisher", SongPlayListMetaData[SongPlaying].publisher());
-  println("Date Released", SongPlayListMetaData[SongPlaying].date());
-  println("Copyright", SongPlayListMetaData[SongPlaying].copyright());
-  println("Comments", SongPlayListMetaData[SongPlaying].comment());
-  println("Lyrics", SongPlayListMetaData[SongPlaying].lyrics());
-  println("Track", SongPlayListMetaData[SongPlaying].track());
-  println("Genre", SongPlayListMetaData[SongPlaying].genre());
-  println("Encoded", SongPlayListMetaData[SongPlaying].encoded());
-  //
-  println(SongPlaying);
-  */
-  //
-  xIcons8Location = TextDivs[16]+textWidth("Loop, Shuffle, and Rewind icons by ");
-  xVecteezyLocation = TextDivs[20]+textWidth("Background Image by Tinnapon Wuttichaikitcharoen on ");
-  //
-  SongSkipTime = 5000;
-  SongLengthAlteration = 5000;
-  AlteredCurrentSongLength = max(SongPlayList[SongPlaying].length() - SongLengthAlteration, 1);
-  SongTimeCounter = 0;
-  //
-  TitleFont = createFont("Times New Roman Bold", 55);
-  AttributionFont = createFont("Calibri Bold", 55);
-  //
-  //Saved Song State from last use
-  SongStateTxtPath_LastSongState = sketchPath("Last_Song_State.txt");
-  LoadLastSongState();
-  //
-  /*
-  String[] fontList = PFont.list();
-  printArray(fontList);
-  */
+  musicPlayerDivs = new MusicPlayerDivs();
   //
 } //End setup
 void draw() {
   //
   shapeMode(CENTER);
   //
-  //musicPlayerDivs.draw();
-  //
-  MusicPanelTextSetup1();
-  MusicPanelTextSetup2();
-  //
-  //  
-  //Music Player Panel
-  fill(Black);
-  image(MusicProgramImage[4], MusicPanelDivs[0], MusicPanelDivs[1], MusicPanelDivs[2], MusicPanelDivs[3]);
-  fill(resetDefaultInk);
-  strokeWeight(3);
-  stroke(Purple);
-  fill(Black);
-  rect(MusicPanelDivs[4], MusicPanelDivs[5], MusicPanelDivs[6], MusicPanelDivs[7]);
-  if (!Attributions) {
-    strokeWeight(3);
-    stroke(Purple);
-    fill(Black);
-    for (int i = 1; i < NumberOfMusicPanelDIVs; i++) {
-      int baseIndex = i*4;
-      rect(MusicPanelDivs[baseIndex], MusicPanelDivs[baseIndex+1], MusicPanelDivs[baseIndex+2], MusicPanelDivs[baseIndex+3]);
-    }
-    noStroke();
-    //
-    //Buttons
-    strokeWeight(3);
-    stroke(Purple);
-    fill(Black);
-    for (int i = 0; i < NumberOfButtonDIVs; i++) {
-      int baseIndex = i*4;
-      rect(ButtonDivs[baseIndex], ButtonDivs[baseIndex+1], ButtonDivs[baseIndex+2], ButtonDivs[baseIndex+3]);
-    }
-    //
-    //Music Button Icons
-    strokeWeight(3);
-    stroke(TextPurple);
-    fill(TextPurple);
-    for (int i = 0; i < NumberOfButtonIconDIVs; i++) {
-      int baseIndex = i*6;
-      triangle(ButtonIconDivs[baseIndex], ButtonIconDivs[baseIndex+1], ButtonIconDivs[baseIndex+2], ButtonIconDivs[baseIndex+3], ButtonIconDivs[baseIndex+4], ButtonIconDivs[baseIndex+5]);
-    }
-    //
-    //Images
-    image(MusicProgramImage[0], ButtonDivs[0], ButtonDivs[1], ButtonDivs[2], ButtonDivs[3]); //Quit Button Image
-    image(MusicProgramImage[3], ButtonDivs[24], ButtonDivs[25], ButtonDivs[26], ButtonDivs[27]); //Shuffle Button Image
-    image(MusicProgramImage[2], ButtonDivs[28], ButtonDivs[29], ButtonDivs[30], ButtonDivs[31]); //Replay Button Image
-    image(MusicProgramImage[1], ButtonDivs[32], ButtonDivs[33], ButtonDivs[34], ButtonDivs[35]); //Loop Button Image
-    AspectRatioMusicImage(MusicImage[SongPlaying], MusicPanelDivs[20], MusicPanelDivs[21], MusicPanelDivs[22], MusicPanelDivs[23]);
-    //
-    //Text
-    fill(TextPurple);
-    textAlign(CENTER, CENTER);
-    textFont(TitleFont, FontSizes[0]);
-    text(Text[0], TextDivs[0], TextDivs[1], TextDivs[2], TextDivs[3]);
-    textFont(TitleFont, FontSizes[1]);
-    text(Text[1], TextDivs[4], TextDivs[5], TextDivs[6], TextDivs[7]);
-    textFont(TitleFont, FontSizes[1]);
-    text(Text[2], TextDivs[8], TextDivs[9], TextDivs[10], TextDivs[11]);
-    fill(resetDefaultInk);
-  }
-  //
-  if (Attributions) {
-    ImageMusicAttributions();
-  }
-  //  
-  //Attributions
-  strokeWeight(3);
-  stroke(Purple);
-  fill(Black);
-  rect(ButtonDivs[36], ButtonDivs[37], ButtonDivs[38], ButtonDivs[39]);
-  textAlign(CENTER, CENTER);
-  textFont(TitleFont, FontSizes[3]);
-  fill(TextPurple);
-  text(Text[3], TextDivs[12], TextDivs[13], TextDivs[14], TextDivs[15]);
-  //
-  if (!Attributions) {
-    //Progress Bar and Progress Timer
-    textFont(TitleFont, size);
-    Music_Program_CS30_ProgressBar();
-    Music_Program_CS30_ProgressTimer();
-  }
-  //
-  //HoverOverColors
-  Music_Program_CS30_HoverOver();
-  //
-  //Song Auto Transition
-  if (SongPlayList[SongPlaying].position() >= AlteredCurrentSongLength && SongLoop == false) {
-    SongPlaying += 1;
-    if (SongPlaying > SongNumber - 1) {
-      SongPlaying = 0;
-    }
-    SongPlayList[SongPlaying].play();
-  } else if (SongPlayList[SongPlaying].position() >= AlteredCurrentSongLength && SongLoop == true) {
-    SongPlayList[SongPlaying].rewind();
-  }
+  musicPlayerDivs.draw();
   //
 } //End draw
 //
 void keyPressed() {
   //
-  if (!Attributions) {
-    if (key=='p' || key=='P') {
-      KeyPlayPauseFunction();
-    }
-    if (key=='r' || key=='R') {
-      SongPlayList[SongPlaying].rewind();
-    }
-    if (key=='m' || key=='M') {
-      KeyMuteFunction ();
-    }
-    if (key == CODED && keyCode == RIGHT) {
-      SongPlayList[SongPlaying].skip(+SongSkipTime);
-    }
-    if (key == CODED && keyCode == LEFT) {
-      SongPlayList[SongPlaying].skip(-SongSkipTime);
-    }
-    if (key >= '1' && key <= '9') {
-      KeyBasedLocationFunction();
-    }
-  }
+  musicPlayerDivs.keyPressed();
   //
 } //End keyPressed
 //
@@ -348,26 +69,7 @@ void keyReleased() {
 //
 void mousePressed() {
   //
-  //Progress Bar
-  if (!Attributions) {
-    if (MouseIsOver(xMusicProgressBar, yMusicProgressBar, widthMusicProgressBar, heightMusicProgressBar)) {
-      float ProgressBarPositionClicked = mouseX-xMusicProgressBar*15/14;
-      ProgressBarPositionClicked = constrain(ProgressBarPositionClicked, 0, widthMusicProgressBar);
-      float SongPercentageAtClickPoint = ProgressBarPositionClicked/widthMusicProgressBar;
-      int ClickedSongPosition = int(SongPercentageAtClickPoint*SongPlayList[SongPlaying].length());
-      SongPlayList[SongPlaying].cue(ClickedSongPosition);
-    }
-    //
-    //Buttons
-    ButtonPressed();
-    //
-  }
-  if (Attributions) {
-    ImageMusicAttributionsMousePressed();
-  }
-  if (MouseIsOver(ButtonDivs[36], ButtonDivs[37], ButtonDivs[38], ButtonDivs[39])) {
-    ToggleAttributions();
-  }
+  musicPlayerDivs.mousePressed();
   //
 } //End mousePressed
 //

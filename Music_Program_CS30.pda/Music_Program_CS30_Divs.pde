@@ -1,7 +1,6 @@
-//class MusicPlayerDivs {
+class MusicPlayerDivs {
 //
 //Global Variables
-/*
 float[] TextDIVWidth = new float[18];
 float[] TextDIVHeight = new float[18];
 float xMusicProgressBar, yMusicProgressBar, widthMusicProgressBar, heightMusicProgressBar;
@@ -23,9 +22,7 @@ color LightGray=#CECECE;
 color Black=#000000;
 color Purple=#B031E8;
 color TextPurple=#F986FF;
-int SongNumber = 6;
-int SongPlaying = SongNumber - SongNumber;
-int SoundEffectNumber = 1;
+int SongPlaying = SongNumber-SongNumber;
 int SoundEffectPlaying = 0;
 int SongTimeCounter;
 int SongLengthAlteration;
@@ -37,7 +34,6 @@ String SongStateTxtPath_LastSongState;
 boolean SongLoop = false;
 boolean IsFontSizeUpdated = false;
 boolean Attributions = false;
-*/
 //
 int NumberOfMusicPanelDIVs = 7; //All Music Panel components
 float[][] MusicPanelDivRatios = new float[NumberOfMusicPanelDIVs][4]; //Store ratios (Rectangles)
@@ -61,10 +57,10 @@ float[] TextDivs = new float [NumberOfTextDIVs*4]; //Text Positions and Size
   is used in ButtonIconDivRatios except there are 6 ratios and the 1st, 3rd and 5th are ratios of X and the 2nd, 4th and 6th are ratios of Y as triangles do not use a width or height when being created.
   However the function conversion and generation are the same but creating triangles instead of rectangles.
   */
-  //MusicPlayerDivs() {
-    //MusicProgramDivs();
-    //MusicPlayerSetup();
-  //}
+  MusicPlayerDivs() {
+    MusicProgramDivs();
+    MusicPlayerSetup();
+  }
   //
 void MusicProgramDivs() {
   //
@@ -165,7 +161,6 @@ void CalculateDIVs() {
     TextDIVHeight[i] = TextDivs[baseIndex+3];
   }
 } 
-/*
 void MusicPlayerSetup() {
   //
   //Music Panel
@@ -277,6 +272,7 @@ void MusicPlayerSetup() {
   println("Track", SongPlayListMetaData[SongPlaying].track());
   println("Genre", SongPlayListMetaData[SongPlaying].genre());
   println("Encoded", SongPlayListMetaData[SongPlaying].encoded());
+  */
   //
   println(SongPlaying);
   //
@@ -298,6 +294,7 @@ void MusicPlayerSetup() {
   /*
   String[] fontList = PFont.list();
   printArray(fontList);
+  */
   //
 }
 void draw() {
@@ -385,6 +382,56 @@ void draw() {
   //HoverOverColors
   Music_Program_CS30_HoverOver();
   //
+}
+void Music_Program_CS30_ProgressBar () {
+  if (SongPlayList[SongPlaying].isPlaying()) {
+    SongTimeCounter = millis();
+  }
+  ProgressWidth = map(SongPlayList[SongPlaying].position(), 0, AlteredCurrentSongLength, 0, widthMusicProgressBar);
+  ProgressWidth = constrain(ProgressWidth, 0, widthMusicProgressBar);
+  noStroke();
+  fill(TextPurple);
+  rect(xMusicProgressBar, yMusicProgressBar, ProgressWidth, heightMusicProgressBar);
+  strokeWeight(4);
+  stroke(Purple);
+  noFill();
+  rect(xMusicProgressBar, yMusicProgressBar,  widthMusicProgressBar, heightMusicProgressBar);
+  strokeWeight(1);
+  stroke(Black);
+  fill(resetDefaultInk);
+}
+void Music_Program_CS30_ProgressTimer () {
+  int CurrentSongTime = SongPlayList[SongPlaying].position();
+  int TotalSongTime = AlteredCurrentSongLength;
+  int CurrentSongPositionMinutes = CurrentSongTime/60000;
+  int CurrentSongPositionSeconds = (CurrentSongTime/1000) % 60;
+  int TotalSongMinutes = TotalSongTime/60000;
+  int TotalSongSeconds = (TotalSongTime/1000) % 60;
+  fill(TextPurple);
+  textAlign(CENTER, CENTER);
+  textSize(appHeight*1/40);
+  text(
+    nf(CurrentSongPositionMinutes, 2)+":"+nf(CurrentSongPositionSeconds, 2)+" / "+
+    nf(TotalSongMinutes, 2)+":"+nf(TotalSongSeconds, 2),
+    xMusicProgressBar+widthMusicProgressBar-textWidth("/"+
+    nf(TotalSongMinutes, 2)+":"+nf(TotalSongSeconds, 2)),
+    yMusicProgressBar+heightMusicProgressBar+appHeight*3/160);
+  fill(resetDefaultInk);
+}
+void AspectRatioMusicImage(PImage img, float x, float y, float Width, float Height) {
+  float imgAspectRatio = float(img.width)/float(img.height);
+  float rectAspect = Width/Height;
+  float drawWidth, drawHeight;
+  if (imgAspectRatio>rectAspect) {
+    drawHeight = Width/imgAspectRatio-appHeight*1/200;
+    drawWidth = drawHeight;
+  } else {
+    drawHeight = Height-appHeight*1/200;
+    drawWidth = Height*imgAspectRatio;
+  }
+  float drawX =x+(Width-drawWidth)/2;
+  float drawY =y+(Height-drawHeight)/2;
+  image(img, drawX, drawY, drawWidth, drawHeight);
 }
 //
 void ImageMusicAttributions () {

@@ -1,3 +1,4 @@
+/*
 float TitleFontSize;
 float[] InitialFontSizes = new float[TextDIVHeight.length];
 float[] FontSizes = new float[TextDIVHeight.length];
@@ -76,3 +77,4 @@ if (MouseIsOver(ButtonDivs[36], ButtonDivs[37], ButtonDivs[38], ButtonDivs[39]))
     fill(resetDefaultInk);
   }
 }
+*/

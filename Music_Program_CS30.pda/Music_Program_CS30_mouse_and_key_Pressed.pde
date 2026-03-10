@@ -1,3 +1,4 @@
+/*
 void PlayPauseFunction () {
   if (SongPlayList[SongPlaying].isPlaying()) {
     SongPlayList[SongPlaying].pause();
@@ -112,3 +113,4 @@ void ButtonPressed() {
     SongLoop = false;
   }
 }
+*/

@@ -1,3 +1,4 @@
+/*
 void ImageMusicAttributions () {
   //Image Attributions
   fill(TextPurple);
@@ -37,3 +38,4 @@ void ImageMusicAttributionsMousePressed () {
     link("https://ncs.io/whywelose?_gl=1*rnka34*_up*MQ..*_ga*MTc5MzgxODQwMC4xNzQ4ODk2MjY4*_ga_PFS54FR7NV*czE3NDg4OTYyNjckbzEkZzAkdDE3NDg4OTYyNjckajYwJGwwJGgw");
   }
 }
+*/
