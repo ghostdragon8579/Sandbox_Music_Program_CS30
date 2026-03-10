@@ -12,6 +12,7 @@ import ddf.minim.ugens.*;
 //Classes
 MusicPlayerDivs musicPlayerDivs;
 //
+//all global veriables still here can't be moved without breaking the program
 //Global Variables
 int appWidth, appHeight;
 int size;
