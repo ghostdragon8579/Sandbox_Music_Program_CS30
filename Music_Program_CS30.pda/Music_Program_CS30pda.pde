@@ -321,7 +321,7 @@ void keyPressed() {
   //
   if (!Attributions) {
     if (key=='p' || key=='P') {
-      KeyPlayPauseFunction ();
+      KeyPlayPauseFunction();
     }
     if (key=='r' || key=='R') {
       SongPlayList[SongPlaying].rewind();

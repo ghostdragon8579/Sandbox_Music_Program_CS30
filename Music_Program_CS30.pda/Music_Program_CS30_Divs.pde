@@ -1,4 +1,44 @@
 //class MusicPlayerDivs {
+//
+//Global Variables
+/*
+float[] TextDIVWidth = new float[18];
+float[] TextDIVHeight = new float[18];
+float xMusicProgressBar, yMusicProgressBar, widthMusicProgressBar, heightMusicProgressBar;
+float xIcons8Location;
+float xVecteezyLocation;
+float ProgressWidth;
+PImage[] MusicProgramImage = new PImage[7];
+PImage[] MusicImage = new PImage[6];
+PImage NeonBackground2;
+PImage Quit;
+PImage Shuffle;
+PImage Loop;
+PImage Replay;
+PFont TitleFont;
+PFont AttributionFont;
+color resetDefaultInk=#FFFFFF;
+color Gray=#C9C9C9;
+color LightGray=#CECECE;
+color Black=#000000;
+color Purple=#B031E8;
+color TextPurple=#F986FF;
+int SongNumber = 6;
+int SongPlaying = SongNumber - SongNumber;
+int SoundEffectNumber = 1;
+int SoundEffectPlaying = 0;
+int SongTimeCounter;
+int SongLengthAlteration;
+int AlteredCurrentSongLength;
+int KeySongPosition;
+int SongSkipTime;
+int LastSongState;
+String SongStateTxtPath_LastSongState;
+boolean SongLoop = false;
+boolean IsFontSizeUpdated = false;
+boolean Attributions = false;
+*/
+//
 int NumberOfMusicPanelDIVs = 7; //All Music Panel components
 float[][] MusicPanelDivRatios = new float[NumberOfMusicPanelDIVs][4]; //Store ratios (Rectangles)
 float[] MusicPanelDivs = new float [NumberOfMusicPanelDIVs*4]; //Music Panel Position and Size of components
@@ -21,9 +61,12 @@ float[] TextDivs = new float [NumberOfTextDIVs*4]; //Text Positions and Size
   is used in ButtonIconDivRatios except there are 6 ratios and the 1st, 3rd and 5th are ratios of X and the 2nd, 4th and 6th are ratios of Y as triangles do not use a width or height when being created.
   However the function conversion and generation are the same but creating triangles instead of rectangles.
   */
+  //MusicPlayerDivs() {
+    //MusicProgramDivs();
+    //MusicPlayerSetup();
+  //}
   //
 void MusicProgramDivs() {
-  //void setup() {
   //
   //Music Panel Divs
   //{X value in ratio of appwidth, Y value in ratio of appwidth, width value in ratio of appwidth, height value in ratio of appheight}
@@ -123,7 +166,7 @@ void CalculateDIVs() {
   }
 } 
 /*
-void setup() {
+void MusicPlayerSetup() {
   //
   //Music Panel
   xMusicProgressBar = appWidth*5/26; yMusicProgressBar = appHeight*13/16; widthMusicProgressBar = appWidth*8/13; heightMusicProgressBar = appHeight*1/48;
@@ -236,7 +279,6 @@ void setup() {
   println("Encoded", SongPlayListMetaData[SongPlaying].encoded());
   //
   println(SongPlaying);
-  */
   //
   xIcons8Location = TextDivs[16]+textWidth("Loop, Shuffle, and Rewind icons by ");
   xVecteezyLocation = TextDivs[20]+textWidth("Background Image by Tinnapon Wuttichaikitcharoen on ");
@@ -256,7 +298,6 @@ void setup() {
   /*
   String[] fontList = PFont.list();
   printArray(fontList);
-  */
   //
 }
 void draw() {
@@ -344,6 +385,286 @@ void draw() {
   //HoverOverColors
   Music_Program_CS30_HoverOver();
   //
+}
+//
+void ImageMusicAttributions () {
+  //Image Attributions
+  fill(TextPurple);
+  textAlign(CENTER, CENTER);
+  textFont(TitleFont, FontSizes[5]);
+  //
+  //Attributions
+  for (int i = 4; i < NumberOfTextDIVs; i++) {
+    int baseIndex = i*4;
+    text(Text[i], TextDivs[baseIndex], TextDivs[baseIndex+1], TextDivs[baseIndex+2], TextDivs[baseIndex+3]);
   }
+  //
+}
+void ImageMusicAttributionsMousePressed () {
+  //Attribution Links
+  if (MouseIsOver(TextDivs[16], TextDivs[17], TextDivs[18], TextDivs[19])) { //Icon Attribution
+    link("https://icons8.com/");
+  } else if (MouseIsOver(TextDivs[20], TextDivs[21], TextDivs[22], TextDivs[23])) { //Background Attribution
+    link("https://www.vecteezy.com/members/earthtin");
+  } else if (MouseIsOver(TextDivs[24], TextDivs[25], TextDivs[26], TextDivs[27]) ||
+    MouseIsOver(TextDivs[48], TextDivs[49], TextDivs[50], TextDivs[51])) { //Song Attribution 1 (The Guardian of Angels)
+    link("https://ncs.io/TGOA?_gl=1*11fgkyd*_up*MQ..*_ga*MTg1NDEyNjkzNS4xNzQ4ODk2MzQ4*_ga_PFS54FR7NV*czE3NDg4OTYzNDgkbzEkZzAkdDE3NDg4OTYzNTkkajQ5JGwwJGgw");
+  } else if (MouseIsOver(TextDivs[28], TextDivs[29], TextDivs[30], TextDivs[31]) ||
+    MouseIsOver(TextDivs[52], TextDivs[53], TextDivs[54], TextDivs[55])) { //Song Attribution 2 (The Return)
+    link("https://ncs.io/TheReturn?_gl=1*11fgkyd*_up*MQ..*_ga*MTg1NDEyNjkzNS4xNzQ4ODk2MzQ4*_ga_PFS54FR7NV*czE3NDg4OTYzNDgkbzEkZzAkdDE3NDg4OTYzNTkkajQ5JGwwJGgw");
+  } else if (MouseIsOver(TextDivs[32], TextDivs[33], TextDivs[34], TextDivs[35]) ||
+    MouseIsOver(TextDivs[56], TextDivs[57], TextDivs[58], TextDivs[59])) { //Song Attribution 3 (H.A.Y)
+    link("https://ncs.io/HAY?_gl=1*qypa9b*_up*MQ..*_ga*MTI1NTA0Njg2Ny4xNzQ4ODk2MzE4*_ga_PFS54FR7NV*czE3NDg4OTYzMTckbzEkZzAkdDE3NDg4OTYzMTckajYwJGwwJGgw");
+  } else if (MouseIsOver(TextDivs[36], TextDivs[37], TextDivs[38], TextDivs[39]) ||
+    MouseIsOver(TextDivs[60], TextDivs[61], TextDivs[62], TextDivs[63])) { //Song Attribution 4 (Where We Started)
+    link("https://ncs.io/WhereWeStarted?_gl=1*14ytkaj*_up*MQ..*_ga*NTgyNDIwNDA3LjE3NDg4OTYzODc.*_ga_PFS54FR7NV*czE3NDg4OTYzODckbzEkZzAkdDE3NDg4OTYzODckajYwJGwwJGgw");
+  } else if (MouseIsOver(TextDivs[40], TextDivs[41], TextDivs[42], TextDivs[43]) ||
+    MouseIsOver(TextDivs[64], TextDivs[65], TextDivs[66], TextDivs[67])) { //Song Attribution 5 (Oblivion)
+    link("https://ncs.io/Oblivion?_gl=1*17yx1my*_up*MQ..*_ga*MTMwNTA5MTEyMi4xNzQ4ODk2Mzk2*_ga_PFS54FR7NV*czE3NDg4OTYzOTYkbzEkZzAkdDE3NDg4OTYzOTYkajYwJGwwJGgw");
+  } else if (MouseIsOver(TextDivs[44], TextDivs[45], TextDivs[46], TextDivs[47]) ||
+    MouseIsOver(TextDivs[68], TextDivs[69], TextDivs[70], TextDivs[71])) { //Song Attribution 6 (Why We Lose)
+    link("https://ncs.io/whywelose?_gl=1*rnka34*_up*MQ..*_ga*MTc5MzgxODQwMC4xNzQ4ODk2MjY4*_ga_PFS54FR7NV*czE3NDg4OTYyNjckbzEkZzAkdDE3NDg4OTYyNjckajYwJGwwJGgw");
+  }
+}
+//
+float TitleFontSize;
+float[] InitialFontSizes = new float[TextDIVHeight.length];
+float[] FontSizes = new float[TextDIVHeight.length];
+String[] Text = new String[18];
+void MusicPanelTextSetup1() {
+  //
+  TitleFontSize = ShorterSide;
+  TitleFont = createFont("Times New Roman Bold", TitleFontSize);
+  //
+  stringVarsEntry();
+}
+void stringVarsEntry() {
+  Text[0] = SongPlayListMetaData[SongPlaying].title();
+  Text[1] = "Author: "+SongPlayListMetaData[SongPlaying].author();
+  Text[2] = "Released in: "+SongPlayListMetaData[SongPlaying].date();
+  if (!Attributions) {
+  Text[3] = "Attributions";
+  } else if (Attributions) {
+  Text[3] = "Return";
+  }
+  Text[4] = "Loop, Shuffle, and Rewind icons by Icons8";
+  Text[5] = "Background Image by Tinnapon Wuttichaikitcharoen on Vecteezy";
+  Text[6] = "Song: NIVIRO - The Guardian Of Angels [NCS Release] Music provided by NoCopyrightSounds";
+  Text[7] = "Song: NIVIRO - The Return [NCS Release] Music provided by NoCopyrightSounds";
+  Text[8] = "Song: Clarx - H.A.Y [NCS Release] Music provided by NoCopyrightSounds";
+  Text[9] = "Song: Lost Sky - Where We Started (feat. Jex) [NCS Release] Music provided by NoCopyrightSounds";
+  Text[10] = "Song: Dirty Palm - Oblivion (feat. Micah Martin) [NCS Release] Music provided by NoCopyrightSounds";
+  Text[11] = "Song: Cartoon, Jéja - Why We Lose (feat. Coleman Trapp) [NCS Release] Music provided by";
+  Text[12] = "Free Download/Stream: http://ncs.io/TGOA Watch: http://youtu.be/yHU6g3-35IU";
+  Text[13] = "Free Download/Stream: http://ncs.io/TheReturn Watch: http://youtu.be/R0QkZOyuqIs";
+  Text[14] = "Free Download/Stream: http://ncs.io/HAY Watch: http://youtu.be/mj9KRKSvdbk";
+  Text[15] = "Free Download/Stream: http://ncs.io/WhereWeStarted Watch: http://youtu.be/U9pGr6KMdyg";
+  Text[16] = "Free Download/Stream: http://ncs.io/Oblivion Watch: http://youtu.be/8Yue9YYdNLM";
+  Text[17] = "NoCopyrightSounds Free Download/Stream: http://ncs.io/whywelose Watch: http://youtu.be/zyXmsVwZqX4";
+}
+void MusicPanelTextSetup2() {
+  TitleFontSize = ShorterSide;
+  for (int i=0; i<TextDIVHeight.length; i++) {
+    if (TitleFontSize > TextDIVHeight[i]) TitleFontSize = TextDIVHeight[i];
+  }
+  float TimesNewRomanBoldAspectRatio = 1.04;
+  TitleFontSize = TitleFontSize * TimesNewRomanBoldAspectRatio;
+  //
+  for (int i = 0; i<TextDIVHeight.length; i++) {
+    float TemporaryFontSize = TextDIVHeight[i];
+    textFont(TitleFont, TemporaryFontSize);
+    while (textWidth(Text[i]) > TextDIVWidth[i]) {
+      TemporaryFontSize *= 0.99;
+      if (TemporaryFontSize < 8) {
+        TemporaryFontSize = 8;
+        break;
+      }
+      textFont(TitleFont, TemporaryFontSize);    
+    }
+    if (TemporaryFontSize < 8) TemporaryFontSize = 8;
+    FontSizes[i] = TemporaryFontSize;
+    textFont(TitleFont, TemporaryFontSize);
+  }
+}
+void Music_Program_CS30_HoverOver () {
+  color hoverOverColor=color(255, 255, 255, 64);
+if (!Attributions) {
+    for (int i = 0; i < 9; i++) {
+      int baseIndex = i * 4;
+    if (MouseIsOver(ButtonDivs[baseIndex], ButtonDivs[baseIndex+1], ButtonDivs[baseIndex+2], ButtonDivs[baseIndex+3])) {
+      fill(hoverOverColor);
+      rect(ButtonDivs[baseIndex], ButtonDivs[baseIndex+1], ButtonDivs[baseIndex+2], ButtonDivs[baseIndex+3]);
+      fill(resetDefaultInk);
+      return;
+    }
+  }
+}
+if (MouseIsOver(ButtonDivs[36], ButtonDivs[37], ButtonDivs[38], ButtonDivs[39])) {
+    fill(hoverOverColor);
+    rect(ButtonDivs[36], ButtonDivs[37], ButtonDivs[38], ButtonDivs[39]);
+    fill(resetDefaultInk);
+  }
+}
+//
+void keyPressed() {
+    if (!Attributions) {
+    if (key=='p' || key=='P') {
+      KeyPlayPauseFunction();
+    }
+    if (key=='r' || key=='R') {
+      SongPlayList[SongPlaying].rewind();
+    }
+    if (key=='m' || key=='M') {
+      KeyMuteFunction ();
+    }
+    if (key == CODED && keyCode == RIGHT) {
+      SongPlayList[SongPlaying].skip(+SongSkipTime);
+    }
+    if (key == CODED && keyCode == LEFT) {
+      SongPlayList[SongPlaying].skip(-SongSkipTime);
+    }
+    if (key >= '1' && key <= '9') {
+      KeyBasedLocationFunction();
+    }
+  }
+}
+void mousePressed() {
+  //
+  //Progress Bar
+  if (!Attributions) {
+    if (MouseIsOver(xMusicProgressBar, yMusicProgressBar, widthMusicProgressBar, heightMusicProgressBar)) {
+      float ProgressBarPositionClicked = mouseX-xMusicProgressBar*15/14;
+      ProgressBarPositionClicked = constrain(ProgressBarPositionClicked, 0, widthMusicProgressBar);
+      float SongPercentageAtClickPoint = ProgressBarPositionClicked/widthMusicProgressBar;
+      int ClickedSongPosition = int(SongPercentageAtClickPoint*SongPlayList[SongPlaying].length());
+      SongPlayList[SongPlaying].cue(ClickedSongPosition);
+    }
+    //
+    //Buttons
+    ButtonPressed();
+    //
+  }
+  if (Attributions) {
+    ImageMusicAttributionsMousePressed();
+  }
+  if (MouseIsOver(ButtonDivs[36], ButtonDivs[37], ButtonDivs[38], ButtonDivs[39])) {
+    ToggleAttributions();
+  }
+  //
+}
+void PlayPauseFunction () {
+  if (SongPlayList[SongPlaying].isPlaying()) {
+    SongPlayList[SongPlaying].pause();
+  } else if (SongPlayList[SongPlaying].position() == 0) {
+    SongPlayList[SongPlaying].play();
+  } else {
+    SongPlayList[SongPlaying].play(SongPlayList[SongPlaying].position());
+  }
+}
+void NextSongFunction () {
+  if (SongPlayList[SongPlaying].isPlaying()) {
+    SongPlayList[SongPlaying].pause();
+    SongPlayList[SongPlaying].rewind();
+    SongPlaying += 1;
+  if (SongPlaying > SongNumber -1) {
+    SongPlaying = 0; }
+    SongPlayList[SongPlaying].play();
+  } else {
+    SongPlayList[SongPlaying].pause();
+    SongPlayList[SongPlaying].rewind();
+    SongPlaying += 1;
+  if (SongPlaying > SongNumber -1) {
+    SongPlaying = 0; }
+  }
+}
+void PreviousSongFunction () {
+  if (SongPlayList[SongPlaying].isPlaying()) {
+    SongPlayList[SongPlaying].pause();
+    SongPlayList[SongPlaying].rewind();
+    SongPlaying -= 1;
+  if (SongPlaying < 0) {
+    SongPlaying = SongNumber -1; }
+    SongPlayList[SongPlaying].play(); 
+  } else {
+    SongPlayList[SongPlaying].pause();
+    SongPlayList[SongPlaying].rewind();
+    SongPlaying -= 1;
+  if (SongPlaying < 0) {
+    SongPlaying = SongNumber -1; } 
+  }
+}
+void ShuffleSongFunction () {
+    SongPlayList[SongPlaying].rewind();
+    SongPlaying=int (random(0, SongNumber-1));
+}
+void ToggleAttributions () {
+  if (!Attributions) {
+    Attributions = true;
+  } else if (Attributions) {
+    Attributions = false;
+  }
+}
+void KeyPlayPauseFunction () {
+  if (SongPlayList[SongPlaying].isPlaying()) {
+    SongPlayList[SongPlaying].pause();
+  } else {
+  if (SongPlayList[SongPlaying].position() == 0) {
+    SongPlayList[SongPlaying].play();
+  } else {
+    SongPlayList[SongPlaying].play(SongPlayList[SongPlaying].position());
+    }
+  }
+}
+void KeyMuteFunction () {
+  if (SongPlayList[SongPlaying].isPlaying()) {
+    SongPlayList[SongPlaying].mute();
+  } else {
+    SongPlayList[SongPlaying].unmute();
+  }  
+}
+void KeyBasedLocationFunction () {
+  KeySongPosition = int(SongPlayList[SongPlaying].length()*(key-'0')*0.1)-5000;
+  SongPlayList[SongPlaying].cue(max(KeySongPosition, 0));
+}
+void SaveLastSongState() {
+  PrintWriter SaveSong = createWriter(SongStateTxtPath_LastSongState);
+  SaveSong.println(SongPlaying);
+  SaveSong.close();
+}
+void LoadLastSongState() {
+  File SongStateFile = new File(SongStateTxtPath_LastSongState);
+  if (SongStateFile.exists()) {
+    String[] lines = loadStrings(SongStateTxtPath_LastSongState);
+    if (lines.length > 0) {
+      SongPlaying = constrain(int(lines[0]), 0, SongNumber - 1);
+    }
+  } else {
+    println("Error Last_Song_State.txt not found");
+  }
+}
+void ButtonPressed() {
+  if (MouseIsOver(ButtonDivs[0], ButtonDivs[1], ButtonDivs[2], ButtonDivs[3])) {
+    SaveLastSongState();
+    exit();
+  } else if (MouseIsOver(ButtonDivs[4], ButtonDivs[5], ButtonDivs[6], ButtonDivs[7])) {
+    PreviousSongFunction();
+  } else if (MouseIsOver(ButtonDivs[8], ButtonDivs[9], ButtonDivs[10], ButtonDivs[11])) {
+    SongPlayList[SongPlaying].skip(-SongSkipTime);
+  } else if (MouseIsOver(ButtonDivs[12], ButtonDivs[13], ButtonDivs[14], ButtonDivs[15])) {
+    PlayPauseFunction();
+  } else if (MouseIsOver(ButtonDivs[16], ButtonDivs[17], ButtonDivs[18], ButtonDivs[19])) {
+    SongPlayList[SongPlaying].skip(SongSkipTime);
+  } else if (MouseIsOver(ButtonDivs[20], ButtonDivs[21], ButtonDivs[22], ButtonDivs[23])) {
+    NextSongFunction();
+  } else if (MouseIsOver(ButtonDivs[24], ButtonDivs[25], ButtonDivs[26], ButtonDivs[27])) {
+    ShuffleSongFunction();
+  } else if (MouseIsOver(ButtonDivs[28], ButtonDivs[29], ButtonDivs[30], ButtonDivs[31])) {
+    SongPlayList[SongPlaying].rewind();
+  } else if (MouseIsOver(ButtonDivs[32], ButtonDivs[33], ButtonDivs[34], ButtonDivs[35])) {
+    SongLoop = true;
+  } else if (SongLoop == true) {
+    SongLoop = false;
+  }
+}
 }
 //*/
