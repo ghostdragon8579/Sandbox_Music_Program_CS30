@@ -44,6 +44,9 @@ float[] ButtonDivs = new float [NumberOfButtonDIVs*4]; //Button Positions and Si
 int NumberOfButtonIconDIVs = 9; //All Music Player Button Icons
 float[][] ButtonIconDivRatios = new float[NumberOfButtonIconDIVs][6]; //Store ratios (Triangles)
 float[] ButtonIconDivs = new float [NumberOfButtonIconDIVs*6]; //Icon Positions and Size
+//int NumberOfAltButtonIconDIVs = 9; //All Alternate Music Player Button Icons
+//float[][] AftButtonIconDivRatios = new float[NumberOfAltButtonIconDIVs][4]; //Store ratios (rectangle)
+//float[] AltButtonIconDivs = new float [NumberOfAltButtonIconDIVs*4]; //Icon Positions and Size
 int NumberOfTextDIVs = 18; //All Text instances
 float[][] TextDivRatios = new float[NumberOfTextDIVs][4]; //Store ratios (Rectangles)
 float[] TextDivs = new float [NumberOfTextDIVs*4]; //Text Positions and Size
@@ -92,7 +95,7 @@ void MusicProgramDivs() {
   ButtonIconDivRatios[0] = new float[]{5.0/26+5.0/156, 24.0/40+1.2/104, 5.0/26+5.0/156, 24.0/40+4.8/104, 2.0/10, 25.0/40+1.0/208}; //Previous Button Triangle One
   ButtonIconDivRatios[1] = new float[]{5.0/26+1.0/156, 24.0/40+1.0/104, 5.0/26+1.0/156, 24.0/40+5.0/104, 5.0/26+1.0/156, 25.0/40+1.0/208}; //Previous Button Triangle Two
   ButtonIconDivRatios[2] = new float[]{9.0/26+2.0/104, 24.0/40+1.3/104, 9.0/26+2.0/104, 24.0/40+4.7/104, 9.0/26+1.0/156, 25.0/40+1.0/208}; //Rewind Button Triangle One
-  ButtonIconDivRatios[3] = new float[]{9.0/26+2.0/104+2.0/156, 24.0/40+1.3/104, 9.0/26+2.0/104+2.0/156, 24.0/40+4.7/104, 9.0/26+2.0/104, 25.0/40+1.0/208}; //Rewind Button Triangle Two
+  ButtonIconDivRatios[3] = new float[]{9.0/26+5.0/156, 24.0/40+1.3/104, 9.0/26+5.0/156, 24.0/40+4.7/104, 9.0/26+2.0/104, 25.0/40+1.0/208}; //Rewind Button Triangle Two
   ButtonIconDivRatios[4] = new float[]{25.4/52, 24.0/40+1.0/104, 25.4/52, 24.0/40+5.0/104, 26.6/52, 25.0/40+1.0/208}; //Play/Pause Button Triangle
   ButtonIconDivRatios[5] = new float[]{16.0/26+1.0/156, 24.0/40+1.3/104, 16.0/26+1.0/156, 24.0/40+4.7/104, 16.0/26+3.0/156, 25.0/40+1.0/208}; //Fast Forward Button Triangle One
   ButtonIconDivRatios[6] = new float[]{16.0/26+3.0/156, 24.0/40+1.3/104, 16.0/26+3.0/156, 24.0/40+4.7/104, 16.0/26+5.0/156, 25.0/40+1.0/208}; //Fast Forward Button Triangle Two
@@ -113,12 +116,12 @@ void MusicProgramDivs() {
   TextDivRatios[9] = new float[]{2.0/27+23/432, 23.0/100+86.0/243, 23.0/27, 1.0/42}; //Song Attribution 4
   TextDivRatios[10] = new float[]{2.0/27+23/432, 23.0/100+108.0/243, 23.0/27, 1.0/42}; //Song Attribution 5
   TextDivRatios[11] = new float[]{2.0/27+23/432, 23.0/100+130.0/243, 23.0/27, 1.0/42}; //Song Attribution 6
-  TextDivRatios[12] = new float[]{2.0/27+23/432, 23.0/100+22.0/243+4.0/135, 23.0/27, 1.0/42}; //Song Attribution 1 line 2
-  TextDivRatios[13] = new float[]{2.0/27+23/432, 23.0/100+44.0/243+4.0/135, 23.0/27, 1.0/42}; //Song Attribution 2 line 2
-  TextDivRatios[14] = new float[]{2.0/27+23/432, 23.0/100+65.0/243+4.0/135, 23.0/27, 1.0/42}; //Song Attribution 3 line 2
-  TextDivRatios[15] = new float[]{2.0/27+23/432, 23.0/100+86.0/243+4.0/135, 23.0/27, 1.0/42}; //Song Attribution 4 line 2
-  TextDivRatios[16] = new float[]{2.0/27+23/432, 23.0/100+108.0/243+4.0/135, 23.0/27, 1.0/42}; //Song Attribution 5 line 2
-  TextDivRatios[17] = new float[]{2.0/27+23/432, 23.0/100+130.0/243+4.0/135, 23.0/27, 1.0/42}; //Song Attribution 6 line 2
+  TextDivRatios[12] = new float[]{2.0/27+23/432, 23.0/100+146.0/1215, 23.0/27, 1.0/42}; //Song Attribution 1 line 2
+  TextDivRatios[13] = new float[]{2.0/27+23/432, 23.0/100+256.0/1215, 23.0/27, 1.0/42}; //Song Attribution 2 line 2
+  TextDivRatios[14] = new float[]{2.0/27+23/432, 23.0/100+361.0/1215, 23.0/27, 1.0/42}; //Song Attribution 3 line 2
+  TextDivRatios[15] = new float[]{2.0/27+23/432, 23.0/100+466.0/1215, 23.0/27, 1.0/42}; //Song Attribution 4 line 2
+  TextDivRatios[16] = new float[]{2.0/27+23/432, 23.0/100+64.0/135, 23.0/27, 1.0/42}; //Song Attribution 5 line 2
+  TextDivRatios[17] = new float[]{2.0/27+23/432, 23.0/100+686.0/1215, 23.0/27, 1.0/42}; //Song Attribution 6 line 2
   //
   CalculateDIVs();
   //
