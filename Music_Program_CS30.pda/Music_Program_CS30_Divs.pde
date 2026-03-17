@@ -302,7 +302,7 @@ void MusicPlayerSetup() {
 }
 void draw() {
   //
-  ErrorCheck("An error has occurred.");
+  //ErrorCheck("An error has occurred.");
   //
   MusicPanelTextSetup1();
   MusicPanelTextSetup2();
