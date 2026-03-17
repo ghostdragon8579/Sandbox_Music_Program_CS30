@@ -302,6 +302,8 @@ void MusicPlayerSetup() {
 }
 void draw() {
   //
+  ErrorCheck("An error has occurred.");
+  //
   MusicPanelTextSetup1();
   MusicPanelTextSetup2();
   //
@@ -717,4 +719,9 @@ void ButtonPressed() {
   }
 }
 }
-//*/
+void ErrorCheck(String description) {
+  println(description);
+}
+void ErrorCheck(String description, float variable) {
+  println(description, variable);
+}
