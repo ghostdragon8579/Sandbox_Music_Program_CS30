@@ -44,9 +44,9 @@ float[] ButtonDivs = new float [NumberOfButtonDIVs*4]; //Button Positions and Si
 int NumberOfButtonIconDIVs = 9; //All Music Player Button Icons
 float[][] ButtonIconDivRatios = new float[NumberOfButtonIconDIVs][6]; //Store ratios (Triangles)
 float[] ButtonIconDivs = new float [NumberOfButtonIconDIVs*6]; //Icon Positions and Size
-//int NumberOfAltButtonIconDIVs = 9; //All Alternate Music Player Button Icons
-//float[][] AftButtonIconDivRatios = new float[NumberOfAltButtonIconDIVs][4]; //Store ratios (rectangle)
-//float[] AltButtonIconDivs = new float [NumberOfAltButtonIconDIVs*4]; //Icon Positions and Size
+int NumberOfAltButtonIconDIVs = 9; //All Alternate Music Player Button Icons
+float[][] AltButtonIconDivRatios = new float[NumberOfAltButtonIconDIVs][4]; //Store ratios (rectangle)
+float[] AltButtonIconDivs = new float [NumberOfAltButtonIconDIVs*4]; //Icon Positions and Size
 int NumberOfTextDIVs = 18; //All Text instances
 float[][] TextDivRatios = new float[NumberOfTextDIVs][4]; //Store ratios (Rectangles)
 float[] TextDivs = new float [NumberOfTextDIVs*4]; //Text Positions and Size
@@ -96,15 +96,15 @@ void MusicProgramDivs() {
   ButtonIconDivRatios[1] = new float[]{5.0/26+1.0/156, 24.0/40+1.0/104, 5.0/26+1.0/156, 24.0/40+5.0/104, 5.0/26+1.0/156, 25.0/40+1.0/208}; //Previous Button Triangle Two
   ButtonIconDivRatios[2] = new float[]{9.0/26+2.0/104, 24.0/40+1.3/104, 9.0/26+2.0/104, 24.0/40+4.7/104, 9.0/26+1.0/156, 25.0/40+1.0/208}; //Rewind Button Triangle One
   ButtonIconDivRatios[3] = new float[]{9.0/26+5.0/156, 24.0/40+1.3/104, 9.0/26+5.0/156, 24.0/40+4.7/104, 9.0/26+2.0/104, 25.0/40+1.0/208}; //Rewind Button Triangle Two
-  ButtonIconDivRatios[4] = new float[]{25.4/52, 24.0/40+1.0/104, 25.4/52, 24.0/40+5.0/104, 26.6/52, 25.0/40+1.0/208}; //Play/Pause Button Triangle
-  ButtonIconDivRatios[5] = new float[]{16.0/26+1.0/156, 24.0/40+1.3/104, 16.0/26+1.0/156, 24.0/40+4.7/104, 16.0/26+3.0/156, 25.0/40+1.0/208}; //Fast Forward Button Triangle One
-  ButtonIconDivRatios[6] = new float[]{16.0/26+3.0/156, 24.0/40+1.3/104, 16.0/26+3.0/156, 24.0/40+4.7/104, 16.0/26+5.0/156, 25.0/40+1.0/208}; //Fast Forward Button Triangle Two
-  ButtonIconDivRatios[7] = new float[]{20.0/26+1.0/156, 24.0/40+1.2/104, 20.0/26+1.0/156, 24.0/40+4.8/104, 20.0/26+4.7/156, 25.0/40+1.0/208}; //Next Button Triangle One
-  ButtonIconDivRatios[8] = new float[]{20.0/26+5.0/156, 24.0/40+1.0/104, 20.0/26+5.0/156, 24.0/40+5.0/104, 20.0/26+5.0/156, 25.0/40+1.0/208}; //Next Button Triangle Two
+  ButtonIconDivRatios[4] = new float[]{16.0/26+1.0/156, 24.0/40+1.3/104, 16.0/26+1.0/156, 24.0/40+4.7/104, 16.0/26+3.0/156, 25.0/40+1.0/208}; //Fast Forward Button Triangle One
+  ButtonIconDivRatios[5] = new float[]{16.0/26+3.0/156, 24.0/40+1.3/104, 16.0/26+3.0/156, 24.0/40+4.7/104, 16.0/26+5.0/156, 25.0/40+1.0/208}; //Fast Forward Button Triangle Two
+  ButtonIconDivRatios[6] = new float[]{20.0/26+1.0/156, 24.0/40+1.2/104, 20.0/26+1.0/156, 24.0/40+4.8/104, 20.0/26+4.7/156, 25.0/40+1.0/208}; //Next Button Triangle One
+  ButtonIconDivRatios[7] = new float[]{20.0/26+5.0/156, 24.0/40+1.0/104, 20.0/26+5.0/156, 24.0/40+5.0/104, 20.0/26+5.0/156, 25.0/40+1.0/208}; //Next Button Triangle Two
+  ButtonIconDivRatios[8] = new float[]{25.4/52, 24.0/40+1.0/104, 25.4/52, 24.0/40+5.0/104, 26.6/52, 25.0/40+1.0/208}; //Play/Pause Button Triangle
   //
   //Alternative Button Icon Divs
-  //AltButtonIconDivRatios[0] = new float[]{204.0/416, 24.0/40+1.0/104, 1.0/208, 1.0/26}; //Play/Pause Paused Icon Rectangle One
-  //AltButtonIconDivRatios[1] = new float[]{202.0/416+1.0/52, 24.0/40+1.0/104, 1.0/208, 1.0/26}; //Play/Pause Paused Icon Rectangle Two
+  AltButtonIconDivRatios[0] = new float[]{204.0/416, 24.0/40+1.0/104, 1.0/208, 1.0/26}; //Play/Pause Paused Icon Rectangle One
+  AltButtonIconDivRatios[1] = new float[]{202.0/416+1.0/52, 24.0/40+1.0/104, 1.0/208, 1.0/26}; //Play/Pause Paused Icon Rectangle Two
   //
   //Text Divs
   //{The first, third and fifth ratios are X values in ratio of appwidth. The second, fourth and sixth ratios are y values in ratio of appheight}
@@ -158,7 +158,6 @@ void CalculateDIVs() {
     ButtonIconDivs[baseIndex+4] = appWidth*ButtonIconDivRatios[i][4]; // X3 position
     ButtonIconDivs[baseIndex+5] = appHeight*ButtonIconDivRatios[i][5]; // Y3 position
   }
-  /*
   for (int i = 0; i < NumberOfAltButtonIconDIVs; i++) {
     int baseIndex = i*4;
     AltButtonIconDivs[baseIndex] = appWidth*AltButtonIconDivRatios[i][0]; // X position
@@ -166,7 +165,6 @@ void CalculateDIVs() {
     AltButtonIconDivs[baseIndex+2] = appWidth*AltButtonIconDivRatios[i][2]; // Width position
     AltButtonIconDivs[baseIndex+3] = appHeight*AltButtonIconDivRatios[i][3]; // Height position
   }
-  */
   for (int i = 0; i < NumberOfTextDIVs; i++) {
     int baseIndex = i * 4;
     TextDivs[baseIndex] = appWidth*TextDivRatios[i][0];
@@ -352,9 +350,15 @@ void draw() {
     strokeWeight(3);
     stroke(TextPurple);
     fill(TextPurple);
-    for (int i = 0; i < NumberOfButtonIconDIVs; i++) {
+    for (int i = 0; i < 8; i++) {
       int baseIndex = i*6;
       triangle(ButtonIconDivs[baseIndex], ButtonIconDivs[baseIndex+1], ButtonIconDivs[baseIndex+2], ButtonIconDivs[baseIndex+3], ButtonIconDivs[baseIndex+4], ButtonIconDivs[baseIndex+5]);
+    if (!SongPlayList[SongPlaying].isPlaying()) {
+      triangle(ButtonIconDivs[48], ButtonIconDivs[49], ButtonIconDivs[50], ButtonIconDivs[51], ButtonIconDivs[52], ButtonIconDivs[53]);
+    } else {
+      int baseIndex2 = i*4;
+      rect(AltButtonIconDivs[baseIndex2], AltButtonIconDivs[baseIndex2+1], AltButtonIconDivs[baseIndex2+2], AltButtonIconDivs[baseIndex2+3]);
+    }
     }
     //
     //Images
