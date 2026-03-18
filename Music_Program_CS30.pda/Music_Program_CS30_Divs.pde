@@ -102,6 +102,10 @@ void MusicProgramDivs() {
   ButtonIconDivRatios[7] = new float[]{20.0/26+1.0/156, 24.0/40+1.2/104, 20.0/26+1.0/156, 24.0/40+4.8/104, 20.0/26+4.7/156, 25.0/40+1.0/208}; //Next Button Triangle One
   ButtonIconDivRatios[8] = new float[]{20.0/26+5.0/156, 24.0/40+1.0/104, 20.0/26+5.0/156, 24.0/40+5.0/104, 20.0/26+5.0/156, 25.0/40+1.0/208}; //Next Button Triangle Two
   //
+  //Alternative Button Icon Divs
+  //AltButtonIconDivRatios[0] = new float[]{204.0/416, 24.0/40+1.0/104, 1.0/208, 1.0/26}; //Play/Pause Paused Icon Rectangle One
+  //AltButtonIconDivRatios[1] = new float[]{202.0/416+1.0/52, 24.0/40+1.0/104, 1.0/208, 1.0/26}; //Play/Pause Paused Icon Rectangle Two
+  //
   //Text Divs
   //{The first, third and fifth ratios are X values in ratio of appwidth. The second, fourth and sixth ratios are y values in ratio of appheight}
   TextDivRatios[0] = new float[]{2.0/7, 3.0/20, 3.0/7, 1.0/11}; //Song Title
@@ -154,6 +158,15 @@ void CalculateDIVs() {
     ButtonIconDivs[baseIndex+4] = appWidth*ButtonIconDivRatios[i][4]; // X3 position
     ButtonIconDivs[baseIndex+5] = appHeight*ButtonIconDivRatios[i][5]; // Y3 position
   }
+  /*
+  for (int i = 0; i < NumberOfAltButtonIconDIVs; i++) {
+    int baseIndex = i*4;
+    AltButtonIconDivs[baseIndex] = appWidth*AltButtonIconDivRatios[i][0]; // X position
+    AltButtonIconDivs[baseIndex+1] = appHeight*AltButtonIconDivRatios[i][1]; // Y position
+    AltButtonIconDivs[baseIndex+2] = appWidth*AltButtonIconDivRatios[i][2]; // Width position
+    AltButtonIconDivs[baseIndex+3] = appHeight*AltButtonIconDivRatios[i][3]; // Height position
+  }
+  */
   for (int i = 0; i < NumberOfTextDIVs; i++) {
     int baseIndex = i * 4;
     TextDivs[baseIndex] = appWidth*TextDivRatios[i][0];
