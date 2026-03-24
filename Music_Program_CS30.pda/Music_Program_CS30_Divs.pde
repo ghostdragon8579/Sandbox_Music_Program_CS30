@@ -34,6 +34,7 @@ String SongStateTxtPath_LastSongState;
 boolean SongLoop = false;
 boolean IsFontSizeUpdated = false;
 boolean Attributions = false;
+boolean PlaylistView = false;
 //
 int NumberOfMusicPanelDIVs = 7; //All Music Panel components
 float[][] MusicPanelDivRatios = new float[NumberOfMusicPanelDIVs][4]; //Store ratios (Rectangles)
@@ -50,6 +51,9 @@ float[] AltButtonIconDivs = new float [NumberOfAltButtonIconDIVs*4]; //Icon Posi
 int NumberOfTextDIVs = 18; //All Text instances
 float[][] TextDivRatios = new float[NumberOfTextDIVs][4]; //Store ratios (Rectangles)
 float[] TextDivs = new float [NumberOfTextDIVs*4]; //Text Positions and Size
+int NumberOfPlaylistDIVs = 6; //Music Player Playlist
+float[][] PlaylistDivRatios = new float[NumberOfPlaylistDIVs][4]; //Store ratios (rectangle)
+float[] PlaylistDivs = new float [NumberOfPlaylistDIVs*4]; //Icon Positions and Size
   //
   /*
   Each matrix array contains two different arrays so I will use the Music Panel array as an example. In this array it creates a string of four variables per div called MusicPanelDiveRatios which stores
@@ -88,7 +92,8 @@ void MusicProgramDivs() {
   ButtonDivRatios[6] = new float[]{25.0/52, 24.0/40+2.5/26, 1.0/26, 1.0/26}; //Shuffle Songs Button
   ButtonDivRatios[7] = new float[]{9.0/26, 24.0/40+2.5/26, 1.0/26, 1.0/26}; //Replay Song Button
   ButtonDivRatios[8] = new float[]{16.0/26, 24.0/40+2.5/26, 1.0/26, 1.0/26}; //Loop Button
-  ButtonDivRatios[9] = new float[]{0.0, 23.0/24, 1.0/12, 1.0/24}; //Attribution Button
+  ButtonDivRatios[9] = new float[]{0.0, 23.0/24, 1.0/12, 1.0/24}; //Toggle Attribution View
+  //ButtonDivRatios[1] = new float[]{11.0/12, 23.0/24, 1.0/12, 1.0/24}; //Toggle PlayList View
   //
   //Button Icon Divs
   //{The first, third and fifth ratios are X values in ratio of appwidth. The second, fourth and sixth ratios are y values in ratio of appheight}
@@ -327,7 +332,7 @@ void draw() {
   stroke(Purple);
   fill(Black);
   rect(MusicPanelDivs[4], MusicPanelDivs[5], MusicPanelDivs[6], MusicPanelDivs[7]);
-  if (!Attributions) {
+  if (!Attributions && !PlaylistView) {
     strokeWeight(3);
     stroke(Purple);
     fill(Black);
@@ -378,13 +383,14 @@ void draw() {
     textFont(TitleFont, FontSizes[1]);
     text(Text[2], TextDivs[8], TextDivs[9], TextDivs[10], TextDivs[11]);
     fill(resetDefaultInk);
-  }
-  //
-  if (Attributions) {
-    ImageMusicAttributions();
+    //
+    //Progress Bar and Progress Timer
+    textFont(TitleFont, size);
+    Music_Program_CS30_ProgressBar();
+    Music_Program_CS30_ProgressTimer();
   }
   //  
-  //Attributions
+  //Attribution Button
   strokeWeight(3);
   stroke(Purple);
   fill(Black);
@@ -394,15 +400,14 @@ void draw() {
   fill(TextPurple);
   text(Text[3], TextDivs[12], TextDivs[13], TextDivs[14], TextDivs[15]);
   //
-  if (!Attributions) {
-    //Progress Bar and Progress Timer
-    textFont(TitleFont, size);
-    Music_Program_CS30_ProgressBar();
-    Music_Program_CS30_ProgressTimer();
+  //
+  if (Attributions) {
+    ImageMusicAttributions();
   }
   //
   //HoverOverColors
   Music_Program_CS30_HoverOver();
+  //
   //
 }
 void Music_Program_CS30_ProgressBar () {
@@ -578,13 +583,13 @@ if (MouseIsOver(ButtonDivs[36], ButtonDivs[37], ButtonDivs[38], ButtonDivs[39]))
 void keyPressed() {
     if (!Attributions) {
     if (key=='p' || key=='P') {
-      KeyPlayPauseFunction();
+      PlayPauseFunction();
     }
     if (key=='r' || key=='R') {
       SongPlayList[SongPlaying].rewind();
     }
     if (key=='m' || key=='M') {
-      KeyMuteFunction ();
+      MuteFunction();
     }
     if (key == CODED && keyCode == RIGHT) {
       SongPlayList[SongPlaying].skip(+SongSkipTime);
@@ -614,14 +619,14 @@ void mousePressed() {
     //
   }
   if (Attributions) {
-    ImageMusicAttributionsMousePressed();
+  ImageMusicAttributionsMousePressed();
   }
   if (MouseIsOver(ButtonDivs[36], ButtonDivs[37], ButtonDivs[38], ButtonDivs[39])) {
     ToggleAttributions();
   }
   //
 }
-void PlayPauseFunction () {
+void PlayPauseFunction() {
   if (SongPlayList[SongPlaying].isPlaying()) {
     SongPlayList[SongPlaying].pause();
   } else if (SongPlayList[SongPlaying].position() == 0) {
@@ -630,7 +635,7 @@ void PlayPauseFunction () {
     SongPlayList[SongPlaying].play(SongPlayList[SongPlaying].position());
   }
 }
-void NextSongFunction () {
+void NextSongFunction() {
   if (SongPlayList[SongPlaying].isPlaying()) {
     SongPlayList[SongPlaying].pause();
     SongPlayList[SongPlaying].rewind();
@@ -646,7 +651,7 @@ void NextSongFunction () {
     SongPlaying = 0; }
   }
 }
-void PreviousSongFunction () {
+void PreviousSongFunction() {
   if (SongPlayList[SongPlaying].isPlaying()) {
     SongPlayList[SongPlaying].pause();
     SongPlayList[SongPlaying].rewind();
@@ -662,9 +667,9 @@ void PreviousSongFunction () {
     SongPlaying = SongNumber -1; } 
   }
 }
-void ShuffleSongFunction () {
-    SongPlayList[SongPlaying].rewind();
-    SongPlaying=int (random(0, SongNumber-1));
+void ShuffleSongFunction() {
+  SongPlayList[SongPlaying].rewind();
+  SongPlaying=int (random(0, SongNumber-1));
 }
 void ToggleAttributions () {
   if (!Attributions) {
@@ -673,18 +678,7 @@ void ToggleAttributions () {
     Attributions = false;
   }
 }
-void KeyPlayPauseFunction () {
-  if (SongPlayList[SongPlaying].isPlaying()) {
-    SongPlayList[SongPlaying].pause();
-  } else {
-  if (SongPlayList[SongPlaying].position() == 0) {
-    SongPlayList[SongPlaying].play();
-  } else {
-    SongPlayList[SongPlaying].play(SongPlayList[SongPlaying].position());
-    }
-  }
-}
-void KeyMuteFunction () {
+void MuteFunction() {
   if (SongPlayList[SongPlaying].isPlaying()) {
     SongPlayList[SongPlaying].mute();
   } else {
@@ -705,7 +699,7 @@ void LoadLastSongState() {
   if (SongStateFile.exists()) {
     String[] lines = loadStrings(SongStateTxtPath_LastSongState);
     if (lines.length > 0) {
-      SongPlaying = constrain(int(lines[0]), 0, SongNumber - 1);
+      SongPlaying = constrain(int(lines[0]), 0, SongNumber-1);
     }
   } else {
     println("Error Last_Song_State.txt not found");
@@ -734,7 +728,7 @@ void ButtonPressed() {
   } else if (SongLoop == true) {
     SongLoop = false;
   }
-}
+ }
 }
 void ErrorCheck(String description) {
   println(description);
