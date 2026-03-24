@@ -1,8 +1,8 @@
 class MusicPlayerDivs {
 //
 //Global Variables
-float[] TextDIVWidth = new float[18];
-float[] TextDIVHeight = new float[18];
+float[] TextDIVWidth = new float[19];
+float[] TextDIVHeight = new float[19];
 float xMusicProgressBar, yMusicProgressBar, widthMusicProgressBar, heightMusicProgressBar;
 float xIcons8Location;
 float xVecteezyLocation;
@@ -39,7 +39,7 @@ boolean PlaylistView = false;
 int NumberOfMusicPanelDIVs = 7; //All Music Panel components
 float[][] MusicPanelDivRatios = new float[NumberOfMusicPanelDIVs][4]; //Store ratios (Rectangles)
 float[] MusicPanelDivs = new float [NumberOfMusicPanelDIVs*4]; //Music Panel Position and Size of components
-int NumberOfButtonDIVs = 10; //All Music Player Buttons
+int NumberOfButtonDIVs = 11; //All Music Player Buttons
 float[][] ButtonDivRatios = new float[NumberOfButtonDIVs][4]; //Store ratios (Rectangles)
 float[] ButtonDivs = new float [NumberOfButtonDIVs*4]; //Button Positions and Size
 int NumberOfButtonIconDIVs = 9; //All Music Player Button Icons
@@ -48,7 +48,7 @@ float[] ButtonIconDivs = new float [NumberOfButtonIconDIVs*6]; //Icon Positions 
 int NumberOfAltButtonIconDIVs = 9; //All Alternate Music Player Button Icons
 float[][] AltButtonIconDivRatios = new float[NumberOfAltButtonIconDIVs][4]; //Store ratios (rectangle)
 float[] AltButtonIconDivs = new float [NumberOfAltButtonIconDIVs*4]; //Icon Positions and Size
-int NumberOfTextDIVs = 18; //All Text instances
+int NumberOfTextDIVs = 19; //All Text instances
 float[][] TextDivRatios = new float[NumberOfTextDIVs][4]; //Store ratios (Rectangles)
 float[] TextDivs = new float [NumberOfTextDIVs*4]; //Text Positions and Size
 int NumberOfPlaylistDIVs = 6; //Music Player Playlist
@@ -92,8 +92,8 @@ void MusicProgramDivs() {
   ButtonDivRatios[6] = new float[]{25.0/52, 24.0/40+2.5/26, 1.0/26, 1.0/26}; //Shuffle Songs Button
   ButtonDivRatios[7] = new float[]{9.0/26, 24.0/40+2.5/26, 1.0/26, 1.0/26}; //Replay Song Button
   ButtonDivRatios[8] = new float[]{16.0/26, 24.0/40+2.5/26, 1.0/26, 1.0/26}; //Loop Button
-  ButtonDivRatios[9] = new float[]{0.0, 23.0/24, 1.0/12, 1.0/24}; //Toggle Attribution View
-  //ButtonDivRatios[1] = new float[]{11.0/12, 23.0/24, 1.0/12, 1.0/24}; //Toggle PlayList View
+  ButtonDivRatios[9] = new float[]{0.0, 23.0/24, 1.0/12, 1.0/24}; //Toggle Attribution Button
+  ButtonDivRatios[10] = new float[]{11.0/12, 23.0/24, 1.0/12, 1.0/24}; //Toggle PlayList View
   //
   //Button Icon Divs
   //{The first, third and fifth ratios are X values in ratio of appwidth. The second, fourth and sixth ratios are y values in ratio of appheight}
@@ -131,6 +131,7 @@ void MusicProgramDivs() {
   TextDivRatios[15] = new float[]{2.0/27+23/432, 23.0/100+466.0/1215, 23.0/27, 1.0/42}; //Song Attribution 4 line 2
   TextDivRatios[16] = new float[]{2.0/27+23/432, 23.0/100+64.0/135, 23.0/27, 1.0/42}; //Song Attribution 5 line 2
   TextDivRatios[17] = new float[]{2.0/27+23/432, 23.0/100+686.0/1215, 23.0/27, 1.0/42}; //Song Attribution 6 line 2
+  TextDivRatios[18] = new float[]{11.0/12, 23.0/24, 1.0/12, 1.0/24}; //Toggle PlayList Text
   //
   CalculateDIVs();
   //
@@ -390,16 +391,18 @@ void draw() {
     Music_Program_CS30_ProgressTimer();
   }
   //  
-  //Attribution Button
+  //Attribution and playlist Buttons
   strokeWeight(3);
   stroke(Purple);
   fill(Black);
   rect(ButtonDivs[36], ButtonDivs[37], ButtonDivs[38], ButtonDivs[39]);
+  rect(ButtonDivs[40], ButtonDivs[41], ButtonDivs[42], ButtonDivs[43]);
   textAlign(CENTER, CENTER);
   textFont(TitleFont, FontSizes[3]);
   fill(TextPurple);
   text(Text[3], TextDivs[12], TextDivs[13], TextDivs[14], TextDivs[15]);
-  //
+  textFont(TitleFont, FontSizes[18]);
+  text(Text[18], TextDivs[72], TextDivs[73], TextDivs[74], TextDivs[75]);
   //
   if (Attributions) {
     ImageMusicAttributions();
@@ -468,7 +471,7 @@ void ImageMusicAttributions () {
   textFont(TitleFont, FontSizes[5]);
   //
   //Attributions
-  for (int i = 4; i < NumberOfTextDIVs; i++) {
+  for (int i = 4; i < 17; i++) {
     int baseIndex = i*4;
     text(Text[i], TextDivs[baseIndex], TextDivs[baseIndex+1], TextDivs[baseIndex+2], TextDivs[baseIndex+3]);
   }
@@ -504,7 +507,7 @@ void ImageMusicAttributionsMousePressed () {
 float TitleFontSize;
 float[] InitialFontSizes = new float[TextDIVHeight.length];
 float[] FontSizes = new float[TextDIVHeight.length];
-String[] Text = new String[18];
+String[] Text = new String[19];
 void MusicPanelTextSetup1() {
   //
   TitleFontSize = ShorterSide;
@@ -535,6 +538,11 @@ void stringVarsEntry() {
   Text[15] = "Free Download/Stream: http://ncs.io/WhereWeStarted Watch: http://youtu.be/U9pGr6KMdyg";
   Text[16] = "Free Download/Stream: http://ncs.io/Oblivion Watch: http://youtu.be/8Yue9YYdNLM";
   Text[17] = "NoCopyrightSounds Free Download/Stream: http://ncs.io/whywelose Watch: http://youtu.be/zyXmsVwZqX4";
+  if (!PlaylistView) {
+  Text[18] = "PlayList";
+  } else if (PlaylistView) {
+  Text[18] = "Return";
+  }
 }
 void MusicPanelTextSetup2() {
   TitleFontSize = ShorterSide;
@@ -573,10 +581,14 @@ if (!Attributions) {
     }
   }
 }
-if (MouseIsOver(ButtonDivs[36], ButtonDivs[37], ButtonDivs[38], ButtonDivs[39])) {
+for (int i = 9; i < 11; i++) {
+    int baseIndex = i * 4;
+  if (MouseIsOver(ButtonDivs[baseIndex], ButtonDivs[baseIndex+1], ButtonDivs[baseIndex+2], ButtonDivs[baseIndex+3])) {
     fill(hoverOverColor);
-    rect(ButtonDivs[36], ButtonDivs[37], ButtonDivs[38], ButtonDivs[39]);
+    rect(ButtonDivs[baseIndex], ButtonDivs[baseIndex+1], ButtonDivs[baseIndex+2], ButtonDivs[baseIndex+3]);
     fill(resetDefaultInk);
+    return;
+    }
   }
 }
 //
