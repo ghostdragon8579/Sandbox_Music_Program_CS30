@@ -19,9 +19,6 @@ int size;
 int ShorterSide;
 int SongNumber = 6;
 int SoundEffectNumber = 1;
-boolean MouseIsOver(float xVariable, float yVariable, float widthVariable, float heightVariable) {
-  return mouseX > xVariable && mouseX < xVariable + widthVariable && mouseY > yVariable && mouseY < yVariable + heightVariable;
-}
 File file;
 File AudioFiles;
 File SoundEffectFiles;

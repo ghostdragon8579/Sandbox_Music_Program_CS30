@@ -35,6 +35,9 @@ boolean SongLoop = false;
 boolean IsFontSizeUpdated = false;
 boolean Attributions = false;
 boolean PlaylistView = false;
+boolean MouseIsOver(float xVariable, float yVariable, float widthVariable, float heightVariable) {
+  return mouseX > xVariable && mouseX < xVariable + widthVariable && mouseY > yVariable && mouseY < yVariable + heightVariable;
+}
 //
 int NumberOfMusicPanelDIVs = 7; //All Music Panel components
 float[][] MusicPanelDivRatios = new float[NumberOfMusicPanelDIVs][4]; //Store ratios (Rectangles)
@@ -111,6 +114,14 @@ void MusicProgramDivs() {
   AltButtonIconDivRatios[0] = new float[]{204.0/416, 24.0/40+1.0/104, 1.0/208, 1.0/26}; //Play/Pause Paused Icon Rectangle One
   AltButtonIconDivRatios[1] = new float[]{202.0/416+1.0/52, 24.0/40+1.0/104, 1.0/208, 1.0/26}; //Play/Pause Paused Icon Rectangle Two
   //
+  //Playlist Display Divs
+  PlaylistDivRatios[0] = new float[]{3.0/27+23/432, 1.0/10+1.0/21, 21.0/27, 2.0/21}; //Playlist Song 1
+  PlaylistDivRatios[1] = new float[]{3.0/27+23/432, 1.0/10+7.0/42, 21.0/27, 2.0/21}; //Playlist Song 2
+  PlaylistDivRatios[2] = new float[]{3.0/27+23/432, 1.0/10+12.0/42, 21.0/27, 2.0/21}; //Playlist Song 3
+  PlaylistDivRatios[3] = new float[]{3.0/27+23/432, 1.0/10+17.0/42, 21.0/27, 2.0/21}; //Playlist Song 4
+  PlaylistDivRatios[4] = new float[]{3.0/27+23/432, 1.0/10+22.0/42, 21.0/27, 2.0/21}; //Playlist Song 5
+  PlaylistDivRatios[5] = new float[]{3.0/27+23/432, 1.0/10+27.0/42, 21.0/27, 2.0/21}; //Playlist Song 6
+  //
   //Text Divs
   //{The first, third and fifth ratios are X values in ratio of appwidth. The second, fourth and sixth ratios are y values in ratio of appheight}
   TextDivRatios[0] = new float[]{2.0/7, 3.0/20, 3.0/7, 1.0/11}; //Song Title
@@ -132,6 +143,7 @@ void MusicProgramDivs() {
   TextDivRatios[16] = new float[]{2.0/27+23/432, 23.0/100+64.0/135, 23.0/27, 1.0/42}; //Song Attribution 5 line 2
   TextDivRatios[17] = new float[]{2.0/27+23/432, 23.0/100+686.0/1215, 23.0/27, 1.0/42}; //Song Attribution 6 line 2
   TextDivRatios[18] = new float[]{11.0/12, 23.0/24, 1.0/12, 1.0/24}; //Toggle PlayList Text
+  //
   //
   CalculateDIVs();
   //
@@ -413,7 +425,7 @@ void draw() {
   //
   //
 }
-void Music_Program_CS30_ProgressBar () {
+void Music_Program_CS30_ProgressBar() {
   if (SongPlayList[SongPlaying].isPlaying()) {
     SongTimeCounter = millis();
   }
@@ -430,7 +442,7 @@ void Music_Program_CS30_ProgressBar () {
   stroke(Black);
   fill(resetDefaultInk);
 }
-void Music_Program_CS30_ProgressTimer () {
+void Music_Program_CS30_ProgressTimer() {
   int CurrentSongTime = SongPlayList[SongPlaying].position();
   int TotalSongTime = AlteredCurrentSongLength;
   int CurrentSongPositionMinutes = CurrentSongTime/60000;
@@ -464,7 +476,7 @@ void AspectRatioMusicImage(PImage img, float x, float y, float Width, float Heig
   image(img, drawX, drawY, drawWidth, drawHeight);
 }
 //
-void ImageMusicAttributions () {
+void ImageMusicAttributions() {
   //Image Attributions
   fill(TextPurple);
   textAlign(CENTER, CENTER);
@@ -477,7 +489,7 @@ void ImageMusicAttributions () {
   }
   //
 }
-void ImageMusicAttributionsMousePressed () {
+void ImageMusicAttributionsMousePressed() {
   //Attribution Links
   if (MouseIsOver(TextDivs[16], TextDivs[17], TextDivs[18], TextDivs[19])) { //Icon Attribution
     link("https://icons8.com/");
@@ -568,7 +580,7 @@ void MusicPanelTextSetup2() {
     textFont(TitleFont, TemporaryFontSize);
   }
 }
-void Music_Program_CS30_HoverOver () {
+void Music_Program_CS30_HoverOver() {
   color hoverOverColor=color(255, 255, 255, 64);
 if (!Attributions) {
     for (int i = 0; i < 9; i++) {
@@ -635,6 +647,10 @@ void mousePressed() {
   }
   if (MouseIsOver(ButtonDivs[36], ButtonDivs[37], ButtonDivs[38], ButtonDivs[39])) {
     ToggleAttributions();
+    PlaylistView = false;
+  } else if (MouseIsOver(ButtonDivs[40], ButtonDivs[41], ButtonDivs[42], ButtonDivs[43])) {
+    TogglePlaylistView();
+    Attributions = false;
   }
   //
 }
@@ -683,13 +699,6 @@ void ShuffleSongFunction() {
   SongPlayList[SongPlaying].rewind();
   SongPlaying=int (random(0, SongNumber-1));
 }
-void ToggleAttributions () {
-  if (!Attributions) {
-    Attributions = true;
-  } else if (Attributions) {
-    Attributions = false;
-  }
-}
 void MuteFunction() {
   if (SongPlayList[SongPlaying].isPlaying()) {
     SongPlayList[SongPlaying].mute();
@@ -697,9 +706,23 @@ void MuteFunction() {
     SongPlayList[SongPlaying].unmute();
   }  
 }
-void KeyBasedLocationFunction () {
+void KeyBasedLocationFunction() {
   KeySongPosition = int(SongPlayList[SongPlaying].length()*(key-'0')*0.1)-5000;
   SongPlayList[SongPlaying].cue(max(KeySongPosition, 0));
+}
+void ToggleAttributions() {
+  if (!Attributions) {
+    Attributions = true;
+  } else if (Attributions) {
+    Attributions = false;
+  }
+}
+void TogglePlaylistView() {
+  if (!PlaylistView) {
+    PlaylistView = true;
+  } else if (PlaylistView) {
+    PlaylistView = false;
+  }
 }
 void SaveLastSongState() {
   PrintWriter SaveSong = createWriter(SongStateTxtPath_LastSongState);
