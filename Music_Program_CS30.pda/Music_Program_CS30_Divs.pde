@@ -183,6 +183,13 @@ void CalculateDIVs() {
     AltButtonIconDivs[baseIndex+2] = appWidth*AltButtonIconDivRatios[i][2]; // Width position
     AltButtonIconDivs[baseIndex+3] = appHeight*AltButtonIconDivRatios[i][3]; // Height position
   }
+  for (int i = 0; i < NumberOfPlaylistDIVs; i++) {
+    int baseIndex = i*4;
+    PlaylistDivs[baseIndex] = appWidth*PlaylistDivRatios[i][0]; //X position
+    PlaylistDivs[baseIndex+1] = appHeight*PlaylistDivRatios[i][1]; //Y position
+    PlaylistDivs[baseIndex+2] = appWidth*PlaylistDivRatios[i][2]; //Width position
+    PlaylistDivs[baseIndex+3] = appHeight*PlaylistDivRatios[i][3]; //Height position
+  }
   for (int i = 0; i < NumberOfTextDIVs; i++) {
     int baseIndex = i * 4;
     TextDivs[baseIndex] = appWidth*TextDivRatios[i][0];
@@ -418,6 +425,8 @@ void draw() {
   //
   if (Attributions) {
     ImageMusicAttributions();
+  } else if (PlaylistView) {
+    PlaylistView();
   }
   //
   //HoverOverColors
@@ -513,6 +522,16 @@ void ImageMusicAttributionsMousePressed() {
   } else if (MouseIsOver(TextDivs[44], TextDivs[45], TextDivs[46], TextDivs[47]) ||
     MouseIsOver(TextDivs[68], TextDivs[69], TextDivs[70], TextDivs[71])) { //Song Attribution 6 (Why We Lose)
     link("https://ncs.io/whywelose?_gl=1*rnka34*_up*MQ..*_ga*MTc5MzgxODQwMC4xNzQ4ODk2MjY4*_ga_PFS54FR7NV*czE3NDg4OTYyNjckbzEkZzAkdDE3NDg4OTYyNjckajYwJGwwJGgw");
+  }
+}
+//
+void PlaylistView() {
+  strokeWeight(3);
+  stroke(Purple);
+  fill(Black);
+  for (int i = 0; i < NumberOfPlaylistDIVs; i++) {
+    int baseIndex = i*4;
+    rect(PlaylistDivs[baseIndex], PlaylistDivs[baseIndex+1], PlaylistDivs[baseIndex+2], PlaylistDivs[baseIndex+3]);
   }
 }
 //
