@@ -51,12 +51,12 @@ float[] ButtonIconDivs = new float [NumberOfButtonIconDIVs*6]; //Icon Positions 
 int NumberOfAltButtonIconDIVs = 9; //All Alternate Music Player Button Icons
 float[][] AltButtonIconDivRatios = new float[NumberOfAltButtonIconDIVs][4]; //Store ratios (rectangle)
 float[] AltButtonIconDivs = new float [NumberOfAltButtonIconDIVs*4]; //Icon Positions and Size
+int NumberOfPlaylistDIVs = 30; //Music Player Playlist
+float[][] PlaylistDivRatios = new float[NumberOfPlaylistDIVs][4]; //Store ratios (rectangle)
+float[] PlaylistDivs = new float [NumberOfPlaylistDIVs*4]; //Icon Positions and Size
 int NumberOfTextDIVs = 19; //All Text instances
 float[][] TextDivRatios = new float[NumberOfTextDIVs][4]; //Store ratios (Rectangles)
 float[] TextDivs = new float [NumberOfTextDIVs*4]; //Text Positions and Size
-int NumberOfPlaylistDIVs = 12; //Music Player Playlist
-float[][] PlaylistDivRatios = new float[NumberOfPlaylistDIVs][4]; //Store ratios (rectangle)
-float[] PlaylistDivs = new float [NumberOfPlaylistDIVs*4]; //Icon Positions and Size
   //
   /*
   Each matrix array contains two different arrays so I will use the Music Panel array as an example. In this array it creates a string of four variables per div called MusicPanelDiveRatios which stores
@@ -127,6 +127,25 @@ void MusicProgramDivs() {
   PlaylistDivRatios[9] = new float[]{5.0/27, 1.0/10+17.0/42, 2.0/31, 2.0/21}; //Playlist Song 4 Image
   PlaylistDivRatios[10] = new float[]{5.0/27, 1.0/10+22.0/42, 2.0/31, 2.0/21}; //Playlist Song 5 Image
   PlaylistDivRatios[11] = new float[]{5.0/27, 1.0/10+27.0/42, 2.0/31, 2.0/21}; //Playlist Song 6 Image
+  PlaylistDivRatios[12] = new float[]{5.0/27+2.0/31, 1.0/10+1.0/21, 13.0/27, 1.0/21}; //Playlist Song 1 Song Title
+  PlaylistDivRatios[13] = new float[]{5.0/27+2.0/31, 1.0/10+7.0/42, 13.0/27, 1.0/21}; //Playlist Song 2 Song Title
+  PlaylistDivRatios[14] = new float[]{5.0/27+2.0/31, 1.0/10+12.0/42, 13.0/27, 1.0/21}; //Playlist Song 3 Song Title
+  PlaylistDivRatios[15] = new float[]{5.0/27+2.0/31, 1.0/10+17.0/42, 13.0/27, 1.0/21}; //Playlist Song 4 Song Title
+  PlaylistDivRatios[16] = new float[]{5.0/27+2.0/31, 1.0/10+22.0/42, 13.0/27, 1.0/21}; //Playlist Song 5 Song Title
+  PlaylistDivRatios[17] = new float[]{5.0/27+2.0/31, 1.0/10+27.0/42, 13.0/27, 1.0/21}; //Playlist Song 6 Song Title
+  PlaylistDivRatios[18] = new float[]{5.0/27+2.0/31, 1.0/10+2.0/21, 13.0/54, 1.0/21}; //Playlist Song 1 Song Author
+  PlaylistDivRatios[19] = new float[]{5.0/27+2.0/31, 1.0/10+9.0/42, 13.0/54, 1.0/21}; //Playlist Song 2 Song Author
+  PlaylistDivRatios[20] = new float[]{5.0/27+2.0/31, 1.0/10+14.0/42, 13.0/54, 1.0/21}; //Playlist Song 3 Song Author
+  PlaylistDivRatios[21] = new float[]{5.0/27+2.0/31, 1.0/10+19.0/42, 13.0/54, 1.0/21}; //Playlist Song 4 Song Author
+  PlaylistDivRatios[22] = new float[]{5.0/27+2.0/31, 1.0/10+24.0/42, 13.0/54, 1.0/21}; //Playlist Song 5 Song Author
+  PlaylistDivRatios[23] = new float[]{5.0/27+2.0/31, 1.0/10+29.0/42, 13.0/54, 1.0/21}; //Playlist Song 6 Song Author
+  PlaylistDivRatios[24] = new float[]{5.0/27+2.0/31+13.0/54, 1.0/10+2.0/21, 13.0/54, 1.0/21}; //Playlist Song 1 Song Publish Date
+  PlaylistDivRatios[25] = new float[]{5.0/27+2.0/31+13.0/54, 1.0/10+9.0/42, 13.0/54, 1.0/21}; //Playlist Song 2 Song Publish Date
+  PlaylistDivRatios[26] = new float[]{5.0/27+2.0/31+13.0/54, 1.0/10+14.0/42, 13.0/54, 1.0/21}; //Playlist Song 3 Song Publish Date
+  PlaylistDivRatios[27] = new float[]{5.0/27+2.0/31+13.0/54, 1.0/10+19.0/42, 13.0/54, 1.0/21}; //Playlist Song 4 Song Publish Date
+  PlaylistDivRatios[28] = new float[]{5.0/27+2.0/31+13.0/54, 1.0/10+24.0/42, 13.0/54, 1.0/21}; //Playlist Song 5 Song Publish Date
+  PlaylistDivRatios[29] = new float[]{5.0/27+2.0/31+13.0/54, 1.0/10+29.0/42, 13.0/54, 1.0/21}; //Playlist Song 6 Song Publish Date
+  //*/
   //
   //Text Divs
   //{The first, third and fifth ratios are X values in ratio of appwidth. The second, fourth and sixth ratios are y values in ratio of appheight}
