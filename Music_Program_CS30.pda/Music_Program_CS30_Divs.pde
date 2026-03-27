@@ -54,7 +54,7 @@ float[] AltButtonIconDivs = new float [NumberOfAltButtonIconDIVs*4]; //Icon Posi
 int NumberOfTextDIVs = 19; //All Text instances
 float[][] TextDivRatios = new float[NumberOfTextDIVs][4]; //Store ratios (Rectangles)
 float[] TextDivs = new float [NumberOfTextDIVs*4]; //Text Positions and Size
-int NumberOfPlaylistDIVs = 6; //Music Player Playlist
+int NumberOfPlaylistDIVs = 12; //Music Player Playlist
 float[][] PlaylistDivRatios = new float[NumberOfPlaylistDIVs][4]; //Store ratios (rectangle)
 float[] PlaylistDivs = new float [NumberOfPlaylistDIVs*4]; //Icon Positions and Size
   //
@@ -115,12 +115,18 @@ void MusicProgramDivs() {
   AltButtonIconDivRatios[1] = new float[]{202.0/416+1.0/52, 24.0/40+1.0/104, 1.0/208, 1.0/26}; //Play/Pause Paused Icon Rectangle Two
   //
   //Playlist Display Divs
-  PlaylistDivRatios[0] = new float[]{3.0/27+23/432, 1.0/10+1.0/21, 21.0/27, 2.0/21}; //Playlist Song 1
-  PlaylistDivRatios[1] = new float[]{3.0/27+23/432, 1.0/10+7.0/42, 21.0/27, 2.0/21}; //Playlist Song 2
-  PlaylistDivRatios[2] = new float[]{3.0/27+23/432, 1.0/10+12.0/42, 21.0/27, 2.0/21}; //Playlist Song 3
-  PlaylistDivRatios[3] = new float[]{3.0/27+23/432, 1.0/10+17.0/42, 21.0/27, 2.0/21}; //Playlist Song 4
-  PlaylistDivRatios[4] = new float[]{3.0/27+23/432, 1.0/10+22.0/42, 21.0/27, 2.0/21}; //Playlist Song 5
-  PlaylistDivRatios[5] = new float[]{3.0/27+23/432, 1.0/10+27.0/42, 21.0/27, 2.0/21}; //Playlist Song 6
+  PlaylistDivRatios[0] = new float[]{5.0/27, 1.0/10+1.0/21, 17.0/27, 2.0/21}; //Playlist Song 1 Backplate
+  PlaylistDivRatios[1] = new float[]{5.0/27, 1.0/10+7.0/42, 17.0/27, 2.0/21}; //Playlist Song 2 Backplate
+  PlaylistDivRatios[2] = new float[]{5.0/27, 1.0/10+12.0/42, 17.0/27, 2.0/21}; //Playlist Song 3 Backplate
+  PlaylistDivRatios[3] = new float[]{5.0/27, 1.0/10+17.0/42, 17.0/27, 2.0/21}; //Playlist Song 4 Backplate
+  PlaylistDivRatios[4] = new float[]{5.0/27, 1.0/10+22.0/42, 17.0/27, 2.0/21}; //Playlist Song 5 Backplate
+  PlaylistDivRatios[5] = new float[]{5.0/27, 1.0/10+27.0/42, 17.0/27, 2.0/21}; //Playlist Song 6 Backplate
+  PlaylistDivRatios[6] = new float[]{5.0/27, 1.0/10+1.0/21, 2.0/31, 2.0/21}; //Playlist Song 1 Image
+  PlaylistDivRatios[7] = new float[]{5.0/27, 1.0/10+7.0/42, 2.0/31, 2.0/21}; //Playlist Song 2 Image
+  PlaylistDivRatios[8] = new float[]{5.0/27, 1.0/10+12.0/42, 2.0/31, 2.0/21}; //Playlist Song 3 Image
+  PlaylistDivRatios[9] = new float[]{5.0/27, 1.0/10+17.0/42, 2.0/31, 2.0/21}; //Playlist Song 4 Image
+  PlaylistDivRatios[10] = new float[]{5.0/27, 1.0/10+22.0/42, 2.0/31, 2.0/21}; //Playlist Song 5 Image
+  PlaylistDivRatios[11] = new float[]{5.0/27, 1.0/10+27.0/42, 2.0/31, 2.0/21}; //Playlist Song 6 Image
   //
   //Text Divs
   //{The first, third and fifth ratios are X values in ratio of appwidth. The second, fourth and sixth ratios are y values in ratio of appheight}
@@ -601,7 +607,7 @@ void MusicPanelTextSetup2() {
 }
 void Music_Program_CS30_HoverOver() {
   color hoverOverColor=color(255, 255, 255, 64);
-if (!Attributions) {
+if (!Attributions && !PlaylistView) {
     for (int i = 0; i < 9; i++) {
       int baseIndex = i * 4;
     if (MouseIsOver(ButtonDivs[baseIndex], ButtonDivs[baseIndex+1], ButtonDivs[baseIndex+2], ButtonDivs[baseIndex+3])) {
