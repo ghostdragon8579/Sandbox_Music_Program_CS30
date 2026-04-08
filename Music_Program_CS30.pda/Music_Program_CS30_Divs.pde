@@ -363,8 +363,6 @@ void MusicPlayerSetup() {
 }
 void draw() {
   //
-  //ErrorCheck("An error has occurred.");
-  //
   MusicPanelTextSetup1();
   MusicPanelTextSetup2();
   //
@@ -459,6 +457,8 @@ void draw() {
   //
   //
 }
+//
+//Aspect Ratio Images and Progress Bar/Timer
 void Music_Program_CS30_ProgressBar() {
   if (SongPlayList[SongPlaying].isPlaying()) {
     SongTimeCounter = millis();
@@ -510,6 +510,7 @@ void AspectRatioMusicImage(PImage img, float x, float y, float Width, float Heig
   image(img, drawX, drawY, drawWidth, drawHeight);
 }
 //
+//Attributions
 void ImageMusicAttributions() {
   //Image Attributions
   fill(TextPurple);
@@ -560,6 +561,7 @@ void PlaylistView() {
   }
 }
 //
+//Text and HoverOver
 float TitleFontSize;
 float[] InitialFontSizes = new float[TextDIVHeight.length];
 float[] FontSizes = new float[TextDIVHeight.length];
@@ -698,6 +700,8 @@ void mousePressed() {
   }
   //
 }
+//
+//Music Functions
 void PlayPauseFunction() {
   if (SongPlayList[SongPlaying].isPlaying()) {
     SongPlayList[SongPlaying].pause();
@@ -754,36 +758,6 @@ void KeyBasedLocationFunction() {
   KeySongPosition = int(SongPlayList[SongPlaying].length()*(key-'0')*0.1)-5000;
   SongPlayList[SongPlaying].cue(max(KeySongPosition, 0));
 }
-void ToggleAttributions() {
-  if (!Attributions) {
-    Attributions = true;
-  } else if (Attributions) {
-    Attributions = false;
-  }
-}
-void TogglePlaylistView() {
-  if (!PlaylistView) {
-    PlaylistView = true;
-  } else if (PlaylistView) {
-    PlaylistView = false;
-  }
-}
-void SaveLastSongState() {
-  PrintWriter SaveSong = createWriter(SongStateTxtPath_LastSongState);
-  SaveSong.println(SongPlaying);
-  SaveSong.close();
-}
-void LoadLastSongState() {
-  File SongStateFile = new File(SongStateTxtPath_LastSongState);
-  if (SongStateFile.exists()) {
-    String[] lines = loadStrings(SongStateTxtPath_LastSongState);
-    if (lines.length > 0) {
-      SongPlaying = constrain(int(lines[0]), 0, SongNumber-1);
-    }
-  } else {
-    println("Error Last_Song_State.txt not found");
-  }
-}
 void ButtonPressed() {
   if (MouseIsOver(ButtonDivs[0], ButtonDivs[1], ButtonDivs[2], ButtonDivs[3])) {
     SaveLastSongState();
@@ -816,7 +790,39 @@ void ButtonPressed() {
     SongLoop = false;
     SoundEffect();
   }
- }
+}
+//
+//File and Playlist/Attribution functions
+void ToggleAttributions() {
+  if (!Attributions) {
+    Attributions = true;
+  } else if (Attributions) {
+    Attributions = false;
+  }
+}
+void TogglePlaylistView() {
+  if (!PlaylistView) {
+    PlaylistView = true;
+  } else if (PlaylistView) {
+    PlaylistView = false;
+  }
+}
+void SaveLastSongState() {
+  PrintWriter SaveSong = createWriter(SongStateTxtPath_LastSongState);
+  SaveSong.println(SongPlaying);
+  SaveSong.close();
+}
+void LoadLastSongState() {
+  File SongStateFile = new File(SongStateTxtPath_LastSongState);
+  if (SongStateFile.exists()) {
+    String[] lines = loadStrings(SongStateTxtPath_LastSongState);
+    if (lines.length > 0) {
+      SongPlaying = constrain(int(lines[0]), 0, SongNumber-1);
+    }
+  } else {
+    println("Error Last_Song_State.txt not found");
+  }
+}
 void SoundEffect() {
   SoundEffectPlayList[0].rewind();
   SoundEffectPlayList[0].skip(1000);
