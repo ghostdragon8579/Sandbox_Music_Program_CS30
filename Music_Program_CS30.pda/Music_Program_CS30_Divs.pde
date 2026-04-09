@@ -224,6 +224,19 @@ void CalculateDIVs() {
     TextDIVWidth[i] = TextDivs[baseIndex+2];
     TextDIVHeight[i] = TextDivs[baseIndex+3];
   }
+  if (MusicPanelDivs == null) {
+    ErrorLocator("Error 424 Dependency Failure", MusicPanelDivs);
+  } else if (ButtonDivs == null) {
+    ErrorLocator("Error 424 Dependency Failure", ButtonDivs);
+  } else if (ButtonIconDivs == null) {
+    ErrorLocator("Error 424 Dependency Failure", ButtonIconDivs);
+  } else if (AltButtonIconDivs == null) {
+    ErrorLocator("Error 424 Dependency Failure", AltButtonIconDivs);
+  } else if (PlaylistDivs == null) {
+    ErrorLocator("Error 424 Dependency Failure", PlaylistDivs);
+  } else if (TextDivs == null) {
+    ErrorLocator("Error 424 Dependency Failure", TextDivs);
+  }
 } 
 void MusicPlayerSetup() {
   //
@@ -242,9 +255,6 @@ void MusicPlayerSetup() {
   String RelativeMusicPathway = "/Music_Program_CS30_Audio_Files/";
   String AbsoluteMusicPathway = sketchPath(RelativeMusicPathway);
   AudioFiles = new File(AbsoluteMusicPathway);
-  if (AudioFiles == null || !AudioFiles.exists()) {
-    ErrorCheck("Error 404 Music folder Not Found", AbsoluteMusicPathway);
-  } 
   int AudioFileCount = AudioFiles.list().length;
   SongNumber = AudioFiles.list().length;
   File[] SongFiles = AudioFiles.listFiles();
@@ -603,6 +613,9 @@ void stringVarsEntry() {
   Text[18] = "PlayList";
   } else if (PlaylistView) {
   Text[18] = "Return";
+  }
+  if (Text == null) {
+  ErrorLocator("Error 404 Text Not Found", Text);
   }
 }
 void MusicPanelTextSetup2() {
