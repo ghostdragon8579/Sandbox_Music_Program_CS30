@@ -820,9 +820,11 @@ void LoadLastSongState() {
       SongPlaying = constrain(int(lines[0]), 0, SongNumber-1);
     }
   } else {
-    println("Error Last_Song_State.txt not found");
+    println("Error 404 Last_Song_State.txt not found");
   }
 }
+//
+//Sound Effect Setup
 void SoundEffect() {
   SoundEffectPlayList[0].rewind();
   SoundEffectPlayList[0].skip(1000);
