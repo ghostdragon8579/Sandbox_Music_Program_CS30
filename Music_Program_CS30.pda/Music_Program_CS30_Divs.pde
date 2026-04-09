@@ -224,6 +224,8 @@ void CalculateDIVs() {
     TextDIVWidth[i] = TextDivs[baseIndex+2];
     TextDIVHeight[i] = TextDivs[baseIndex+3];
   }
+  //
+  //Error Checker and Locator
   if (MusicPanelDivs == null) {
     ErrorLocator("Error 424 Dependency Failure", MusicPanelDivs);
   } else if (ButtonDivs == null) {
@@ -858,14 +860,11 @@ void ErrorLocator(String Declaration, String Variable) {
   println(Declaration, Variable);
 }
 void ErrorLocator(String Declaration, float[] array) {
-  println("\n"+Declaration);
+  println(Declaration);
   printArray(array);
 }
 void ErrorLocator(String Declaration, String[] array) {
-  println("\n" + Declaration);
+  println(Declaration);
   printArray(array);
-}
-void ErrorLocator(String Declaration, int Variable1, float Variable2) {
-  println(Declaration, Variable1, Variable2);
 }
 }
