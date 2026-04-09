@@ -242,6 +242,9 @@ void MusicPlayerSetup() {
   String RelativeMusicPathway = "/Music_Program_CS30_Audio_Files/";
   String AbsoluteMusicPathway = sketchPath(RelativeMusicPathway);
   AudioFiles = new File(AbsoluteMusicPathway);
+  if (AudioFiles == null || !AudioFiles.exists()) {
+    ErrorCheck("Error 404 Music folder Not Found", AbsoluteMusicPathway);
+  } 
   int AudioFileCount = AudioFiles.list().length;
   SongNumber = AudioFiles.list().length;
   File[] SongFiles = AudioFiles.listFiles();
@@ -829,5 +832,27 @@ void SoundEffect() {
   SoundEffectPlayList[0].rewind();
   SoundEffectPlayList[0].skip(1000);
   SoundEffectPlayList[0].play();
+}
+//
+//Error Locators
+void ErrorLocator(String Declaration) {
+  println(Declaration);
+}
+void ErrorLocator(String Declaration, float Variable) {
+  println(Declaration, Variable);
+}
+void ErrorLocator(String Declaration, String Variable) {
+  println(Declaration, Variable);
+}
+void ErrorLocator(String Declaration, float[] array) {
+  println("\n"+Declaration);
+  printArray(array);
+}
+void ErrorLocator(String Declaration, String[] array) {
+  println("\n" + Declaration);
+  printArray(array);
+}
+void ErrorLocator(String Declaration, int Variable1, float Variable2) {
+  println(Declaration, Variable1, Variable2);
 }
 }
