@@ -8,5 +8,5 @@ Current music program made in CS30 used as add-on for other CS30 projects
 - [x] Case Study
 - [x] Convert to DIV format
 - [x] Convert to a class based program
-- [] Add Error Checks and Locators (currently in progress)
-- [] To Be Added
+- [ ] Add Error Checks and Locators (currently in progress)
+- [ ] To Be Added
