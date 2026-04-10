@@ -1,3 +1,4 @@
+//Lines 309-331(Image file pathways),  511-525(Image aspect ratio) and 431(Application of aspect ratio images)
 //Libraries
 //
 import java.io.*;
