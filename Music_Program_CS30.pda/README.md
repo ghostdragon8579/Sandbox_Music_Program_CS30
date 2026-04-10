@@ -10,3 +10,4 @@ Current music program made in CS30 used as add-on for other CS30 projects
 - [x] Convert to a class based program
 - [ ] Add Error Checks and Locators (currently in progress)
 - [ ] To Be Added
+---
