@@ -1,5 +1,5 @@
 class MusicPlayerDivs {
-//Lines 309-331(Image file pathways),  511-525(Image aspect ratio) and 431(Application of aspect ratio images)
+//Lines 309-331(Image file pathways), 511-525(Image aspect ratio) and 431(Application of aspect ratio images)
 //
 //Global Variables
 float[] TextDIVWidth = new float[19];
@@ -112,10 +112,12 @@ void MusicProgramDivs() {
   ButtonIconDivRatios[8] = new float[]{25.4/52, 24.0/40+1.0/104, 25.4/52, 24.0/40+5.0/104, 26.6/52, 25.0/40+1.0/208}; //Play/Pause Button Triangle
   //
   //Alternative Button Icon Divs
+  //{X value in ratio of appwidth, Y value in ratio of appwidth, width value in ratio of appwidth, height value in ratio of appheight}
   AltButtonIconDivRatios[0] = new float[]{204.0/416, 24.0/40+1.0/104, 1.0/208, 1.0/26}; //Play/Pause Paused Icon Rectangle One
   AltButtonIconDivRatios[1] = new float[]{202.0/416+1.0/52, 24.0/40+1.0/104, 1.0/208, 1.0/26}; //Play/Pause Paused Icon Rectangle Two
   //
   //Playlist Display Divs
+  //{X value in ratio of appwidth, Y value in ratio of appwidth, width value in ratio of appwidth, height value in ratio of appheight}
   PlaylistDivRatios[0] = new float[]{5.0/27, 1.0/10+1.0/21, 17.0/27, 2.0/21}; //Playlist Song 1 Backplate
   PlaylistDivRatios[1] = new float[]{5.0/27, 1.0/10+7.0/42, 17.0/27, 2.0/21}; //Playlist Song 2 Backplate
   PlaylistDivRatios[2] = new float[]{5.0/27, 1.0/10+12.0/42, 17.0/27, 2.0/21}; //Playlist Song 3 Backplate
