@@ -40,7 +40,7 @@ boolean MouseIsOver(float xVariable, float yVariable, float widthVariable, float
   return mouseX > xVariable && mouseX < xVariable + widthVariable && mouseY > yVariable && mouseY < yVariable + heightVariable;
 }
 //
-int NumberOfMusicPanelDIVs = 7; //All Music Panel components
+int NumberOfMusicPanelDIVs = 7; //All Music Panel Components
 float[][] MusicPanelDivRatios = new float[NumberOfMusicPanelDIVs][4]; //Store ratios (Rectangles)
 float[] MusicPanelDivs = new float [NumberOfMusicPanelDIVs*4]; //Music Panel Position and Size of components
 int NumberOfButtonDIVs = 11; //All Music Player Buttons
@@ -50,10 +50,10 @@ int NumberOfButtonIconDIVs = 9; //All Music Player Button Icons
 float[][] ButtonIconDivRatios = new float[NumberOfButtonIconDIVs][6]; //Store ratios (Triangles)
 float[] ButtonIconDivs = new float [NumberOfButtonIconDIVs*6]; //Icon Positions and Size
 int NumberOfAltButtonIconDIVs = 9; //All Alternate Music Player Button Icons
-float[][] AltButtonIconDivRatios = new float[NumberOfAltButtonIconDIVs][4]; //Store ratios (rectangle)
+float[][] AltButtonIconDivRatios = new float[NumberOfAltButtonIconDIVs][4]; //Store ratios (Rectangles)
 float[] AltButtonIconDivs = new float [NumberOfAltButtonIconDIVs*4]; //Icon Positions and Size
-int NumberOfPlaylistDIVs = 30; //Music Player Playlist
-float[][] PlaylistDivRatios = new float[NumberOfPlaylistDIVs][4]; //Store ratios (rectangle)
+int NumberOfPlaylistDIVs = 36; //Music Player Playlist Components
+float[][] PlaylistDivRatios = new float[NumberOfPlaylistDIVs][4]; //Store ratios (Rectangles)
 float[] PlaylistDivs = new float [NumberOfPlaylistDIVs*4]; //Icon Positions and Size
 int NumberOfTextDIVs = 19; //All Text instances
 float[][] TextDivRatios = new float[NumberOfTextDIVs][4]; //Store ratios (Rectangles)
@@ -148,6 +148,14 @@ void MusicProgramDivs() {
   PlaylistDivRatios[27] = new float[]{5.0/27+2.0/31+13.0/54, 1.0/10+19.0/42, 13.0/54, 1.0/21}; //Playlist Song 4 Song Publish Date
   PlaylistDivRatios[28] = new float[]{5.0/27+2.0/31+13.0/54, 1.0/10+24.0/42, 13.0/54, 1.0/21}; //Playlist Song 5 Song Publish Date
   PlaylistDivRatios[29] = new float[]{5.0/27+2.0/31+13.0/54, 1.0/10+29.0/42, 13.0/54, 1.0/21}; //Playlist Song 6 Song Publish Date
+  /*
+  PlaylistDivRatios[30] = new float[]{5.0/27+2.0/31+14.0/27, 1.0/10+2.0/21, 1.0/26, 1.0/26}; //Playlist Song 1 Play Button
+  PlaylistDivRatios[31] = new float[]{5.0/27+2.0/31+14.0/27, 1.0/10+9.0/42, 1.0/26, 1.0/26}; //Playlist Song 2 Play Button
+  PlaylistDivRatios[32] = new float[]{5.0/27+2.0/31+14.0/27, 1.0/10+14.0/42, 1.0/26, 1.0/26}; //Playlist Song 3 Play Button
+  PlaylistDivRatios[33] = new float[]{5.0/27+2.0/31+14.0/27, 1.0/10+19.0/42, 1.0/26, 1.0/26}; //Playlist Song 4 Play Button
+  PlaylistDivRatios[34] = new float[]{5.0/27+2.0/31+14.0/27, 1.0/10+24.0/42, 1.0/26, 1.0/26}; //Playlist Song 5 Play Button
+  PlaylistDivRatios[35] = new float[]{5.0/27+2.0/31+14.0/27, 1.0/10+29.0/42, 1.0/26, 1.0/26}; //Playlist Song 6 Play Button
+  //*/
   //
   //Text Divs
   //{The first, third and fifth ratios are X values in ratio of appwidth. The second, fourth and sixth ratios are y values in ratio of appheight}
