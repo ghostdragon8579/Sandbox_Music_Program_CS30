@@ -663,6 +663,16 @@ if (!Attributions && !PlaylistView) {
       fill(resetDefaultInk);
       return;
     }
+  } 
+} else if (Attributions && !PlaylistView) {
+    for (int i = 4; i < 17; i++) {
+      int baseIndex = i * 4;
+    if (MouseIsOver(TextDivs[baseIndex], TextDivs[baseIndex+1], TextDivs[baseIndex+2], TextDivs[baseIndex+3])) {
+      fill(hoverOverColor);
+      rect(TextDivs[baseIndex], TextDivs[baseIndex+1], TextDivs[baseIndex+2], TextDivs[baseIndex+3]);
+      fill(resetDefaultInk);
+      return;
+    }
   }
 }
 for (int i = 9; i < 11; i++) {
