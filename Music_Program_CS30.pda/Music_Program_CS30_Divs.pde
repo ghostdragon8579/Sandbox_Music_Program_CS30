@@ -148,14 +148,12 @@ void MusicProgramDivs() {
   PlaylistDivRatios[27] = new float[]{5.0/27+2.0/31+13.0/54, 1.0/10+19.0/42, 13.0/54, 1.0/21}; //Playlist Song 4 Song Publish Date
   PlaylistDivRatios[28] = new float[]{5.0/27+2.0/31+13.0/54, 1.0/10+24.0/42, 13.0/54, 1.0/21}; //Playlist Song 5 Song Publish Date
   PlaylistDivRatios[29] = new float[]{5.0/27+2.0/31+13.0/54, 1.0/10+29.0/42, 13.0/54, 1.0/21}; //Playlist Song 6 Song Publish Date
-  /*
-  PlaylistDivRatios[30] = new float[]{5.0/27+2.0/31+14.0/27, 1.0/10+2.0/21, 1.0/26, 1.0/26}; //Playlist Song 1 Play Button
-  PlaylistDivRatios[31] = new float[]{5.0/27+2.0/31+14.0/27, 1.0/10+9.0/42, 1.0/26, 1.0/26}; //Playlist Song 2 Play Button
-  PlaylistDivRatios[32] = new float[]{5.0/27+2.0/31+14.0/27, 1.0/10+14.0/42, 1.0/26, 1.0/26}; //Playlist Song 3 Play Button
-  PlaylistDivRatios[33] = new float[]{5.0/27+2.0/31+14.0/27, 1.0/10+19.0/42, 1.0/26, 1.0/26}; //Playlist Song 4 Play Button
-  PlaylistDivRatios[34] = new float[]{5.0/27+2.0/31+14.0/27, 1.0/10+24.0/42, 1.0/26, 1.0/26}; //Playlist Song 5 Play Button
-  PlaylistDivRatios[35] = new float[]{5.0/27+2.0/31+14.0/27, 1.0/10+29.0/42, 1.0/26, 1.0/26}; //Playlist Song 6 Play Button
-  //*/
+  PlaylistDivRatios[30] = new float[]{5.0/27+3.0/62+14.0/27, 1.0/10+5.7/84, 1.0/26, 1.0/26*3/2}; //Playlist Song 1 Play Button
+  PlaylistDivRatios[31] = new float[]{5.0/27+3.0/62+14.0/27, 1.0/10+15.7/84,1.0/26, 1.0/26*3/2}; //Playlist Song 2 Play Button
+  PlaylistDivRatios[32] = new float[]{5.0/27+3.0/62+14.0/27, 1.0/10+25.7/84, 1.0/26, 1.0/26*3/2}; //Playlist Song 3 Play Button
+  PlaylistDivRatios[33] = new float[]{5.0/27+3.0/62+14.0/27, 1.0/10+35.7/84, 1.0/26, 1.0/26*3/2}; //Playlist Song 4 Play Button
+  PlaylistDivRatios[34] = new float[]{5.0/27+3.0/62+14.0/27, 1.0/10+45.7/84, 1.0/26, 1.0/26*3/2}; //Playlist Song 5 Play Button
+  PlaylistDivRatios[35] = new float[]{5.0/27+3.0/62+14.0/27, 1.0/10+55.7/84, 1.0/26, 1.0/26*3/2}; //Playlist Song 6 Play Button
   //
   //Text Divs
   //{The first, third and fifth ratios are X values in ratio of appwidth. The second, fourth and sixth ratios are y values in ratio of appheight}
