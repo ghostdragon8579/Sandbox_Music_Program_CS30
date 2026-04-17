@@ -674,6 +674,16 @@ if (!Attributions && !PlaylistView) {
       return;
     }
   }
+} else if (!Attributions && PlaylistView) {
+    for (int i = 30; i < 36; i++) {
+      int baseIndex = i * 4;
+    if (MouseIsOver(PlaylistDivs[baseIndex], PlaylistDivs[baseIndex+1], PlaylistDivs[baseIndex+2], PlaylistDivs[baseIndex+3])) {
+      fill(hoverOverColor);
+      rect(PlaylistDivs[baseIndex], PlaylistDivs[baseIndex+1], PlaylistDivs[baseIndex+2], PlaylistDivs[baseIndex+3]);
+      fill(resetDefaultInk);
+      return;
+    }
+  }
 }
 for (int i = 9; i < 11; i++) {
     int baseIndex = i * 4;
