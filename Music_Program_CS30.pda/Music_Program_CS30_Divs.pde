@@ -111,7 +111,11 @@ void MusicProgramDivs() {
   ButtonIconDivRatios[7] = new float[]{20.0/26+5.0/156, 24.0/40+1.0/104, 20.0/26+5.0/156, 24.0/40+5.0/104, 20.0/26+5.0/156, 25.0/40+1.0/208}; //Next Button Triangle Two
   ButtonIconDivRatios[8] = new float[]{25.4/52, 24.0/40+1.0/104, 25.4/52, 24.0/40+5.0/104, 26.6/52, 25.0/40+1.0/208}; //Play/Pause Button Triangle
   ButtonIconDivRatios[9] = new float[]{19.0/27+3.0/62+1.0/156, 1.0/10+5.7/84+1.0/104, 19.0/27+3.0/62+1.0/156, 1.0/10+5.7/84+5.0/104, 19.0/27+3.0/62+5.0/156, 1.0/10+5.7/84+3.0/104}; //Playlist Song Play Button Triangle One
-  //19.0/27+3.0/62, 1.0/10+5.7/84, 1.0/26, 1.0/26*3/2
+  ButtonIconDivRatios[10] = new float[]{19.0/27+3.0/62+1.0/156, 1.0/10+15.7/84+1.0/104, 19.0/27+3.0/62+1.0/156, 1.0/10+15.7/84+5.0/104, 19.0/27+3.0/62+5.0/156, 1.0/10+15.7/84+3.0/104}; //Playlist Song Play Button Triangle Two
+  ButtonIconDivRatios[11] = new float[]{19.0/27+3.0/62+1.0/156, 1.0/10+25.7/84+1.0/104, 19.0/27+3.0/62+1.0/156, 1.0/10+25.7/84+5.0/104, 19.0/27+3.0/62+5.0/156, 1.0/10+25.7/84+3.0/104}; //Playlist Song Play Button Triangle Three
+  ButtonIconDivRatios[12] = new float[]{19.0/27+3.0/62+1.0/156, 1.0/10+35.7/84+1.0/104, 19.0/27+3.0/62+1.0/156, 1.0/10+35.7/84+5.0/104, 19.0/27+3.0/62+5.0/156, 1.0/10+35.7/84+3.0/104}; //Playlist Song Play Button Triangle Four
+  ButtonIconDivRatios[13] = new float[]{19.0/27+3.0/62+1.0/156, 1.0/10+45.7/84+1.0/104, 19.0/27+3.0/62+1.0/156, 1.0/10+45.7/84+5.0/104, 19.0/27+3.0/62+5.0/156, 1.0/10+45.7/84+3.0/104}; //Playlist Song Play Button Triangle Five
+  ButtonIconDivRatios[14] = new float[]{19.0/27+3.0/62+1.0/156, 1.0/10+55.7/84+1.0/104, 19.0/27+3.0/62+1.0/156, 1.0/10+55.7/84+5.0/104, 19.0/27+3.0/62+5.0/156, 1.0/10+55.7/84+3.0/104}; //Playlist Song Play Button Triangle Six
   //
   //Alternative Button Icon Divs
   //{X value in ratio of appwidth, Y value in ratio of appwidth, width value in ratio of appwidth, height value in ratio of appheight}
