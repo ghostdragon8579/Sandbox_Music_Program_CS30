@@ -46,10 +46,10 @@ float[] MusicPanelDivs = new float [NumberOfMusicPanelDIVs*4]; //Music Panel Pos
 int NumberOfButtonDIVs = 11; //All Music Player Buttons
 float[][] ButtonDivRatios = new float[NumberOfButtonDIVs][4]; //Store ratios (Rectangles)
 float[] ButtonDivs = new float [NumberOfButtonDIVs*4]; //Button Positions and Size
-int NumberOfButtonIconDIVs = 9; //All Music Player Button Icons
+int NumberOfButtonIconDIVs = 15; //All Music Player Button Icons
 float[][] ButtonIconDivRatios = new float[NumberOfButtonIconDIVs][6]; //Store ratios (Triangles)
 float[] ButtonIconDivs = new float [NumberOfButtonIconDIVs*6]; //Icon Positions and Size
-int NumberOfAltButtonIconDIVs = 9; //All Alternate Music Player Button Icons
+int NumberOfAltButtonIconDIVs = 8; //All Alternate Music Player Button Icons
 float[][] AltButtonIconDivRatios = new float[NumberOfAltButtonIconDIVs][4]; //Store ratios (Rectangles)
 float[] AltButtonIconDivs = new float [NumberOfAltButtonIconDIVs*4]; //Icon Positions and Size
 int NumberOfPlaylistDIVs = 36; //Music Player Playlist Components
@@ -110,6 +110,8 @@ void MusicProgramDivs() {
   ButtonIconDivRatios[6] = new float[]{20.0/26+1.0/156, 24.0/40+1.2/104, 20.0/26+1.0/156, 24.0/40+4.8/104, 20.0/26+4.7/156, 25.0/40+1.0/208}; //Next Button Triangle One
   ButtonIconDivRatios[7] = new float[]{20.0/26+5.0/156, 24.0/40+1.0/104, 20.0/26+5.0/156, 24.0/40+5.0/104, 20.0/26+5.0/156, 25.0/40+1.0/208}; //Next Button Triangle Two
   ButtonIconDivRatios[8] = new float[]{25.4/52, 24.0/40+1.0/104, 25.4/52, 24.0/40+5.0/104, 26.6/52, 25.0/40+1.0/208}; //Play/Pause Button Triangle
+  ButtonIconDivRatios[9] = new float[]{19.0/27+3.0/62+1.0/156, 1.0/10+5.7/84+1.0/104, 19.0/27+3.0/62+1.0/156, 1.0/10+5.7/84+5.0/104, 19.0/27+3.0/62+5.0/156, 1.0/10+5.7/84+3.0/104}; //Playlist Song Play Button Triangle One
+  //19.0/27+3.0/62, 1.0/10+5.7/84, 1.0/26, 1.0/26*3/2
   //
   //Alternative Button Icon Divs
   //{X value in ratio of appwidth, Y value in ratio of appwidth, width value in ratio of appwidth, height value in ratio of appheight}
@@ -582,6 +584,14 @@ void PlaylistView() {
     int baseIndex = i*4;
     rect(PlaylistDivs[baseIndex], PlaylistDivs[baseIndex+1], PlaylistDivs[baseIndex+2], PlaylistDivs[baseIndex+3]);
   }
+  stroke(TextPurple);
+  fill(TextPurple);
+  for (int i = 9; i < NumberOfButtonIconDIVs; i++) {
+    int baseIndex = i*6;
+    triangle(ButtonIconDivs[baseIndex], ButtonIconDivs[baseIndex+1], ButtonIconDivs[baseIndex+2], ButtonIconDivs[baseIndex+3], ButtonIconDivs[baseIndex+4], ButtonIconDivs[baseIndex+5]);
+  }
+  stroke(Purple);
+  fill(Black);
 }
 //
 //Text and HoverOver
