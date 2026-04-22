@@ -602,6 +602,7 @@ void ImageMusicAttributionsMousePressed() {
 }
 //
 void PlaylistView() {
+  //Playlist Buttons and Backplates
   strokeWeight(3);
   stroke(Purple);
   fill(Black);
@@ -613,6 +614,8 @@ void PlaylistView() {
     int baseIndex = i*4;
   AspectRatioMusicImage(MusicImage[SongPlaying], PlaylistDivs[baseIndex], PlaylistDivs[baseIndex+1], PlaylistDivs[baseIndex+2], PlaylistDivs[baseIndex+3]);
   }
+  //
+  //Playlist Button Icons
   stroke(TextPurple);
   fill(TextPurple);
   for (int i = 9; i < NumberOfButtonIconDIVs; i++) {
@@ -626,6 +629,7 @@ void PlaylistView() {
       }
     }
   }
+  //Note: Reset both the stroke and fill functions before ending the void.
   stroke(Purple);
   fill(Black);
 }
