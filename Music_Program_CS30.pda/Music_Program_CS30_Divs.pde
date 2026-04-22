@@ -614,9 +614,13 @@ void PlaylistView() {
     int baseIndex = i*4;
     AspectRatioMusicImage(MusicImage[(SongPlaying+(i-6))%MusicImage.length], PlaylistDivs[baseIndex], PlaylistDivs[baseIndex+1], PlaylistDivs[baseIndex+2], PlaylistDivs[baseIndex+3]);
   }
-  /*
-  for (int i = 13; i < 18; i++) {
+  ///*
+  for (int i = 13; i <= 18; i++) {
     int baseIndex = i*4;
+    textAlign(CENTER, CENTER);
+    textFont(TitleFont, FontSizes[18]);
+    fill(TextPurple);
+    text(SongPlayListMetaData[(SongPlaying+(i-14))].title(), PlaylistDivs[baseIndex], PlaylistDivs[baseIndex+1], PlaylistDivs[baseIndex+2], PlaylistDivs[baseIndex+3]);
   }
   //*/
   //
