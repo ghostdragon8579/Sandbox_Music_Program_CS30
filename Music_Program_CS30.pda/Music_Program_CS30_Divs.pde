@@ -609,6 +609,10 @@ void PlaylistView() {
     int baseIndex = i*4;
     rect(PlaylistDivs[baseIndex], PlaylistDivs[baseIndex+1], PlaylistDivs[baseIndex+2], PlaylistDivs[baseIndex+3]);
   }
+  for (int i = 6; i < 12; i++) {
+    int baseIndex = i*4;
+  AspectRatioMusicImage(MusicImage[SongPlaying], PlaylistDivs[baseIndex], PlaylistDivs[baseIndex+1], PlaylistDivs[baseIndex+2], PlaylistDivs[baseIndex+3]);
+  }
   stroke(TextPurple);
   fill(TextPurple);
   for (int i = 9; i < NumberOfButtonIconDIVs; i++) {
