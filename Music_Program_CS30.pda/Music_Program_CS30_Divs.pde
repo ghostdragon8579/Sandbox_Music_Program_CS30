@@ -612,7 +612,7 @@ void PlaylistView() {
   }
   for (int i = 6; i < 12; i++) {
     int baseIndex = i*4;
-  AspectRatioMusicImage(MusicImage[SongPlaying], PlaylistDivs[baseIndex], PlaylistDivs[baseIndex+1], PlaylistDivs[baseIndex+2], PlaylistDivs[baseIndex+3]);
+  AspectRatioMusicImage(MusicImage[(SongPlaying+(i-6))%MusicImage.length], PlaylistDivs[baseIndex], PlaylistDivs[baseIndex+1], PlaylistDivs[baseIndex+2], PlaylistDivs[baseIndex+3]);
   }
   //
   //Playlist Button Icons
