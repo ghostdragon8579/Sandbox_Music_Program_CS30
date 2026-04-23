@@ -614,15 +614,22 @@ void PlaylistView() {
     int baseIndex = i*4;
     AspectRatioMusicImage(MusicImage[(SongPlaying+(i-6))%MusicImage.length], PlaylistDivs[baseIndex], PlaylistDivs[baseIndex+1], PlaylistDivs[baseIndex+2], PlaylistDivs[baseIndex+3]);
   }
-  ///*
-  for (int i = 13; i <= 18; i++) {
+  //
+  //Playlist Metadata
+  for (int i = 12; i <= 17; i++) {
     int baseIndex = i*4;
     textAlign(CENTER, CENTER);
     textFont(TitleFont, FontSizes[18]);
     fill(TextPurple);
-    text(SongPlayListMetaData[(SongPlaying+(i-14))].title(), PlaylistDivs[baseIndex], PlaylistDivs[baseIndex+1], PlaylistDivs[baseIndex+2], PlaylistDivs[baseIndex+3]);
+    text(SongPlayListMetaData[(SongPlaying+(i-12))%SongNumber].title(), PlaylistDivs[baseIndex], PlaylistDivs[baseIndex+1], PlaylistDivs[baseIndex+2], PlaylistDivs[baseIndex+3]);
   }
-  //*/
+  for (int i = 18; i <= 23; i++) {
+    int baseIndex = i*4;
+    textAlign(CENTER, CENTER);
+    textFont(TitleFont, FontSizes[17]);
+    fill(TextPurple);
+    text("Author: "+SongPlayListMetaData[(SongPlaying+(i-18))%SongNumber].author(), PlaylistDivs[baseIndex], PlaylistDivs[baseIndex+1], PlaylistDivs[baseIndex+2], PlaylistDivs[baseIndex+3]);
+  }
   //
   //Playlist Button Icons
   stroke(TextPurple);
