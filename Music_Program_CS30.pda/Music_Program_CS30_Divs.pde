@@ -630,6 +630,13 @@ void PlaylistView() {
     fill(TextPurple);
     text("Author: "+SongPlayListMetaData[(SongPlaying+(i-18))%SongNumber].author(), PlaylistDivs[baseIndex], PlaylistDivs[baseIndex+1], PlaylistDivs[baseIndex+2], PlaylistDivs[baseIndex+3]);
   }
+  for (int i = 24; i <= 29; i++) {
+    int baseIndex = i*4;
+    textAlign(CENTER, CENTER);
+    textFont(TitleFont, FontSizes[17]);
+    fill(TextPurple);
+    text("Published in: "+SongPlayListMetaData[(SongPlaying+(i-24))%SongNumber].date(), PlaylistDivs[baseIndex], PlaylistDivs[baseIndex+1], PlaylistDivs[baseIndex+2], PlaylistDivs[baseIndex+3]);
+  }
   //
   //Playlist Button Icons
   stroke(TextPurple);
