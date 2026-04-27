@@ -657,6 +657,7 @@ void PlaylistView() {
   fill(Black);
 }
 //
+//
 //Text and HoverOver
 float TitleFontSize;
 float[] InitialFontSizes = new float[TextDIVHeight.length];
@@ -794,7 +795,7 @@ void keyPressed() {
 void mousePressed() {
   //
   //Progress Bar
-  if (!Attributions) {
+  if (!Attributions && !PlaylistView) {
     if (MouseIsOver(xMusicProgressBar, yMusicProgressBar, widthMusicProgressBar, heightMusicProgressBar)) {
       float ProgressBarPositionClicked = mouseX-xMusicProgressBar*15/14;
       ProgressBarPositionClicked = constrain(ProgressBarPositionClicked, 0, widthMusicProgressBar);
@@ -802,13 +803,15 @@ void mousePressed() {
       int ClickedSongPosition = int(SongPercentageAtClickPoint*SongPlayList[SongPlaying].length());
       SongPlayList[SongPlaying].cue(ClickedSongPosition);
     }
-    //
-    //Buttons
-    ButtonPressed();
-    //
+  //
+  //Buttons
+  ButtonPressed();
+  //
   }
   if (Attributions) {
   ImageMusicAttributionsMousePressed();
+  } else if (PlaylistView) {
+  PlaylistButtonPressed();
   }
   if (MouseIsOver(ButtonDivs[36], ButtonDivs[37], ButtonDivs[38], ButtonDivs[39])) {
     ToggleAttributions();
@@ -908,6 +911,18 @@ void ButtonPressed() {
   } else if (SongLoop == true) {
     SongLoop = false;
     SoundEffect();
+  }
+}
+void PlaylistButtonPressed() {
+  for (int i = 29; i < 35; i++) {
+    int baseIndex = i*4;  
+  if (MouseIsOver(PlaylistDivs[baseIndex], PlaylistDivs[baseIndex+1], PlaylistDivs[baseIndex+2], PlaylistDivs[baseIndex+3])) {
+    int targetIndex = (SongPlaying)%SongNumber;
+  SongPlayList[SongPlaying].pause();
+  SongPlayList[SongPlaying].rewind();
+  SongPlaying = targetIndex;
+  SongPlayList[SongPlaying].play();
+    }
   }
 }
 //
