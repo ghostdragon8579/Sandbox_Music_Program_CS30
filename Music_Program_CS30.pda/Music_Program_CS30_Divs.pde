@@ -916,13 +916,17 @@ void ButtonPressed() {
 void PlaylistButtonPressed() {
   for (int i = 29; i < 35; i++) {
     int baseIndex = i*4;  
-  if (MouseIsOver(PlaylistDivs[baseIndex], PlaylistDivs[baseIndex+1], PlaylistDivs[baseIndex+2], PlaylistDivs[baseIndex+3])) {
-    int targetIndex = (SongPlaying)%SongNumber;
-  SongPlayList[SongPlaying].pause();
-  SongPlayList[SongPlaying].rewind();
-  SongPlaying = targetIndex;
-  SongPlayList[SongPlaying].play();
-    }
+    int targetIndex = (SongPlaying+(i-30))%SongNumber;
+  if (MouseIsOver(PlaylistDivs[baseIndex], PlaylistDivs[baseIndex+1], PlaylistDivs[baseIndex+2], PlaylistDivs[baseIndex+3]) && SongPlaying != targetIndex) {
+    SongPlayList[SongPlaying].pause();
+    SongPlayList[SongPlaying].rewind();
+    SongPlaying = targetIndex;
+    SongPlayList[SongPlaying].play();
+  } else if (MouseIsOver(PlaylistDivs[baseIndex], PlaylistDivs[baseIndex+1], PlaylistDivs[baseIndex+2], PlaylistDivs[baseIndex+3]) && SongPlaying == targetIndex && SongPlayList[SongPlaying].isPlaying()) {
+    SongPlayList[SongPlaying].play();
+  } else if (MouseIsOver(PlaylistDivs[baseIndex], PlaylistDivs[baseIndex+1], PlaylistDivs[baseIndex+2], PlaylistDivs[baseIndex+3]) && SongPlaying == targetIndex) {
+    SongPlayList[SongPlaying].pause();  
+  }
   }
 }
 //
