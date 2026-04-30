@@ -641,6 +641,7 @@ void PlaylistView() {
   //Playlist Button Icons
   stroke(TextPurple);
   fill(TextPurple);
+  ///*
   for (int i = 9; i < NumberOfButtonIconDIVs; i++) {
     int baseIndex = i*6;
   if (!SongPlayList[SongPlaying].isPlaying() && PlaylistView) {
@@ -652,6 +653,7 @@ void PlaylistView() {
       }
     }
   }
+  //*/
   //Note: Reset both the stroke and fill functions before ending the void.
   stroke(Purple);
   fill(Black);
@@ -914,7 +916,7 @@ void ButtonPressed() {
   }
 }
 void PlaylistButtonPressed() {
-  for (int i = 29; i < 35; i++) {
+  for (int i = 28; i < 36; i++) {
     int baseIndex = i*4;  
     int targetIndex = (SongPlaying+(i-30))%SongNumber;
   if (MouseIsOver(PlaylistDivs[baseIndex], PlaylistDivs[baseIndex+1], PlaylistDivs[baseIndex+2], PlaylistDivs[baseIndex+3]) && SongPlaying != targetIndex) {
