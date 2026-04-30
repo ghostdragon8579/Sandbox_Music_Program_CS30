@@ -925,9 +925,9 @@ void PlaylistButtonPressed() {
     SongPlaying = targetIndex;
     SongPlayList[SongPlaying].play();
   } else if (MouseIsOver(PlaylistDivs[baseIndex], PlaylistDivs[baseIndex+1], PlaylistDivs[baseIndex+2], PlaylistDivs[baseIndex+3]) && SongPlaying == targetIndex && SongPlayList[SongPlaying].isPlaying()) {
-    SongPlayList[SongPlaying].play();
+    SongPlayList[SongPlaying].pause();
   } else if (MouseIsOver(PlaylistDivs[baseIndex], PlaylistDivs[baseIndex+1], PlaylistDivs[baseIndex+2], PlaylistDivs[baseIndex+3]) && SongPlaying == targetIndex) {
-    SongPlayList[SongPlaying].pause();  
+    SongPlayList[SongPlaying].play();
   }
   }
 }
