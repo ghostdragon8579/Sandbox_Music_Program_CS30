@@ -503,6 +503,7 @@ void draw() {
   }
   //
   //HoverOverColors
+  strokeWeight(1);
   Music_Program_CS30_HoverOver();
   //
   //
