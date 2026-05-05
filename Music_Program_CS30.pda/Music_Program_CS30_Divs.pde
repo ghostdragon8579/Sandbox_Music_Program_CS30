@@ -908,10 +908,10 @@ void ButtonPressed() {
   } else if (MouseIsOver(ButtonDivs[28], ButtonDivs[29], ButtonDivs[30], ButtonDivs[31])) {
     SongPlayList[SongPlaying].rewind();
     SoundEffect();
-  } else if (MouseIsOver(ButtonDivs[32], ButtonDivs[33], ButtonDivs[34], ButtonDivs[35])) {
+  } else if (MouseIsOver(ButtonDivs[32], ButtonDivs[33], ButtonDivs[34], ButtonDivs[35]) && !SongLoop) {
     SongLoop = true;
     SoundEffect();
-  } else if (SongLoop == true) {
+  } else if (MouseIsOver(ButtonDivs[32], ButtonDivs[33], ButtonDivs[34], ButtonDivs[35]) && SongLoop) {
     SongLoop = false;
     SoundEffect();
   }
@@ -921,7 +921,7 @@ void PlaylistButtonPressed() {
     int baseIndex = i*4;  
     int targetIndex = (SongPlaying+(i-30))%SongNumber;
   if (MouseIsOver(PlaylistDivs[baseIndex], PlaylistDivs[baseIndex+1], PlaylistDivs[baseIndex+2], PlaylistDivs[baseIndex+3]) && SongPlaying != targetIndex) {
-    SongPlayList[SongPlaying].pause();
+    SongPlayList[SongPlaying].pause(); 
     SongPlayList[SongPlaying].rewind();
     SongPlaying = targetIndex;
     SongPlayList[SongPlaying].play();
@@ -960,8 +960,6 @@ void LoadLastSongState() {
     if (lines.length > 0) {
       SongPlaying = constrain(int(lines[0]), 0, SongNumber-1);
     }
-  } else {
-    println("Error 404 Last_Song_State.txt not found");
   }
 }
 //
