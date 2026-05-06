@@ -297,6 +297,7 @@ void MusicPlayerSetup() {
   for (int i = SongPlaying; i < SongFiles.length; i++) {
     SongFilePathway[i] = (SongFiles[i].toString());
   }
+  FileListing(RelativeMusicPathway);
   //
   String PathDirectory = sketchPath(AbsoluteMusicPathway);
   println("Main Directory to Music Folder", PathDirectory);
@@ -962,6 +963,36 @@ void LoadLastSongState() {
     }
   }
 }
+///*
+void FileListing(String Folder) {
+  File LocalFolder = new File(Folder); //Uses Java Library to create class (variables & code)
+  //File[] FileDesignations local & used for both music and images
+  File[] FileDesignations = LocalFolder.listFiles(); //Uses built in class to list all files
+  String[] Files = new String[FileDesignations.length];
+  //
+}
+/*
+  //String[] files local and used for both music and images
+  String[] files = new String[fileNames.length];
+  //Load the Width & Height from the FILE
+  int i=0;
+  if ( fileNames != null ) {
+    for ( File file : fileNames ) { //FOR EACH Loop, creates local class
+      files[i] = directory + file.getName(); //print fileNames.getName() Object to String
+      //Note: getName() is built in code
+      i++; //iteration necessary here, not in regular FOR
+    }
+  } else {
+    ErrorCheck("See fileReaeding(String pathway), fileNames==NULL");
+  }
+  //First Time Only
+  if (numberOfFiles==0) {
+    numberOfFiles = files.length; //Global Used for both music and images, populated once.
+    imageLoading( files );
+  }
+  //ErrorCheck("Inspect Variable, File Loading / fileReading()", files);
+}
+//*/
 //
 //Sound Effect Setup
 void SoundEffect() {
