@@ -877,7 +877,7 @@ void MuteFunction() {
     SongPlayList[SongPlaying].mute();
   } else {
     SongPlayList[SongPlaying].unmute();
-  }  
+  }
 }
 void KeyBasedLocationFunction() {
   KeySongPosition = int(SongPlayList[SongPlaying].length()*(key-'0')*0.1)-5000;
