@@ -112,31 +112,31 @@ void MusicProgramDivs() {
   ButtonIconDivRatios[7] = new float[]{20.0/26+5.0/156, 24.0/40+1.0/104, 20.0/26+5.0/156, 24.0/40+5.0/104, 20.0/26+5.0/156, 25.0/40+1.0/208}; //Next Button. Triangle: Two
   ButtonIconDivRatios[8] = new float[]{25.4/52, 24.0/40+1.0/104, 25.4/52, 24.0/40+5.0/104, 26.6/52, 25.0/40+1.0/208}; //Play/Pause Button Triangle
   //Playlist View Button Icons
-  ButtonIconDivRatios[9] = new float[]{19.0/27+3.0/62+1.0/156, 1.0/10+5.7/84+1.0/104, 19.0/27+3.0/62+1.0/156, 1.0/10+5.7/84+5.0/104, 19.0/27+3.0/62+5.0/156, 1.0/10+5.7/84+3.0/104}; //Playlist Song Play Button. Triangle: One
-  ButtonIconDivRatios[10] = new float[]{19.0/27+3.0/62+1.0/156, 1.0/10+15.7/84+1.0/104, 19.0/27+3.0/62+1.0/156, 1.0/10+15.7/84+5.0/104, 19.0/27+3.0/62+5.0/156, 1.0/10+15.7/84+3.0/104}; //Playlist Song Play Button. Triangle: Two
-  ButtonIconDivRatios[11] = new float[]{19.0/27+3.0/62+1.0/156, 1.0/10+25.7/84+1.0/104, 19.0/27+3.0/62+1.0/156, 1.0/10+25.7/84+5.0/104, 19.0/27+3.0/62+5.0/156, 1.0/10+25.7/84+3.0/104}; //Playlist Song Play Button. Triangle: Three
-  ButtonIconDivRatios[12] = new float[]{19.0/27+3.0/62+1.0/156, 1.0/10+35.7/84+1.0/104, 19.0/27+3.0/62+1.0/156, 1.0/10+35.7/84+5.0/104, 19.0/27+3.0/62+5.0/156, 1.0/10+35.7/84+3.0/104}; //Playlist Song Play Button. Triangle: Four
-  ButtonIconDivRatios[13] = new float[]{19.0/27+3.0/62+1.0/156, 1.0/10+45.7/84+1.0/104, 19.0/27+3.0/62+1.0/156, 1.0/10+45.7/84+5.0/104, 19.0/27+3.0/62+5.0/156, 1.0/10+45.7/84+3.0/104}; //Playlist Song Play Button. Triangle: Five
-  ButtonIconDivRatios[14] = new float[]{19.0/27+3.0/62+1.0/156, 1.0/10+55.7/84+1.0/104, 19.0/27+3.0/62+1.0/156, 1.0/10+55.7/84+5.0/104, 19.0/27+3.0/62+5.0/156, 1.0/10+55.7/84+3.0/104}; //Playlist Song Play Button. Triangle: Six
+  ButtonIconDivRatios[9] = new float[]{19.0/27+3.0/62+1.0/156, 1.0/10+5.7/84+1.0/104, 19.0/27+3.0/62+1.0/156, 1.0/10+5.7/84+5.0/104, 19.0/27+3.0/62+5.0/156, 1.0/10+5.7/84+3.0/104}; //Playlist Song Play Button Number: One
+  ButtonIconDivRatios[10] = new float[]{19.0/27+3.0/62+1.0/156, 1.0/10+15.7/84+1.0/104, 19.0/27+3.0/62+1.0/156, 1.0/10+15.7/84+5.0/104, 19.0/27+3.0/62+5.0/156, 1.0/10+15.7/84+3.0/104}; //Playlist Song Play Button Number: Two
+  ButtonIconDivRatios[11] = new float[]{19.0/27+3.0/62+1.0/156, 1.0/10+25.7/84+1.0/104, 19.0/27+3.0/62+1.0/156, 1.0/10+25.7/84+5.0/104, 19.0/27+3.0/62+5.0/156, 1.0/10+25.7/84+3.0/104}; //Playlist Song Play Button Number: Three
+  ButtonIconDivRatios[12] = new float[]{19.0/27+3.0/62+1.0/156, 1.0/10+35.7/84+1.0/104, 19.0/27+3.0/62+1.0/156, 1.0/10+35.7/84+5.0/104, 19.0/27+3.0/62+5.0/156, 1.0/10+35.7/84+3.0/104}; //Playlist Song Play Button Number: Four
+  ButtonIconDivRatios[13] = new float[]{19.0/27+3.0/62+1.0/156, 1.0/10+45.7/84+1.0/104, 19.0/27+3.0/62+1.0/156, 1.0/10+45.7/84+5.0/104, 19.0/27+3.0/62+5.0/156, 1.0/10+45.7/84+3.0/104}; //Playlist Song Play Button Number: Five
+  ButtonIconDivRatios[14] = new float[]{19.0/27+3.0/62+1.0/156, 1.0/10+55.7/84+1.0/104, 19.0/27+3.0/62+1.0/156, 1.0/10+55.7/84+5.0/104, 19.0/27+3.0/62+5.0/156, 1.0/10+55.7/84+3.0/104}; //Playlist Song Play Button Number: Six
   //
   //Alternative Button Icon Divs
   //{X value in ratio of appwidth, Y value in ratio of appwidth, width value in ratio of appwidth, height value in ratio of appheight}
   //Music Panel Alternitive Button Icons
-  AltButtonIconDivRatios[0] = new float[]{204.0/416, 24.0/40+1.0/104, 1.0/208, 1.0/26}; //Play/Pause Paused Icon. Icon Number: One Rectangle Number: One
-  AltButtonIconDivRatios[1] = new float[]{202.0/416+1.0/52, 24.0/40+1.0/104, 1.0/208, 1.0/26}; //Play/Pause Paused Icon. Icon Number: One Rectangle Number: Two
+  AltButtonIconDivRatios[0] = new float[]{204.0/416, 24.0/40+1.0/104, 1.0/208, 1.0/26}; //Play/Pause Paused Icon. Icon Number: One. Rectangle Number: One
+  AltButtonIconDivRatios[1] = new float[]{202.0/416+1.0/52, 24.0/40+1.0/104, 1.0/208, 1.0/26}; //Play/Pause Paused Icon. Icon Number: One. Rectangle Number: Two
   //Playlist View Alternative Button Icons
-  AltButtonIconDivRatios[2] = new float[]{19.0/27+3.0/62+3.0/312, 1.0/10+5.7/84+1.0/104, 1.0/208, 1.0/26}; //Playlist View Play/Pause Paused Icon. Icon Number: One Rectangle Number: One
-  AltButtonIconDivRatios[3] = new float[]{19.0/27+3.0/62+1.0/156+7.0/416, 1.0/10+5.7/84+1.0/104, 1.0/208, 1.0/26}; //Playlist View Play/Pause Paused Icon. Icon Number: One Rectangle Number: Two
-  AltButtonIconDivRatios[4] = new float[]{19.0/27+3.0/62+3.0/312, 1.0/10+15.7/84+1.0/104, 1.0/208, 1.0/26}; //Playlist View Play/Pause Paused Icon. Icon Number: Two Rectangle Number: One
-  AltButtonIconDivRatios[5] = new float[]{19.0/27+3.0/62+1.0/156+7.0/416, 1.0/10+15.7/84+1.0/104, 1.0/208, 1.0/26}; //Playlist View Play/Pause Paused Icon. Icon Number: Two Rectangle Number: Two 
-  AltButtonIconDivRatios[6] = new float[]{19.0/27+3.0/62+3.0/312, 1.0/10+25.7/84+1.0/104, 1.0/208, 1.0/26}; //Playlist View Play/Pause Paused Icon. Icon Number: Three Rectangle Number: One
-  AltButtonIconDivRatios[7] = new float[]{19.0/27+3.0/62+1.0/156+7.0/416, 1.0/10+25.7/84+1.0/104, 1.0/208, 1.0/26}; //Playlist View Play/Pause Paused Icon. Icon Number: Three Rectangle Number: Two  
-  AltButtonIconDivRatios[8] = new float[]{19.0/27+3.0/62+3.0/312, 1.0/10+35.7/84+1.0/104, 1.0/208, 1.0/26}; //Playlist View Play/Pause Paused Icon. Icon Number: Four Rectangle Number: One
-  AltButtonIconDivRatios[9] = new float[]{19.0/27+3.0/62+1.0/156+7.0/416, 1.0/10+35.7/84+1.0/104, 1.0/208, 1.0/26}; //Playlist View Play/Pause Paused Icon. Icon Number: Four Rectangle Number: Two  
-  AltButtonIconDivRatios[10] = new float[]{19.0/27+3.0/62+3.0/312, 1.0/10+45.7/84+1.0/104, 1.0/208, 1.0/26}; //Playlist View Play/Pause Paused Icon. Icon Number: Five Rectangle Number: One
-  AltButtonIconDivRatios[11] = new float[]{19.0/27+3.0/62+1.0/156+7.0/416, 1.0/10+45.7/84+1.0/104, 1.0/208, 1.0/26}; //Playlist View Play/Pause Paused Icon. Icon Number: Six Rectangle Number: Two  
-  AltButtonIconDivRatios[12] = new float[]{19.0/27+3.0/62+3.0/312, 1.0/10+55.7/84+1.0/104, 1.0/208, 1.0/26}; //Playlist View Play/Pause Paused Icon. Icon Number: Seven Rectangle Number: One
-  AltButtonIconDivRatios[13] = new float[]{19.0/27+3.0/62+1.0/156+7.0/416, 1.0/10+55.7/84+1.0/104, 1.0/208, 1.0/26}; //Playlist View Play/Pause Paused Icon. Icon Number: Eight Rectangle Number: Two
+  AltButtonIconDivRatios[2] = new float[]{19.0/27+3.0/62+3.0/312, 1.0/10+5.7/84+1.0/104, 1.0/208, 1.0/26}; //Playlist View Play/Pause Paused Icon. Icon Number: One. Rectangle Number: One
+  AltButtonIconDivRatios[3] = new float[]{19.0/27+3.0/62+1.0/156+7.0/416, 1.0/10+5.7/84+1.0/104, 1.0/208, 1.0/26}; //Playlist View Play/Pause Paused Icon. Icon Number: One. Rectangle Number: Two
+  AltButtonIconDivRatios[4] = new float[]{19.0/27+3.0/62+3.0/312, 1.0/10+15.7/84+1.0/104, 1.0/208, 1.0/26}; //Playlist View Play/Pause Paused Icon. Icon Number: Two. Rectangle Number: One
+  AltButtonIconDivRatios[5] = new float[]{19.0/27+3.0/62+1.0/156+7.0/416, 1.0/10+15.7/84+1.0/104, 1.0/208, 1.0/26}; //Playlist View Play/Pause Paused Icon. Icon Number: Two. Rectangle Number: Two 
+  AltButtonIconDivRatios[6] = new float[]{19.0/27+3.0/62+3.0/312, 1.0/10+25.7/84+1.0/104, 1.0/208, 1.0/26}; //Playlist View Play/Pause Paused Icon. Icon Number: Three. Rectangle Number: One
+  AltButtonIconDivRatios[7] = new float[]{19.0/27+3.0/62+1.0/156+7.0/416, 1.0/10+25.7/84+1.0/104, 1.0/208, 1.0/26}; //Playlist View Play/Pause Paused Icon. Icon Number: Three. Rectangle Number: Two  
+  AltButtonIconDivRatios[8] = new float[]{19.0/27+3.0/62+3.0/312, 1.0/10+35.7/84+1.0/104, 1.0/208, 1.0/26}; //Playlist View Play/Pause Paused Icon. Icon Number: Four. Rectangle Number: One
+  AltButtonIconDivRatios[9] = new float[]{19.0/27+3.0/62+1.0/156+7.0/416, 1.0/10+35.7/84+1.0/104, 1.0/208, 1.0/26}; //Playlist View Play/Pause Paused Icon. Icon Number: Four. Rectangle Number: Two  
+  AltButtonIconDivRatios[10] = new float[]{19.0/27+3.0/62+3.0/312, 1.0/10+45.7/84+1.0/104, 1.0/208, 1.0/26}; //Playlist View Play/Pause Paused Icon. Icon Number: Five. Rectangle Number: One
+  AltButtonIconDivRatios[11] = new float[]{19.0/27+3.0/62+1.0/156+7.0/416, 1.0/10+45.7/84+1.0/104, 1.0/208, 1.0/26}; //Playlist View Play/Pause Paused Icon. Icon Number: Six. Rectangle Number: Two  
+  AltButtonIconDivRatios[12] = new float[]{19.0/27+3.0/62+3.0/312, 1.0/10+55.7/84+1.0/104, 1.0/208, 1.0/26}; //Playlist View Play/Pause Paused Icon. Icon Number: Seven. Rectangle Number: One
+  AltButtonIconDivRatios[13] = new float[]{19.0/27+3.0/62+1.0/156+7.0/416, 1.0/10+55.7/84+1.0/104, 1.0/208, 1.0/26}; //Playlist View Play/Pause Paused Icon. Icon Number: Eight. Rectangle Number: Two
   //
   //Playlist Display Divs
   //{X value in ratio of appwidth, Y value in ratio of appwidth, width value in ratio of appwidth, height value in ratio of appheight}
@@ -208,14 +208,14 @@ void MusicProgramDivs() {
 }
 void CalculateDIVs() {
   for (int i = 0; i < NumberOfMusicPanelDIVs; i++) {
-    int baseIndex = i * 4;
+    int baseIndex = i*4;
     MusicPanelDivs[baseIndex] = appWidth*MusicPanelDivRatios[i][0]; //X position
     MusicPanelDivs[baseIndex+1] = appHeight*MusicPanelDivRatios[i][1]; //Y position
     MusicPanelDivs[baseIndex+2] = appWidth*MusicPanelDivRatios[i][2]; //Width
     MusicPanelDivs[baseIndex+3] = appHeight*MusicPanelDivRatios[i][3]; //Height
   }
   for (int i = 0; i < NumberOfButtonDIVs; i++) {
-    int baseIndex = i * 4;
+    int baseIndex = i*4;
     ButtonDivs[baseIndex] = appWidth*ButtonDivRatios[i][0]; //X position
     ButtonDivs[baseIndex+1] = appHeight*ButtonDivRatios[i][1]; //Y position
     ButtonDivs[baseIndex+2] = appWidth*ButtonDivRatios[i][2]; //Width
@@ -226,7 +226,7 @@ void CalculateDIVs() {
     }
   }
   for (int i = 0; i < NumberOfButtonIconDIVs; i++) {
-    int baseIndex = i * 6;
+    int baseIndex = i*6;
     ButtonIconDivs[baseIndex] = appWidth*ButtonIconDivRatios[i][0]; // X1 position
     ButtonIconDivs[baseIndex+1] = appHeight*ButtonIconDivRatios[i][1]; // Y1 position
     ButtonIconDivs[baseIndex+2] = appWidth*ButtonIconDivRatios[i][2]; // X2 position
@@ -249,7 +249,7 @@ void CalculateDIVs() {
     PlaylistDivs[baseIndex+3] = appHeight*PlaylistDivRatios[i][3]; //Height position
   }
   for (int i = 0; i < NumberOfTextDIVs; i++) {
-    int baseIndex = i * 4;
+    int baseIndex = i*4;
     TextDivs[baseIndex] = appWidth*TextDivRatios[i][0];
     TextDivs[baseIndex+1] = appHeight*TextDivRatios[i][1];
     TextDivs[baseIndex+2] = appWidth*TextDivRatios[i][2];
@@ -533,7 +533,7 @@ void Music_Program_CS30_ProgressTimer() {
   int CurrentSongPositionMinutes = CurrentSongTime/60000;
   int CurrentSongPositionSeconds = (CurrentSongTime/1000)%60;
   int TotalSongMinutes = TotalSongTime/60000;
-  int TotalSongSeconds = (TotalSongTime/1000) % 60;
+  int TotalSongSeconds = (TotalSongTime/1000)%60;
   fill(TextPurple);
   textAlign(CENTER, CENTER);
   textSize(appHeight*1/40);
@@ -582,22 +582,22 @@ void ImageMusicAttributionsMousePressed() {
   } else if (MouseIsOver(TextDivs[20], TextDivs[21], TextDivs[22], TextDivs[23])) { //Background Attribution
     link("https://www.vecteezy.com/members/earthtin");
   } else if (MouseIsOver(TextDivs[24], TextDivs[25], TextDivs[26], TextDivs[27]) ||
-    MouseIsOver(TextDivs[48], TextDivs[49], TextDivs[50], TextDivs[51])) { //Song Attribution 1 (The Guardian of Angels)
+    MouseIsOver(TextDivs[48], TextDivs[49], TextDivs[50], TextDivs[51])) { //Song Attribution 1: (The Guardian of Angels)
     link("https://ncs.io/TGOA?_gl=1*11fgkyd*_up*MQ..*_ga*MTg1NDEyNjkzNS4xNzQ4ODk2MzQ4*_ga_PFS54FR7NV*czE3NDg4OTYzNDgkbzEkZzAkdDE3NDg4OTYzNTkkajQ5JGwwJGgw");
   } else if (MouseIsOver(TextDivs[28], TextDivs[29], TextDivs[30], TextDivs[31]) ||
-    MouseIsOver(TextDivs[52], TextDivs[53], TextDivs[54], TextDivs[55])) { //Song Attribution 2 (The Return)
+    MouseIsOver(TextDivs[52], TextDivs[53], TextDivs[54], TextDivs[55])) { //Song Attribution 2: (The Return)
     link("https://ncs.io/TheReturn?_gl=1*11fgkyd*_up*MQ..*_ga*MTg1NDEyNjkzNS4xNzQ4ODk2MzQ4*_ga_PFS54FR7NV*czE3NDg4OTYzNDgkbzEkZzAkdDE3NDg4OTYzNTkkajQ5JGwwJGgw");
   } else if (MouseIsOver(TextDivs[32], TextDivs[33], TextDivs[34], TextDivs[35]) ||
-    MouseIsOver(TextDivs[56], TextDivs[57], TextDivs[58], TextDivs[59])) { //Song Attribution 3 (H.A.Y)
+    MouseIsOver(TextDivs[56], TextDivs[57], TextDivs[58], TextDivs[59])) { //Song Attribution 3: (H.A.Y)
     link("https://ncs.io/HAY?_gl=1*qypa9b*_up*MQ..*_ga*MTI1NTA0Njg2Ny4xNzQ4ODk2MzE4*_ga_PFS54FR7NV*czE3NDg4OTYzMTckbzEkZzAkdDE3NDg4OTYzMTckajYwJGwwJGgw");
   } else if (MouseIsOver(TextDivs[36], TextDivs[37], TextDivs[38], TextDivs[39]) ||
-    MouseIsOver(TextDivs[60], TextDivs[61], TextDivs[62], TextDivs[63])) { //Song Attribution 4 (Where We Started)
+    MouseIsOver(TextDivs[60], TextDivs[61], TextDivs[62], TextDivs[63])) { //Song Attribution 4: (Where We Started)
     link("https://ncs.io/WhereWeStarted?_gl=1*14ytkaj*_up*MQ..*_ga*NTgyNDIwNDA3LjE3NDg4OTYzODc.*_ga_PFS54FR7NV*czE3NDg4OTYzODckbzEkZzAkdDE3NDg4OTYzODckajYwJGwwJGgw");
   } else if (MouseIsOver(TextDivs[40], TextDivs[41], TextDivs[42], TextDivs[43]) ||
-    MouseIsOver(TextDivs[64], TextDivs[65], TextDivs[66], TextDivs[67])) { //Song Attribution 5 (Oblivion)
+    MouseIsOver(TextDivs[64], TextDivs[65], TextDivs[66], TextDivs[67])) { //Song Attribution 5: (Oblivion)
     link("https://ncs.io/Oblivion?_gl=1*17yx1my*_up*MQ..*_ga*MTMwNTA5MTEyMi4xNzQ4ODk2Mzk2*_ga_PFS54FR7NV*czE3NDg4OTYzOTYkbzEkZzAkdDE3NDg4OTYzOTYkajYwJGwwJGgw");
   } else if (MouseIsOver(TextDivs[44], TextDivs[45], TextDivs[46], TextDivs[47]) ||
-    MouseIsOver(TextDivs[68], TextDivs[69], TextDivs[70], TextDivs[71])) { //Song Attribution 6 (Why We Lose)
+    MouseIsOver(TextDivs[68], TextDivs[69], TextDivs[70], TextDivs[71])) { //Song Attribution 6: (Why We Lose)
     link("https://ncs.io/whywelose?_gl=1*rnka34*_up*MQ..*_ga*MTc5MzgxODQwMC4xNzQ4ODk2MjY4*_ga_PFS54FR7NV*czE3NDg4OTYyNjckbzEkZzAkdDE3NDg4OTYyNjckajYwJGwwJGgw");
   }
 }
@@ -733,7 +733,7 @@ void Music_Program_CS30_HoverOver() {
   color hoverOverColor=color(255, 255, 255, 64);
 if (!Attributions && !PlaylistView) {
     for (int i = 0; i < 9; i++) {
-      int baseIndex = i * 4;
+      int baseIndex = i*4;
     if (MouseIsOver(ButtonDivs[baseIndex], ButtonDivs[baseIndex+1], ButtonDivs[baseIndex+2], ButtonDivs[baseIndex+3])) {
       fill(hoverOverColor);
       rect(ButtonDivs[baseIndex], ButtonDivs[baseIndex+1], ButtonDivs[baseIndex+2], ButtonDivs[baseIndex+3]);
@@ -743,7 +743,7 @@ if (!Attributions && !PlaylistView) {
   } 
 } else if (Attributions && !PlaylistView) {
     for (int i = 4; i < 17; i++) {
-      int baseIndex = i * 4;
+      int baseIndex = i*4;
     if (MouseIsOver(TextDivs[baseIndex], TextDivs[baseIndex+1], TextDivs[baseIndex+2], TextDivs[baseIndex+3])) {
       fill(hoverOverColor);
       rect(TextDivs[baseIndex], TextDivs[baseIndex+1], TextDivs[baseIndex+2], TextDivs[baseIndex+3]);
@@ -753,7 +753,7 @@ if (!Attributions && !PlaylistView) {
   }
 } else if (!Attributions && PlaylistView) {
     for (int i = 30; i < 36; i++) {
-      int baseIndex = i * 4;
+      int baseIndex = i*4;
     if (MouseIsOver(PlaylistDivs[baseIndex], PlaylistDivs[baseIndex+1], PlaylistDivs[baseIndex+2], PlaylistDivs[baseIndex+3])) {
       fill(hoverOverColor);
       rect(PlaylistDivs[baseIndex], PlaylistDivs[baseIndex+1], PlaylistDivs[baseIndex+2], PlaylistDivs[baseIndex+3]);
@@ -763,7 +763,7 @@ if (!Attributions && !PlaylistView) {
   }
 }
 for (int i = 9; i < 11; i++) {
-    int baseIndex = i * 4;
+    int baseIndex = i*4;
   if (MouseIsOver(ButtonDivs[baseIndex], ButtonDivs[baseIndex+1], ButtonDivs[baseIndex+2], ButtonDivs[baseIndex+3])) {
     fill(hoverOverColor);
     rect(ButtonDivs[baseIndex], ButtonDivs[baseIndex+1], ButtonDivs[baseIndex+2], ButtonDivs[baseIndex+3]);
