@@ -282,7 +282,7 @@ void MusicPlayerSetup() {
   String Up = "..";
   String Open = "/";
   String Images = "Music_Program_Images";
-  String Imagepathway = Up + Open;
+  String Imagepathway = Up+Open;
   String QuitImage = "exit.png";
   Quit = loadImage(Imagepathway+Images+Open+QuitImage);
   //
@@ -393,7 +393,7 @@ void MusicPlayerSetup() {
   //
   SongSkipTime = 5000;
   SongLengthAlteration = 5000;
-  AlteredCurrentSongLength = max(SongPlayList[SongPlaying].length() - SongLengthAlteration, 1);
+  AlteredCurrentSongLength = max(SongPlayList[SongPlaying].length()-SongLengthAlteration, 1);
   SongTimeCounter = 0;
   //
   TitleFont = createFont("Times New Roman Bold", 55);
