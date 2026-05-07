@@ -127,16 +127,6 @@ void MusicProgramDivs() {
   //Playlist View Alternative Button Icons
   AltButtonIconDivRatios[2] = new float[]{19.0/27+3.0/62+3.0/312, 1.0/10+5.7/84+1.0/104, 1.0/208, 1.0/26}; //Playlist View Play/Pause Paused Icon. Icon Number: One. Rectangle Number: One
   AltButtonIconDivRatios[3] = new float[]{19.0/27+3.0/62+1.0/156+7.0/416, 1.0/10+5.7/84+1.0/104, 1.0/208, 1.0/26}; //Playlist View Play/Pause Paused Icon. Icon Number: One. Rectangle Number: Two
-  AltButtonIconDivRatios[4] = new float[]{19.0/27+3.0/62+3.0/312, 1.0/10+15.7/84+1.0/104, 1.0/208, 1.0/26}; //Playlist View Play/Pause Paused Icon. Icon Number: Two. Rectangle Number: One
-  AltButtonIconDivRatios[5] = new float[]{19.0/27+3.0/62+1.0/156+7.0/416, 1.0/10+15.7/84+1.0/104, 1.0/208, 1.0/26}; //Playlist View Play/Pause Paused Icon. Icon Number: Two. Rectangle Number: Two 
-  AltButtonIconDivRatios[6] = new float[]{19.0/27+3.0/62+3.0/312, 1.0/10+25.7/84+1.0/104, 1.0/208, 1.0/26}; //Playlist View Play/Pause Paused Icon. Icon Number: Three. Rectangle Number: One
-  AltButtonIconDivRatios[7] = new float[]{19.0/27+3.0/62+1.0/156+7.0/416, 1.0/10+25.7/84+1.0/104, 1.0/208, 1.0/26}; //Playlist View Play/Pause Paused Icon. Icon Number: Three. Rectangle Number: Two  
-  AltButtonIconDivRatios[8] = new float[]{19.0/27+3.0/62+3.0/312, 1.0/10+35.7/84+1.0/104, 1.0/208, 1.0/26}; //Playlist View Play/Pause Paused Icon. Icon Number: Four. Rectangle Number: One
-  AltButtonIconDivRatios[9] = new float[]{19.0/27+3.0/62+1.0/156+7.0/416, 1.0/10+35.7/84+1.0/104, 1.0/208, 1.0/26}; //Playlist View Play/Pause Paused Icon. Icon Number: Four. Rectangle Number: Two  
-  AltButtonIconDivRatios[10] = new float[]{19.0/27+3.0/62+3.0/312, 1.0/10+45.7/84+1.0/104, 1.0/208, 1.0/26}; //Playlist View Play/Pause Paused Icon. Icon Number: Five. Rectangle Number: One
-  AltButtonIconDivRatios[11] = new float[]{19.0/27+3.0/62+1.0/156+7.0/416, 1.0/10+45.7/84+1.0/104, 1.0/208, 1.0/26}; //Playlist View Play/Pause Paused Icon. Icon Number: Six. Rectangle Number: Two  
-  AltButtonIconDivRatios[12] = new float[]{19.0/27+3.0/62+3.0/312, 1.0/10+55.7/84+1.0/104, 1.0/208, 1.0/26}; //Playlist View Play/Pause Paused Icon. Icon Number: Seven. Rectangle Number: One
-  AltButtonIconDivRatios[13] = new float[]{19.0/27+3.0/62+1.0/156+7.0/416, 1.0/10+55.7/84+1.0/104, 1.0/208, 1.0/26}; //Playlist View Play/Pause Paused Icon. Icon Number: Eight. Rectangle Number: Two
   //
   //Playlist Display Divs
   //{X value in ratio of appwidth, Y value in ratio of appwidth, width value in ratio of appwidth, height value in ratio of appheight}
@@ -642,19 +632,21 @@ void PlaylistView() {
   //Playlist Button Icons
   stroke(TextPurple);
   fill(TextPurple);
-  ///*
-  for (int i = 9; i < NumberOfButtonIconDIVs; i++) {
-    int baseIndex = i*6;
+  for (int i1 = 9; i1 < NumberOfButtonIconDIVs; i1++) {
+    int baseIndex1 = i1*6;
   if (!SongPlayList[SongPlaying].isPlaying() && PlaylistView) {
-    triangle(ButtonIconDivs[baseIndex], ButtonIconDivs[baseIndex+1], ButtonIconDivs[baseIndex+2], ButtonIconDivs[baseIndex+3], ButtonIconDivs[baseIndex+4], ButtonIconDivs[baseIndex+5]);
+    triangle(ButtonIconDivs[baseIndex1], ButtonIconDivs[baseIndex1+1], ButtonIconDivs[baseIndex1+2], ButtonIconDivs[baseIndex1+3], ButtonIconDivs[baseIndex1+4], ButtonIconDivs[baseIndex1+5]);
   } else {
-  for (int j = 2; j < 14; j++) {
+  for (int j = 2; j < 4; j++) {
+  for (int i2 = 10; i2 < NumberOfButtonIconDIVs; i2++) {
     int baseIndex2 = j*4;
+    int baseIndex3 = i2*6;
     rect(AltButtonIconDivs[baseIndex2], AltButtonIconDivs[baseIndex2+1], AltButtonIconDivs[baseIndex2+2], AltButtonIconDivs[baseIndex2+3]);
+    triangle(ButtonIconDivs[baseIndex3], ButtonIconDivs[baseIndex3+1], ButtonIconDivs[baseIndex3+2], ButtonIconDivs[baseIndex3+3], ButtonIconDivs[baseIndex3+4], ButtonIconDivs[baseIndex3+5]);
+        }
       }
     }
   }
-  //*/
   //Note: Reset both the stroke and fill functions before ending the void.
   stroke(Purple);
   fill(Black);
