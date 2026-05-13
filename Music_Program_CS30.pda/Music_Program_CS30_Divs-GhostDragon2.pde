@@ -632,14 +632,13 @@ void PlaylistView() {
   //Playlist Button Icons
   stroke(TextPurple);
   fill(TextPurple);
-  ///*
   for (int i1 = 9; i1 < NumberOfButtonIconDIVs; i1++) {
     int baseIndex1 = i1*6;
   if (!SongPlayList[SongPlaying].isPlaying() && PlaylistView) {
     triangle(ButtonIconDivs[baseIndex1], ButtonIconDivs[baseIndex1+1], ButtonIconDivs[baseIndex1+2], ButtonIconDivs[baseIndex1+3], ButtonIconDivs[baseIndex1+4], ButtonIconDivs[baseIndex1+5]);
   } else {
   for (int j = 2; j < 4; j++) {
-    for (int i2 = 10; i2 < NumberOfButtonIconDIVs; i2++) {
+  for (int i2 = 10; i2 < NumberOfButtonIconDIVs; i2++) {
     int baseIndex2 = j*4;
     int baseIndex3 = i2*6;
     rect(AltButtonIconDivs[baseIndex2], AltButtonIconDivs[baseIndex2+1], AltButtonIconDivs[baseIndex2+2], AltButtonIconDivs[baseIndex2+3]);
@@ -648,7 +647,6 @@ void PlaylistView() {
       }
     }
   }
-  //*/
   //Note: Reset both the stroke and fill functions before ending the void.
   stroke(Purple);
   fill(Black);
