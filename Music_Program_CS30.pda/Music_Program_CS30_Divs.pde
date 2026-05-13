@@ -792,7 +792,7 @@ void mousePressed() {
   //Progress Bar
   if (!Attributions && !PlaylistView) {
     if (MouseIsOver(xMusicProgressBar, yMusicProgressBar, widthMusicProgressBar, heightMusicProgressBar)) {
-      float ProgressBarPositionClicked = mouseX-xMusicProgressBar*15/14;
+      float ProgressBarPositionClicked = mouseX-xMusicProgressBar;
       ProgressBarPositionClicked = constrain(ProgressBarPositionClicked, 0, widthMusicProgressBar);
       float SongPercentageAtClickPoint = ProgressBarPositionClicked/widthMusicProgressBar;
       int ClickedSongPosition = int(SongPercentageAtClickPoint*SongPlayList[SongPlaying].length());
