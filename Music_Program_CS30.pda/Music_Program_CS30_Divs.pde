@@ -950,7 +950,7 @@ void LoadLastSongState() {
   if (SongStateFile.exists()) {
     String[] lines = loadStrings(SongStateTxtPath_LastSongState);
     if (lines.length > 0) {
-      SongPlaying = constrain(int(lines[0]), 0, SongNumber-1);
+    SongPlaying = constrain(int(lines[0]), 0, SongNumber-1);
     }
   }
 }
