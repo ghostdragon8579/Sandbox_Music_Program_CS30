@@ -304,15 +304,15 @@ void MusicPlayerSetup() {
   File[] SoundEffectFiles = SoundEffectDirectory.listFiles();
   SoundEffectNumber = (SoundEffectFiles != null)?SoundEffectFiles.length:0;
   SoundEffectPlayList = new AudioPlayer[SoundEffectNumber];
-  SongPlayListMetaData = new AudioMetaData[SoundEffectNumber];
+  SoundEffectPlayListMetaData = new AudioMetaData[SoundEffectNumber];
   if (SoundEffectFiles != null) {
   for (int i = 0; i < SoundEffectNumber; i++) {
     SoundEffectPlayList[i] = minim.loadFile(SoundEffectFiles[i].getAbsolutePath());
     SoundEffectPlayListMetaData[i] = SoundEffectPlayList[i].getMetaData();
   }
   //Sound Effect File Reading
-  println("Main Directory to Music Folder", SoundEffectDirectory);
-  println("File Count of the Music Folder:", SoundEffectNumber);
+  println("Main Directory to Sound Effect Folder", SoundEffectDirectory);
+  println("File Count of the Sound Effect Folder:", SoundEffectNumber);
   printArray(SoundEffectFiles);
   for (int i = 0; i < SoundEffectNumber; i++) {
     println("File Name", SoundEffectFiles[i].getName());
@@ -343,7 +343,6 @@ void MusicPlayerSetup() {
     }
   }
   //
-  /*
   //Song Debugging
   println("File Name", SongPlayListMetaData[SongPlaying].fileName());
   println("Song Length (in milliseconds)", SongPlayListMetaData[SongPlaying].length());
