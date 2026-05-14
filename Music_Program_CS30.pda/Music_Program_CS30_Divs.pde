@@ -297,30 +297,26 @@ void MusicPlayerSetup() {
     }
   }
   //
-  //Sound Effects
+  //Sound Effect Loading Pathway
   String RelativeSoundEffectPathway = "../Sound Effects/";
-  String AbsoluteSoundEffectPathway = sketchPath(RelativeSoundEffectPathway);
-  SoundEffectFiles = new File(AbsoluteSoundEffectPathway);
-  int SoundEffectFileCount = SoundEffectFiles.list().length;
-  File[] SoundEffectfiles2 = SoundEffectFiles.listFiles();
-  String[] SoundEffectFilePathway = new String[SoundEffectFileCount];
-  for (int i = SoundEffectPlaying; i < SoundEffectfiles2.length; i++) {
-    SoundEffectFilePathway[i] = (SoundEffectfiles2[i].toString());
-  }
-  //
-  String SoundEffectPathDirectory = sketchPath(AbsoluteSoundEffectPathway);
-  println("Main Directory to Sound Effect Folder", SoundEffectPathDirectory);
-  file = new File(SoundEffectPathDirectory);
-  int SoundEffectfileCount = file.list().length;
-  println("File Count of the Sound Effect Folder:", SoundEffectfileCount);
-  File[] SoundEffectfiles = file.listFiles();
-  for (int i = SoundEffectPlaying; i < SoundEffectfiles.length; i++) {
-    println("File Name", SoundEffectfiles[i].getName());
-  }
-  //
-  for (int i=SoundEffectPlaying; i<SoundEffectFileCount; i++) {
-    SoundEffectPlayList[i]= minim.loadFile(SoundEffectFilePathway[i]);
+  String AbsoluteSoundEffectPathway = sketchPath(RelativeSoundEffectPathway); 
+  File SoundEffectDirectory = new File(AbsoluteSoundEffectPathway);
+  File[] SoundEffectFiles = SoundEffectDirectory.listFiles();
+  SoundEffectNumber = (SoundEffectFiles != null)?SoundEffectFiles.length:0;
+  SoundEffectPlayList = new AudioPlayer[SoundEffectNumber];
+  SongPlayListMetaData = new AudioMetaData[SoundEffectNumber];
+  if (SoundEffectFiles != null) {
+  for (int i = 0; i < SoundEffectNumber; i++) {
+    SoundEffectPlayList[i] = minim.loadFile(SoundEffectFiles[i].getAbsolutePath());
     SoundEffectPlayListMetaData[i] = SoundEffectPlayList[i].getMetaData();
+  }
+  //Sound Effect File Reading
+  println("Main Directory to Music Folder", SoundEffectDirectory);
+  println("File Count of the Music Folder:", SoundEffectNumber);
+  printArray(SoundEffectFiles);
+  for (int i = 0; i < SoundEffectNumber; i++) {
+    println("File Name", SoundEffectFiles[i].getName());
+    }
   }
   //
   //Images
