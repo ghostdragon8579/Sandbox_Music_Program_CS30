@@ -1,6 +1,44 @@
 class MusicPlayerDivs {
 //Lines 309-331(Image file pathways), 511-525(Image aspect ratio) and 431(Application of aspect ratio images)
 /*
+void fileReading(String directory) {
+  File directoryLocal = new File(directory); //Uses Java Library to create class (variables & code)
+  //File[] fileNames local & used for both music and images
+  File[] fileNames = directoryLocal.listFiles(); //Uses built in class to list all files
+  ErrorCheck("Here, to delete", fileNames);
+  //
+  //String[] files local and used for both music and images
+  String[] files = new String[fileNames.length];
+  //Load the Width & Height from the FILE
+  int i=0;
+  if ( fileNames != null ) {
+    for ( File file : fileNames ) { //FOR EACH Loop, creates local class
+      files[i] = directory + file.getName(); //print fileNames.getName() Object to String
+      //Note: getName() is built in code
+      i++; //iteration necessary here, not in regular FOR
+    }
+  } else {
+    ErrorCheck("See fileReaeding(String pathway), fileNames==NULL");
+  }
+  //First Time Only
+  if (numberOfFiles==0) {
+    numberOfFiles = files.length; //Global Used for both music and images, populated once.
+    imageLoading( files );
+  }
+  //ErrorCheck("Inspect Variable, File Loading / fileReading()", files);
+} //End File Reading Loading
+//
+
+void imageLoading(String[] files) {
+  imagesPlayList = new PImage[numberOfFiles]; //sets the array length
+  int fileNumber=0;
+  while ( fileNumber < numberOfFiles ) {
+    imagesPlayList[ fileNumber ] = loadImage( files[ fileNumber ] );
+    //ErrorCheck("Verifying Width & Height of Loaded Images, see imageLoading() in File Loading", imagesPlayList[fileNumber].width, imagesPlayList[fileNumber].height );
+    fileNumber++; //functions similar to FOR
+  }
+  checkLoadImage(); //See Image
+}
 */
 //
 //Global Variables
