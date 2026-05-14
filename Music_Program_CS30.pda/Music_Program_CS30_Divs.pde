@@ -287,6 +287,7 @@ void MusicPlayerSetup() {
   SongNumber = (songFiles != null)?songFiles.length:0;
   SongPlayList = new AudioPlayer[SongNumber];
   SongPlayListMetaData = new AudioMetaData[SongNumber];
+  if (songFiles != null) {
   for (int i = 0; i < SongNumber; i++) {
     SongPlayList[i] = minim.loadFile(songFiles[i].getAbsolutePath());
     SongPlayListMetaData[i] = SongPlayList[i].getMetaData();
@@ -296,6 +297,7 @@ void MusicPlayerSetup() {
   printArray(songFiles);
   for (int i = 0; i < SongNumber; i++) {
     println("File Name", songFiles[i].getName());
+  }
   }
   //
   //Sound Effects
