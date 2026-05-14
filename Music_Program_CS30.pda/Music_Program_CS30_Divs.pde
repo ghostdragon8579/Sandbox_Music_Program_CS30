@@ -1,5 +1,7 @@
 class MusicPlayerDivs {
 //Lines 309-331(Image file pathways), 511-525(Image aspect ratio) and 431(Application of aspect ratio images)
+/*
+*/
 //
 //Global Variables
 float[] TextDIVWidth = new float[19];
@@ -275,7 +277,9 @@ void MusicPlayerSetup() {
   String QuitImage = "exit.png";
   Quit = loadImage(Imagepathway+Images+Open+QuitImage);
   //
-  //Music Pathway
+  //File Reading
+  //
+  //Music Loading Pathway
   String RelativeMusicPathway = "/Music_Program_CS30_Audio_Files/";
   String AbsoluteMusicPathway = sketchPath(RelativeMusicPathway);
   AudioFiles = new File(AbsoluteMusicPathway);
