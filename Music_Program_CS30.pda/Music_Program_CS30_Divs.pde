@@ -1,44 +1,6 @@
 class MusicPlayerDivs {
 //Lines 309-331(Image file pathways), 511-525(Image aspect ratio) and 431(Application of aspect ratio images)
 /*
-void fileReading(String directory) {
-  File directoryLocal = new File(directory); //Uses Java Library to create class (variables & code)
-  //File[] fileNames local & used for both music and images
-  File[] fileNames = directoryLocal.listFiles(); //Uses built in class to list all files
-  ErrorCheck("Here, to delete", fileNames);
-  //
-  //String[] files local and used for both music and images
-  String[] files = new String[fileNames.length];
-  //Load the Width & Height from the FILE
-  int i=0;
-  if ( fileNames != null ) {
-    for ( File file : fileNames ) { //FOR EACH Loop, creates local class
-      files[i] = directory + file.getName(); //print fileNames.getName() Object to String
-      //Note: getName() is built in code
-      i++; //iteration necessary here, not in regular FOR
-    }
-  } else {
-    ErrorCheck("See fileReaeding(String pathway), fileNames==NULL");
-  }
-  //First Time Only
-  if (numberOfFiles==0) {
-    numberOfFiles = files.length; //Global Used for both music and images, populated once.
-    imageLoading( files );
-  }
-  //ErrorCheck("Inspect Variable, File Loading / fileReading()", files);
-} //End File Reading Loading
-//
-
-void imageLoading(String[] files) {
-  imagesPlayList = new PImage[numberOfFiles]; //sets the array length
-  int fileNumber=0;
-  while ( fileNumber < numberOfFiles ) {
-    imagesPlayList[ fileNumber ] = loadImage( files[ fileNumber ] );
-    //ErrorCheck("Verifying Width & Height of Loaded Images, see imageLoading() in File Loading", imagesPlayList[fileNumber].width, imagesPlayList[fileNumber].height );
-    fileNumber++; //functions similar to FOR
-  }
-  checkLoadImage(); //See Image
-}
 */
 //
 //Global Variables
@@ -320,29 +282,20 @@ void MusicPlayerSetup() {
   //Music Loading Pathway
   String RelativeMusicPathway = "/Music_Program_CS30_Audio_Files/";
   String AbsoluteMusicPathway = sketchPath(RelativeMusicPathway);
-  AudioFiles = new File(AbsoluteMusicPathway);
-  int AudioFileCount = AudioFiles.list().length;
-  SongNumber = AudioFiles.list().length;
-  File[] SongFiles = AudioFiles.listFiles();
-  String[] SongFilePathway = new String[AudioFileCount];
-  for (int i = SongPlaying; i < SongFiles.length; i++) {
-    SongFilePathway[i] = (SongFiles[i].toString());
-  }
-  //
-  String PathDirectory = sketchPath(AbsoluteMusicPathway);
-  println("Main Directory to Music Folder", PathDirectory);
-  file = new File(PathDirectory);
-  int fileCount = file.list().length;
-  println("File Count of the Music Folder:", fileCount);
-  File[] files = file.listFiles();
-  printArray(files);
-  for (int i = SongPlaying; i < files.length; i++) {
-    println("File Name", files[i].getName());
-  }
-  //
-  for (int i=SongPlaying; i<AudioFileCount; i++) {
-    SongPlayList[i]= minim.loadFile(SongFilePathway[i]);
+  File SongDirectory = new File(AbsoluteMusicPathway);
+  File[] songFiles = SongDirectory.listFiles();
+  SongNumber = (songFiles != null)?songFiles.length:0;
+  SongPlayList = new AudioPlayer[SongNumber];
+  SongPlayListMetaData = new AudioMetaData[SongNumber];
+  for (int i = 0; i < SongNumber; i++) {
+    SongPlayList[i] = minim.loadFile(songFiles[i].getAbsolutePath());
     SongPlayListMetaData[i] = SongPlayList[i].getMetaData();
+  }
+  println("Main Directory to Music Folder", SongDirectory);
+  println("File Count of the Music Folder:", SongNumber);
+  printArray(songFiles);
+  for (int i = 0; i < SongNumber; i++) {
+    println("File Name", songFiles[i].getName());
   }
   //
   //Sound Effects

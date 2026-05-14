@@ -18,7 +18,7 @@ MusicPlayerDivs musicPlayerDivs;
 int appWidth, appHeight;
 int size;
 int ShorterSide;
-int SongNumber = 6;
+int SongNumber;
 int SoundEffectNumber = 1;
 File file;
 File AudioFiles;
