@@ -320,9 +320,9 @@ void MusicPlayerSetup() {
   }
   //
   //Images
-  String ImagePathwayRelative = "/Music_Program_CS30_Image_Files/";
-  String ImagePathwayAbsolute = sketchPath(ImagePathwayRelative);
-  File ImageFolder = new File(ImagePathwayAbsolute);
+  String RelativeImagePathway= "/Music_Program_CS30_Image_Files/";
+  String AbsoluteImagePathway = sketchPath(RelativeImagePathway);
+  File ImageFolder = new File(AbsoluteImagePathway);
   File[] ImageFiles = ImageFolder.listFiles();
   MusicProgramImage = new PImage[ImageFiles.length];
   for (int i = 0; i < ImageFiles.length; i++) {
@@ -332,9 +332,9 @@ void MusicPlayerSetup() {
   }
   //
   //Music Images
-  String MusicImagePathwayRelative = "/Music_Program_CS30_Music_Image_Files/";
-  String MusicImagePathwayAbsolute = sketchPath(MusicImagePathwayRelative);
-  File MusicImageFolder = new File(MusicImagePathwayAbsolute);
+  String RelativeMusicImagePathway = "/Music_Program_CS30_Music_Image_Files/";
+  String AbsoluteMusicImagePathway = sketchPath(RelativeMusicImagePathway);
+  File MusicImageFolder = new File(AbsoluteMusicImagePathway);
   File[] MusicImageFiles = MusicImageFolder.listFiles();
   MusicImage = new PImage[MusicImageFiles.length];
   for (int i = 0; i < MusicImageFiles.length; i++) {
@@ -343,6 +343,7 @@ void MusicPlayerSetup() {
     }
   }
   //
+  /*
   //Song Debugging
   println("File Name", SongPlayListMetaData[SongPlaying].fileName());
   println("Song Length (in milliseconds)", SongPlayListMetaData[SongPlaying].length());
