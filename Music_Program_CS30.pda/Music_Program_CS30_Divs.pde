@@ -1,7 +1,5 @@
 class MusicPlayerDivs {
 //Lines 309-331(Image file pathways), 511-525(Image aspect ratio) and 431(Application of aspect ratio images)
-/*
-*/
 //
 //Global Variables
 float[] TextDIVWidth = new float[19];
@@ -277,27 +275,26 @@ void MusicPlayerSetup() {
   String QuitImage = "exit.png";
   Quit = loadImage(Imagepathway+Images+Open+QuitImage);
   //
-  //File Reading
-  //
   //Music Loading Pathway
   String RelativeMusicPathway = "/Music_Program_CS30_Audio_Files/";
   String AbsoluteMusicPathway = sketchPath(RelativeMusicPathway);
   File SongDirectory = new File(AbsoluteMusicPathway);
-  File[] songFiles = SongDirectory.listFiles();
-  SongNumber = (songFiles != null)?songFiles.length:0;
+  File[] SongFiles = SongDirectory.listFiles();
+  SongNumber = (SongFiles != null)?SongFiles.length:0;
   SongPlayList = new AudioPlayer[SongNumber];
   SongPlayListMetaData = new AudioMetaData[SongNumber];
-  if (songFiles != null) {
+  if (SongFiles != null) {
   for (int i = 0; i < SongNumber; i++) {
-    SongPlayList[i] = minim.loadFile(songFiles[i].getAbsolutePath());
+    SongPlayList[i] = minim.loadFile(SongFiles[i].getAbsolutePath());
     SongPlayListMetaData[i] = SongPlayList[i].getMetaData();
   }
+  //Music File Reading
   println("Main Directory to Music Folder", SongDirectory);
   println("File Count of the Music Folder:", SongNumber);
-  printArray(songFiles);
+  printArray(SongFiles);
   for (int i = 0; i < SongNumber; i++) {
-    println("File Name", songFiles[i].getName());
-  }
+    println("File Name", SongFiles[i].getName());
+    }
   }
   //
   //Sound Effects
