@@ -960,6 +960,9 @@ void ErrorLocator(String Declaration) {
 void ErrorLocator(String Declaration, float Variable) {
   println(Declaration, Variable);
 }
+void ErrorLocator(String Declaration, int Variable) {
+  println(Declaration, Variable);
+}
 void ErrorLocator(String Declaration, String Variable) {
   println(Declaration, Variable);
 }
