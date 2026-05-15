@@ -8,7 +8,7 @@ float xMusicProgressBar, yMusicProgressBar, widthMusicProgressBar, heightMusicPr
 float xIcons8Location;
 float xVecteezyLocation;
 float ProgressWidth;
-PImage[] MusicProgramImage = new PImage[7];
+PImage[] MusicProgramImage = new PImage[5];
 PImage[] MusicImage = new PImage[6];
 PImage NeonBackground2;
 PImage Quit;
