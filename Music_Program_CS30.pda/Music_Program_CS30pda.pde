@@ -19,7 +19,7 @@ int appWidth, appHeight;
 int size;
 int ShorterSide;
 int SongNumber;
-int SoundEffectNumber = 1;
+int SoundEffectNumber;
 File file;
 File AudioFiles;
 File SoundEffectFiles;

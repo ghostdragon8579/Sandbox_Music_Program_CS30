@@ -784,7 +784,7 @@ void mousePressed() {
       float ProgressBarPositionClicked = mouseX-xMusicProgressBar;
       ProgressBarPositionClicked = constrain(ProgressBarPositionClicked, 0, widthMusicProgressBar);
       float SongPercentageAtClickPoint = ProgressBarPositionClicked/widthMusicProgressBar;
-      int ClickedSongPosition = int(SongPercentageAtClickPoint*SongPlayList[SongPlaying].length());
+      int ClickedSongPosition = int(SongPercentageAtClickPoint*AlteredCurrentSongLength);
       SongPlayList[SongPlaying].cue(ClickedSongPosition);
     }
   //
