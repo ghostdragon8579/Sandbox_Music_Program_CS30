@@ -319,7 +319,7 @@ void MusicPlayerSetup() {
     }
   }
   //
-  //Images
+  //Image Loading Pathway
   String RelativeImagePathway= "/Music_Program_CS30_Image_Files/";
   String AbsoluteImagePathway = sketchPath(RelativeImagePathway);
   File ImageFolder = new File(AbsoluteImagePathway);
@@ -331,7 +331,7 @@ void MusicPlayerSetup() {
     }
   }
   //
-  //Music Images
+  //Music Image Loading Pathway
   String RelativeMusicImagePathway = "/Music_Program_CS30_Music_Image_Files/";
   String AbsoluteMusicImagePathway = sketchPath(RelativeMusicImagePathway);
   File MusicImageFolder = new File(AbsoluteMusicImagePathway);
@@ -344,7 +344,7 @@ void MusicPlayerSetup() {
   }
   //
   /*
-  //Song Debugging
+  //Song File Debugging through MetaData
   println("File Name", SongPlayListMetaData[SongPlaying].fileName());
   println("Song Length (in milliseconds)", SongPlayListMetaData[SongPlaying].length());
   println("Song Length (in seconds)", SongPlayListMetaData[SongPlaying].length()/1000);
