@@ -485,7 +485,6 @@ void draw() {
   strokeWeight(1);
   Music_Program_CS30_HoverOver();
   //
-  //
 }
 //
 //Aspect Ratio Images and Progress Bar/Timer
