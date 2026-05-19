@@ -753,9 +753,8 @@ for (int i = 9; i < 11; i++) {
     }
   }
 }
-//
 void keyPressed() {
-    if (!Attributions) {
+    if (!Attributions && !PlaylistView) {
     if (key=='p' || key=='P') {
       PlayPauseFunction();
     }
@@ -958,9 +957,6 @@ void ErrorLocator(String Declaration) {
   println(Declaration);
 }
 void ErrorLocator(String Declaration, float Variable) {
-  println(Declaration, Variable);
-}
-void ErrorLocator(String Declaration, int Variable) {
   println(Declaration, Variable);
 }
 void ErrorLocator(String Declaration, String Variable) {
