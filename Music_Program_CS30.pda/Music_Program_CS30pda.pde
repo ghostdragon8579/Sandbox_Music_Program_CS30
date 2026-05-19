@@ -21,6 +21,7 @@ int ShorterSide;
 int SongNumber;
 int SoundEffectNumber;
 int ImageNumber;
+int MusicImageNumber;
 File file;
 File AudioFiles;
 File SoundEffectFiles;

@@ -324,7 +324,7 @@ void MusicPlayerSetup() {
   String AbsoluteImagePathway = sketchPath(RelativeImagePathway);
   File ImageDirectory = new File(AbsoluteImagePathway);
   File[] ImageFiles = ImageDirectory.listFiles();
-  ImageNumber = (SongFiles != null)?SongFiles.length:0;
+  ImageNumber = (ImageFiles != null)?ImageFiles.length:0;
   for (int i = 0; i < ImageFiles.length; i++) {
     if (ImageFiles[i].isFile()) {
     MusicProgramImage[i] = loadImage(ImageFiles[i].getAbsolutePath());
@@ -337,18 +337,24 @@ void MusicPlayerSetup() {
   for (int i = 0; i < ImageFiles.length; i++) {
   println("File Name", ImageFiles[i].getName());
   }
-  //*/
   //
   //Music Image Loading Pathway
   String RelativeMusicImagePathway = "/Music_Program_CS30_Music_Image_Files/";
   String AbsoluteMusicImagePathway = sketchPath(RelativeMusicImagePathway);
-  File MusicImageFolder = new File(AbsoluteMusicImagePathway);
-  File[] MusicImageFiles = MusicImageFolder.listFiles();
-  MusicImage = new PImage[MusicImageFiles.length];
+  File MusicImageDirectory = new File(AbsoluteMusicImagePathway);
+  File[] MusicImageFiles = MusicImageDirectory.listFiles();
+  MusicImageNumber = (MusicImageFiles != null)?MusicImageFiles.length:0;
   for (int i = 0; i < MusicImageFiles.length; i++) {
     if (MusicImageFiles[i].isFile()) {
-      MusicImage[i] = loadImage(MusicImageFiles[i].getAbsolutePath());
+    MusicImage[i] = loadImage(MusicImageFiles[i].getAbsolutePath());
     }
+  }
+  //Music Image File Reading
+  println("Main Directory to Music Image Folder", MusicImageDirectory);
+  println("File Count of the Music Image Folder:", MusicImageNumber);
+  printArray(MusicImageFiles);
+  for (int i = 0; i < MusicImageFiles.length; i++) {
+  println("File Name", MusicImageFiles[i].getName());
   }
   //
   /*
