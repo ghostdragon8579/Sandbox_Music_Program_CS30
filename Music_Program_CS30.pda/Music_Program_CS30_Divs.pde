@@ -322,14 +322,22 @@ void MusicPlayerSetup() {
   //Image Loading Pathway
   String RelativeImagePathway= "/Music_Program_CS30_Image_Files/";
   String AbsoluteImagePathway = sketchPath(RelativeImagePathway);
-  File ImageFolder = new File(AbsoluteImagePathway);
-  File[] ImageFiles = ImageFolder.listFiles();
-  MusicProgramImage = new PImage[ImageFiles.length];
+  File ImageDirectory = new File(AbsoluteImagePathway);
+  File[] ImageFiles = ImageDirectory.listFiles();
+  ImageNumber = (SongFiles != null)?SongFiles.length:0;
   for (int i = 0; i < ImageFiles.length; i++) {
     if (ImageFiles[i].isFile()) {
-      MusicProgramImage[i] = loadImage(ImageFiles[i].getAbsolutePath());
+    MusicProgramImage[i] = loadImage(ImageFiles[i].getAbsolutePath());
     }
   }
+  //Image File Reading
+  println("Main Directory to Image Folder", ImageDirectory);
+  println("File Count of the Image Folder:", ImageNumber);
+  printArray(ImageFiles);
+  for (int i = 0; i < ImageFiles.length; i++) {
+  println("File Name", ImageFiles[i].getName());
+  }
+  //*/
   //
   //Music Image Loading Pathway
   String RelativeMusicImagePathway = "/Music_Program_CS30_Music_Image_Files/";
